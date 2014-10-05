@@ -1,0 +1,135 @@
+fileFormatVersion: 2
+guid: a3660c642a5874b41ad5cdca91ce60eb
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: WheelFL
+    100002: WheelFR
+    100004: WheelRL.2
+    100006: DiscBrakeFR
+    100008: WheelRL
+    100010: WheelFR.2
+    100012: DiscBrakeRL
+    100014: Body
+    100016: Collider_Top
+    100018: DiscBrakeFL
+    100020: WheelFL.2
+    100022: Collider_Bottom
+    100024: Bottom-Interior
+    100026: WheelRR.2
+    100028: Car_Glass
+    100030: WheelRR
+    100032: DiscBrakeRR
+    100034: //RootNode
+    400000: WheelFL
+    400002: WheelFR
+    400004: WheelRL.2
+    400006: DiscBrakeFR
+    400008: WheelRL
+    400010: WheelFR.2
+    400012: DiscBrakeRL
+    400014: Body
+    400016: Collider_Top
+    400018: DiscBrakeFL
+    400020: WheelFL.2
+    400022: Collider_Bottom
+    400024: Bottom-Interior
+    400026: WheelRR.2
+    400028: Car_Glass
+    400030: WheelRR
+    400032: DiscBrakeRR
+    400034: //RootNode
+    2300000: WheelRL.2
+    2300002: DiscBrakeFR
+    2300004: WheelFR.2
+    2300006: DiscBrakeRL
+    2300008: Body
+    2300010: Collider_Top
+    2300012: DiscBrakeFL
+    2300014: WheelFL.2
+    2300016: Collider_Bottom
+    2300018: Bottom-Interior
+    2300020: WheelRR.2
+    2300022: Car_Glass
+    2300024: DiscBrakeRR
+    3300000: WheelRL.2
+    3300002: DiscBrakeFR
+    3300004: WheelFR.2
+    3300006: DiscBrakeRL
+    3300008: Body
+    3300010: Collider_Top
+    3300012: DiscBrakeFL
+    3300014: WheelFL.2
+    3300016: Collider_Bottom
+    3300018: Bottom-Interior
+    3300020: WheelRR.2
+    3300022: Car_Glass
+    3300024: DiscBrakeRR
+    4300000: Bottom-Interior
+    4300002: Collider_Bottom
+    4300004: Collider_Top
+    4300006: Body
+    4300008: DiscBrakeRR
+    4300010: WheelRR.2
+    4300012: DiscBrakeFR
+    4300014: WheelFR.2
+    4300016: DiscBrakeFL
+    4300018: WheelFL.2
+    4300020: DiscBrakeRL
+    4300022: WheelRL.2
+    4300024: Car_Glass
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 1
+  userData: 
