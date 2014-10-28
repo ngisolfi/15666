@@ -64,6 +64,7 @@
      <Compile Include="Assets\Detonator Explosion Framework\TestScene\TouchToMouse.cs" />
      <Compile Include="Assets\_Scripts\AStar.cs" />
      <Compile Include="Assets\_Scripts\AStar_ss.cs" />
+     <Compile Include="Assets\_Scripts\CrosshairDisplay.cs" />
      <Compile Include="Assets\_Scripts\Done_DestroyByBoundary.cs" />
      <Compile Include="Assets\_Scripts\Done_DestroyByContact.cs" />
      <Compile Include="Assets\_Scripts\LoadMazeLevel.cs" />

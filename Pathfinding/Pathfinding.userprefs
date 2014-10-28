@@ -1,12 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\Desktop\P3 Server Example\Assets\ServerScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\shot.cs">
     <Files>
-      <File FileName="..\..\Desktop\P3 Server Example\Assets\ServerScript.cs" Line="188" Column="15" />
+      <File FileName="Assets\_Scripts\shot.cs" Line="16" Column="49" />
+      <File FileName="Assets\_Scripts\playerController.cs" Line="30" Column="4" />
+      <File FileName="Assets\_Scripts\Done_DestroyByContact.cs" Line="12" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Derek\Documents\15666\Pathfinding\Assets\_Scripts\shot.cs" line="22" />
+      <Breakpoint file="C:\Users\Derek\Documents\15666\Pathfinding\Assets\_Scripts\shot.cs" line="17" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

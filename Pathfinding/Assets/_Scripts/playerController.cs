@@ -37,7 +37,6 @@ public class playerController : MonoBehaviour {
 		float turn = Input.GetAxis ("Horizontal");
 		float moveForward = Input.GetAxis ("Vertical");
 		
-		
 		rigidbody.velocity = transform.forward * lin_vel * moveForward;
 		//Debug.Log (rigidbody.velocity);
 		rigidbody.position = new Vector3 (

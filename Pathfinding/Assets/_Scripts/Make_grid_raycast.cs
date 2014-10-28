@@ -86,7 +86,7 @@ public class Make_grid_raycast : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (width + height);
+//		Debug.Log (width + height);
 		width = (int)((endx-startx)/cellsize);
 		height = (int)((endz - startz) / cellsize);
 		grid = new int[width, height];
