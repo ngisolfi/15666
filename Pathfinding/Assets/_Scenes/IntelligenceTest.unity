@@ -131,7 +131,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
@@ -195,7 +195,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -259,7 +259,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -281,7 +281,7 @@ GameObject:
   - 135: {fileID: 95594619}
   m_Layer: 0
   m_Name: asteroid_t1
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -348,11 +348,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &95594619
 SphereCollider:
@@ -366,122 +366,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: .78744781
   m_Center: {x: 0, y: 2.98023224e-08, z: -2.98023224e-08}
---- !u!1 &109545836
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100004, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 109545842}
-  - 33: {fileID: 109545841}
-  - 23: {fileID: 109545840}
-  - 114: {fileID: 109545839}
-  - 54: {fileID: 109545838}
-  - 136: {fileID: 109545837}
-  m_Layer: 8
-  m_Name: Player
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!136 &109545837
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 109545836}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .600000024
-  m_Height: 2
-  m_Direction: 2
-  m_Center: {x: .000689447101, y: -.0045119673, z: 0}
---- !u!54 &109545838
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 5400000, guid: 382a1d8bd351d954c84d67a294193e7c,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 109545836}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: .0500000007
-  m_AngularDrag: 5
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 84
-  m_CollisionDetection: 0
---- !u!114 &109545839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400002, guid: 382a1d8bd351d954c84d67a294193e7c,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 109545836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4d41e260c65884180a75525a62e202, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shot: {fileID: 100000, guid: 9476b195a0eb72548ba17cbce1565c6a, type: 2}
-  shotSpawn: {fileID: 900473226}
-  acceleration: 10
-  max_vel: 10
-  ang_vel: 2
-  tilt: 30
-  fireRate: .200000003
-  boundary:
-    xMin: -50
-    xMax: 50
-    zMin: -50
-    zMax: 50
---- !u!23 &109545840
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300000, guid: 382a1d8bd351d954c84d67a294193e7c,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 109545836}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 2100000, guid: 8940b037a9b441c4cbd3d2b446838424, type: 2}
-  - {fileID: 2100000, guid: f36c72c738c55f741afcd674a0b1245f, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &109545841
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300000, guid: 382a1d8bd351d954c84d67a294193e7c,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 109545836}
-  m_Mesh: {fileID: 4300002, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
---- !u!4 &109545842
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400004, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 109545836}
-  m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 24.0446396, y: 0, z: 3.97806549}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 900473226}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
 --- !u!1 &127851591
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +381,7 @@ GameObject:
   - 135: {fileID: 127851597}
   m_Layer: 0
   m_Name: asteroid_t2
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -564,11 +448,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &127851597
 SphereCollider:
@@ -597,7 +481,7 @@ GameObject:
   - 135: {fileID: 193701212}
   m_Layer: 0
   m_Name: asteroid_t1
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -664,11 +548,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &193701212
 SphereCollider:
@@ -739,7 +623,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
@@ -762,7 +646,7 @@ GameObject:
   - 135: {fileID: 242570968}
   m_Layer: 0
   m_Name: asteroid_t3
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -829,11 +713,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &242570968
 SphereCollider:
@@ -905,56 +789,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!1 &266682632
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 266682634}
-  - 114: {fileID: 266682635}
-  m_Layer: 0
-  m_Name: grid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &266682634
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 266682632}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.1510391, y: -.00933837891, z: 15.8942623}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
---- !u!114 &266682635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 266682632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acf3226b162bac2489c76399c6dd2797, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 100004, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 51
-  startx: -50
-  startz: -50
-  endx: 50
-  endz: 50
-  width: 0
-  height: 0
-  cellsize: 1
 --- !u!1 &281852872
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,7 +804,7 @@ GameObject:
   - 135: {fileID: 281852878}
   m_Layer: 0
   m_Name: asteroid_t1
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1041,7 +875,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &281852878
 SphereCollider:
@@ -1055,6 +889,33 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: .78744781
   m_Center: {x: 0, y: 2.98023224e-08, z: -2.98023224e-08}
+--- !u!1 &321615172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+  m_PrefabInternal: {fileID: 2050329597}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 321615173}
+  m_Layer: 2
+  m_Name: ShotSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &321615173
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+  m_PrefabInternal: {fileID: 2050329597}
+  m_GameObject: {fileID: 321615172}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 871342720}
+  m_RootOrder: 0
 --- !u!1 &324596079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,7 +931,7 @@ GameObject:
   - 135: {fileID: 324596085}
   m_Layer: 0
   m_Name: asteroid_t1
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1137,11 +998,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &324596085
 SphereCollider:
@@ -1170,7 +1031,7 @@ GameObject:
   - 135: {fileID: 327766986}
   m_Layer: 0
   m_Name: asteroid_t2
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1237,11 +1098,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &327766986
 SphereCollider:
@@ -1312,7 +1173,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
@@ -1376,7 +1237,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
@@ -1440,7 +1301,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -1504,7 +1365,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -1568,7 +1429,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -1578,7 +1439,7 @@ Prefab:
 --- !u!1 &389489611
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
@@ -1588,9 +1449,9 @@ GameObject:
   - 92: {fileID: 389489615}
   - 81: {fileID: 389489614}
   - 114: {fileID: 389489613}
-  m_Layer: 8
-  m_Name: Camera
-  m_TagString: Untagged
+  m_Layer: 0
+  m_Name: MainCamera
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1598,7 +1459,7 @@ GameObject:
 --- !u!4 &389489612
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 389489611}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
@@ -1618,11 +1479,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 885b1972ad11a921d000d37b8d76c639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 109545842}
+  target: {fileID: 871342720}
   distance: 10
   height: 5
-  heightDamping: 2
-  rotationDamping: 3
+  heightDamping: 20
+  rotationDamping: 20
 --- !u!81 &389489614
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1737,7 +1598,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
@@ -1801,7 +1662,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
@@ -1865,7 +1726,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
@@ -1887,7 +1748,7 @@ GameObject:
   - 135: {fileID: 468798761}
   m_Layer: 0
   m_Name: asteroid_t1
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1952,13 +1813,13 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 468798755}
   serializedVersion: 2
-  m_Mass: 1.00000001e-07
+  m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &468798761
 SphereCollider:
@@ -2028,7 +1889,7 @@ GameObject:
   - 135: {fileID: 528255600}
   m_Layer: 0
   m_Name: asteroid_t1
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2095,11 +1956,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &528255600
 SphereCollider:
@@ -2237,7 +2098,7 @@ Transform:
   - {fileID: 324596082}
   - {fileID: 943794847}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!114 &603063050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2265,7 +2126,7 @@ GameObject:
   - 135: {fileID: 606082722}
   m_Layer: 0
   m_Name: asteroid_t3
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2332,11 +2193,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &606082722
 SphereCollider:
@@ -2407,7 +2268,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -2470,7 +2331,7 @@ GameObject:
   - 135: {fileID: 641121048}
   m_Layer: 0
   m_Name: asteroid_t1
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2537,11 +2398,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &641121048
 SphereCollider:
@@ -2570,7 +2431,7 @@ GameObject:
   - 135: {fileID: 680823219}
   m_Layer: 0
   m_Name: asteroid_t2
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2637,11 +2498,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &680823219
 SphereCollider:
@@ -2686,7 +2547,7 @@ Transform:
   - {fileID: 527908445}
   - {fileID: 745373771}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
 --- !u!1 &695962330
 GameObject:
   m_ObjectHideFlags: 0
@@ -2702,7 +2563,7 @@ GameObject:
   - 135: {fileID: 695962336}
   m_Layer: 0
   m_Name: asteroid_t2
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2769,11 +2630,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &695962336
 SphereCollider:
@@ -2802,7 +2663,7 @@ GameObject:
   - 135: {fileID: 721560214}
   m_Layer: 0
   m_Name: asteroid_t1
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2869,11 +2730,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &721560214
 SphereCollider:
@@ -2944,7 +2805,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -3007,7 +2868,7 @@ GameObject:
   - 135: {fileID: 780522055}
   m_Layer: 0
   m_Name: asteroid_t3
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3074,11 +2935,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &780522055
 SphereCollider:
@@ -3107,7 +2968,7 @@ GameObject:
   - 135: {fileID: 784639409}
   m_Layer: 0
   m_Name: asteroid_t2
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3174,11 +3035,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &784639409
 SphereCollider:
@@ -3207,7 +3068,7 @@ GameObject:
   - 135: {fileID: 855397734}
   m_Layer: 0
   m_Name: asteroid_t1
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3272,13 +3133,13 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 855397728}
   serializedVersion: 2
-  m_Mass: 1.00000001e-07
+  m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &855397734
 SphereCollider:
@@ -3375,7 +3236,7 @@ Transform:
   m_Children:
   - {fileID: 544385802}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!108 &868413424
 Light:
   m_ObjectHideFlags: 0
@@ -3411,6 +3272,222 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!1 &871342719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100002, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+  m_PrefabInternal: {fileID: 2050329597}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 871342720}
+  - 33: {fileID: 871342728}
+  - 23: {fileID: 871342727}
+  - 114: {fileID: 871342726}
+  - 54: {fileID: 871342725}
+  - 65: {fileID: 871342724}
+  - 114: {fileID: 871342723}
+  - 114: {fileID: 871342722}
+  - 82: {fileID: 871342721}
+  - 114: {fileID: 871342729}
+  m_Layer: 2
+  m_Name: Player
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &871342720
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400002, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+  m_PrefabInternal: {fileID: 2050329597}
+  m_GameObject: {fileID: 871342719}
+  m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
+  m_LocalPosition: {x: 24.0446396, y: 0, z: 3.97806549}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 321615173}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!82 &871342721
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8200000, guid: 382a1d8bd351d954c84d67a294193e7c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2050329597}
+  m_GameObject: {fileID: 871342719}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 72e76810224064300b7d32e8322a5d12, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 6.61000013
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 1
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!114 &871342722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: 382a1d8bd351d954c84d67a294193e7c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2050329597}
+  m_GameObject: {fileID: 871342719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fc82e0065b3e94597b5712f061f42e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDetonator: {fileID: 100000, guid: 2a6951ec14b27ed4da27d13818dbebd2, type: 2}
+  explosionLife: 10
+  timeScale: 1
+  detailLevel: 1
+--- !u!114 &871342723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 382a1d8bd351d954c84d67a294193e7c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2050329597}
+  m_GameObject: {fileID: 871342719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fec3777639073f41afbb94f20c1721e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthFull: {fileID: 2800000, guid: 5b929463ed53a7643a24967a506849c3, type: 3}
+  healthEmpty: {fileID: 2800000, guid: 611bc48295322ee428242232bdf0dffa, type: 3}
+--- !u!65 &871342724
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500000, guid: 382a1d8bd351d954c84d67a294193e7c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2050329597}
+  m_GameObject: {fileID: 871342719}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.11863577, y: .332473338, z: 1.68577361}
+  m_Center: {x: .000689446926, y: -.0045119673, z: 0}
+--- !u!54 &871342725
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: 382a1d8bd351d954c84d67a294193e7c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2050329597}
+  m_GameObject: {fileID: 871342719}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: .0500000007
+  m_AngularDrag: 5
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
+--- !u!114 &871342726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: 382a1d8bd351d954c84d67a294193e7c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2050329597}
+  m_GameObject: {fileID: 871342719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4d41e260c65884180a75525a62e202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!23 &871342727
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300000, guid: 382a1d8bd351d954c84d67a294193e7c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2050329597}
+  m_GameObject: {fileID: 871342719}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 8940b037a9b441c4cbd3d2b446838424, type: 2}
+  - {fileID: 2100000, guid: f36c72c738c55f741afcd674a0b1245f, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &871342728
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300000, guid: 382a1d8bd351d954c84d67a294193e7c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2050329597}
+  m_GameObject: {fileID: 871342719}
+  m_Mesh: {fileID: 4300002, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
+--- !u!114 &871342729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: 382a1d8bd351d954c84d67a294193e7c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2050329597}
+  m_GameObject: {fileID: 871342719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 401f84a76c8e89b409f6538e1f330bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shot: {fileID: 100000, guid: 9476b195a0eb72548ba17cbce1565c6a, type: 2}
+  shotSpawn: {fileID: 321615173}
+  acceleration: 10
+  max_vel: 10
+  ang_vel: 6
+  tilt: 30
+  fireRate: .200000003
 --- !u!1001 &894551916
 Prefab:
   m_ObjectHideFlags: 0
@@ -3468,40 +3545,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
   m_RootGameObject: {fileID: 641121042}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &900473225
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100002, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 900473226}
-  m_Layer: 8
-  m_Name: ShotSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &900473226
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400002, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 900473225}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 6.21716936e-08, y: -.0721287206, z: .521534026}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 109545842}
-  m_RootOrder: 0
 --- !u!1 &943794844
 GameObject:
   m_ObjectHideFlags: 0
@@ -3517,7 +3567,7 @@ GameObject:
   - 135: {fileID: 943794850}
   m_Layer: 0
   m_Name: asteroid_t3
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3584,11 +3634,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &943794850
 SphereCollider:
@@ -3617,7 +3667,7 @@ GameObject:
   - 135: {fileID: 947905231}
   m_Layer: 0
   m_Name: asteroid_t2
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3684,11 +3734,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &947905231
 SphereCollider:
@@ -3854,7 +3904,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -3971,7 +4021,7 @@ GameObject:
   - 135: {fileID: 1087254794}
   m_Layer: 0
   m_Name: asteroid_t2
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4038,11 +4088,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &1087254794
 SphereCollider:
@@ -4071,7 +4121,7 @@ GameObject:
   - 135: {fileID: 1095757014}
   m_Layer: 0
   m_Name: asteroid_t1
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4138,11 +4188,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &1095757014
 SphereCollider:
@@ -4171,7 +4221,7 @@ GameObject:
   - 135: {fileID: 1114819273}
   m_Layer: 0
   m_Name: asteroid_t2
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4238,11 +4288,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &1114819273
 SphereCollider:
@@ -4366,7 +4416,7 @@ GameObject:
   - 135: {fileID: 1145824061}
   m_Layer: 0
   m_Name: asteroid_t1
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4433,11 +4483,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &1145824061
 SphereCollider:
@@ -4451,62 +4501,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: .78744781
   m_Center: {x: 0, y: 2.98023224e-08, z: -2.98023224e-08}
---- !u!1001 &1197725410
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: eedde471f4e821a4cbcaa9c85ccbf19f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 17.059206
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: eedde471f4e821a4cbcaa9c85ccbf19f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: eedde471f4e821a4cbcaa9c85ccbf19f, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -.158563614
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: eedde471f4e821a4cbcaa9c85ccbf19f, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: eedde471f4e821a4cbcaa9c85ccbf19f, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: eedde471f4e821a4cbcaa9c85ccbf19f, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: eedde471f4e821a4cbcaa9c85ccbf19f, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: eedde471f4e821a4cbcaa9c85ccbf19f, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400002, guid: eedde471f4e821a4cbcaa9c85ccbf19f, type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 100004, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
-    - target: {fileID: 11400000, guid: eedde471f4e821a4cbcaa9c85ccbf19f, type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 100004, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
-    - target: {fileID: 11400000, guid: eedde471f4e821a4cbcaa9c85ccbf19f, type: 2}
-      propertyPath: gridobject
-      value: 
-      objectReference: {fileID: 266682632}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: eedde471f4e821a4cbcaa9c85ccbf19f, type: 2}
-  m_RootGameObject: {fileID: 1570299708}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1001 &1248392175
 Prefab:
   m_ObjectHideFlags: 0
@@ -4564,7 +4558,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
@@ -4586,7 +4580,7 @@ GameObject:
   - 135: {fileID: 1251684326}
   m_Layer: 0
   m_Name: asteroid_t2
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4653,11 +4647,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &1251684326
 SphereCollider:
@@ -4728,7 +4722,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -4750,7 +4744,7 @@ GameObject:
   - 135: {fileID: 1302237725}
   m_Layer: 0
   m_Name: asteroid_t1
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4817,11 +4811,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &1302237725
 SphereCollider:
@@ -4892,7 +4886,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -4956,7 +4950,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -4978,7 +4972,7 @@ GameObject:
   - 135: {fileID: 1368414028}
   m_Layer: 0
   m_Name: asteroid_t2
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5045,11 +5039,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &1368414028
 SphereCollider:
@@ -5247,7 +5241,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
 --- !u!1001 &1419635943
 Prefab:
   m_ObjectHideFlags: 0
@@ -5305,7 +5299,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
@@ -5369,7 +5363,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -5433,7 +5427,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
@@ -5562,191 +5556,7 @@ Transform:
   m_Children:
   - {fileID: 1380529332}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
---- !u!1 &1570299708
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: eedde471f4e821a4cbcaa9c85ccbf19f, type: 2}
-  m_PrefabInternal: {fileID: 1197725410}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1570299716}
-  - 33: {fileID: 1570299715}
-  - 23: {fileID: 1570299714}
-  - 114: {fileID: 1570299713}
-  - 65: {fileID: 1570299712}
-  - 114: {fileID: 1570299711}
-  - 114: {fileID: 1570299710}
-  - 82: {fileID: 1570299709}
-  m_Layer: 2
-  m_Name: AI0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &1570299709
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8200000, guid: eedde471f4e821a4cbcaa9c85ccbf19f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1197725410}
-  m_GameObject: {fileID: 1570299708}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 72e76810224064300b7d32e8322a5d12, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 6.61000013
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 1
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
---- !u!114 &1570299710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400002, guid: eedde471f4e821a4cbcaa9c85ccbf19f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1197725410}
-  m_GameObject: {fileID: 1570299708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6236eaf12fe4616468a697093d10672b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 100004, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
-  speed: 6
-  turnspeed: 1
---- !u!114 &1570299711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: eedde471f4e821a4cbcaa9c85ccbf19f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1197725410}
-  m_GameObject: {fileID: 1570299708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d50fe2c2bc1f0634b8c3c53267d2ba68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 0
-  player: {fileID: 100004, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
-  gridobject: {fileID: 266682632}
-  plan: []
-  epsilon: 1
---- !u!65 &1570299712
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500000, guid: eedde471f4e821a4cbcaa9c85ccbf19f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1197725410}
-  m_GameObject: {fileID: 1570299708}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.49601138, y: .46537292, z: 1.41704035}
-  m_Center: {x: 0, y: -.0117364526, z: .35712111}
---- !u!114 &1570299713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400004, guid: eedde471f4e821a4cbcaa9c85ccbf19f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1197725410}
-  m_GameObject: {fileID: 1570299708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8846417901f4942d2a5fa9e32ce69d45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentDetonator: {fileID: 100000, guid: 2a6951ec14b27ed4da27d13818dbebd2, type: 2}
-  explosionLife: 2
-  timeScale: 1
-  detailLevel: 1
---- !u!23 &1570299714
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300000, guid: eedde471f4e821a4cbcaa9c85ccbf19f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1197725410}
-  m_GameObject: {fileID: 1570299708}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 2100000, guid: c547624e174de984882f0a14b4bb32e1, type: 2}
-  - {fileID: 2100000, guid: 1e0350b97c61bfb4a91c62d756d01727, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &1570299715
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300000, guid: eedde471f4e821a4cbcaa9c85ccbf19f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1197725410}
-  m_GameObject: {fileID: 1570299708}
-  m_Mesh: {fileID: 4300004, guid: 9ddab293e2a8af3499dac05f5fd6169c, type: 3}
---- !u!4 &1570299716
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: eedde471f4e821a4cbcaa9c85ccbf19f, type: 2}
-  m_PrefabInternal: {fileID: 1197725410}
-  m_GameObject: {fileID: 1570299708}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.059206, y: 0, z: -.158563614}
-  m_LocalScale: {x: .5, y: .5, z: .5}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
 --- !u!1 &1644460711
 GameObject:
   m_ObjectHideFlags: 0
@@ -5762,7 +5572,7 @@ GameObject:
   - 135: {fileID: 1644460717}
   m_Layer: 0
   m_Name: asteroid_t1
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5829,11 +5639,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &1644460717
 SphereCollider:
@@ -5904,7 +5714,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -5968,7 +5778,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
@@ -5990,7 +5800,7 @@ GameObject:
   - 135: {fileID: 1727253690}
   m_Layer: 0
   m_Name: asteroid_t2
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6057,11 +5867,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &1727253690
 SphereCollider:
@@ -6173,7 +5983,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -6237,7 +6047,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
@@ -6301,7 +6111,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
@@ -6365,7 +6175,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
@@ -6428,7 +6238,7 @@ GameObject:
   - 135: {fileID: 1842323806}
   m_Layer: 0
   m_Name: asteroid_t3
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6495,11 +6305,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &1842323806
 SphereCollider:
@@ -6570,7 +6380,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
@@ -6592,7 +6402,7 @@ GameObject:
   - 135: {fileID: 1879056106}
   m_Layer: 0
   m_Name: asteroid_t3
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6659,11 +6469,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &1879056106
 SphereCollider:
@@ -6734,13 +6544,68 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
   m_RootGameObject: {fileID: 324596079}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1938027289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1938027290}
+  - 114: {fileID: 1938027292}
+  - 114: {fileID: 1938027291}
+  m_Layer: 0
+  m_Name: Grid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1938027290
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938027289}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+--- !u!114 &1938027291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938027289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876d82a161664554ab6f4e605379073a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolution: 1
+  safetyRadius: 1
+  clearance: 0
+  timeBuffer: 0
+--- !u!114 &1938027292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938027289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d2e808df02ec2a419a377b047ee27df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1957804578
 GameObject:
   m_ObjectHideFlags: 0
@@ -6851,7 +6716,7 @@ GameObject:
   - 135: {fileID: 2004330170}
   m_Layer: 0
   m_Name: asteroid_t1
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6918,11 +6783,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &2004330170
 SphereCollider:
@@ -6936,6 +6801,91 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: .78744781
   m_Center: {x: 0, y: 2.98023224e-08, z: -2.98023224e-08}
+--- !u!1001 &2050329597
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400002, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 24.0446396
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 3.97806549
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -.707106829
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .707106829
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+  m_RootGameObject: {fileID: 871342719}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
+--- !u!1 &2050700310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2050700311}
+  - 114: {fileID: 2050700312}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2050700311
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2050700310}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.85921288, y: 0, z: .148462296}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+--- !u!114 &2050700312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2050700310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93d06e2774571e4493967755d52d968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  badguy: {fileID: 100002, guid: 0dc3eb82b7faab541b51347a1c515421, type: 2}
+  count: 1
 --- !u!1 &2081782711
 GameObject:
   m_ObjectHideFlags: 0
@@ -6951,7 +6901,7 @@ GameObject:
   - 135: {fileID: 2081782717}
   m_Layer: 0
   m_Name: asteroid_t2
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7018,11 +6968,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &2081782717
 SphereCollider:
@@ -7051,7 +7001,7 @@ GameObject:
   - 135: {fileID: 2083064534}
   m_Layer: 0
   m_Name: asteroid_t2
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7118,11 +7068,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &2083064534
 SphereCollider:
@@ -7193,7 +7143,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
@@ -7215,7 +7165,7 @@ GameObject:
   - 135: {fileID: 2109722688}
   m_Layer: 0
   m_Name: asteroid_t2
-  m_TagString: Box Obstacle
+  m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7282,11 +7232,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!135 &2109722688
 SphereCollider:
@@ -7357,7 +7307,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
@@ -7421,7 +7371,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
-      value: Box Obstacle
+      value: Cylinder Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}

@@ -3,33 +3,35 @@ using System.Collections;
 
 [System.Serializable]
 
-public class Boundary {
-	
-	public float xMin, xMax, zMin, zMax;
-	
-}
+//public class Boundary {
+//	
+//	public float xMin, xMax, zMin, zMax;
+//	
+//}
 
 public class playerController : MonoBehaviour {
 	
-	public GameObject shot;
-	public Transform shotSpawn;
+//	public GameObject shot;
+//	public Transform shotSpawn;
+//	
+//	public float acceleration;
+//	public float max_vel;
+//	public float ang_vel;
+//	public float tilt;
+//	public float fireRate;
+//	private float nextFire;
+//	public Boundary boundary;
+//	private Vector3 headingTangent;
+	private ShipController controller;
 	
-	public float acceleration;
-	public float max_vel;
-	public float ang_vel;
-	public float tilt;
-	public float fireRate;
-	private float nextFire;
-	public Boundary boundary;
-	private Vector3 headingTangent;
+	void Start () {
+		controller = GetComponent<ShipController>();
+	}
 	
 	void Update () {
 		
-		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
-			
-			nextFire = Time.time + fireRate;
-			Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
-			
+		if (Input.GetButton ("Fire1")) {
+			controller.Fire();
 		}
 		
 	}
@@ -41,23 +43,17 @@ public class playerController : MonoBehaviour {
 		
 //		rigidbody.velocity = transform.forward * lin_vel * moveForward;
 		if(moveForward > 0f){
-			rigidbody.AddForce(transform.forward * acceleration);
-			Vector3 velocity = rigidbody.velocity;
-			float velocityMagnitude = velocity.magnitude;
-			if(velocityMagnitude > max_vel){
-				velocity *= (max_vel/velocityMagnitude);
-				rigidbody.velocity = velocity;
-			}
-			headingTangent = transform.right;
+			controller.Thrust();
 		}
 		
 //		rigidbody.AddForce(-Vector3.up*(5f*transform.position.y + 5f*rigidbody.velocity.y));
 		
-		Vector3 slideDrag = -Vector3.Dot(headingTangent,rigidbody.velocity)*headingTangent;
-		slideDrag.y = 0f;
-		rigidbody.AddForce(slideDrag);
+//		Vector3 slideDrag = -Vector3.Dot(headingTangent,rigidbody.velocity)*headingTangent;
+//		slideDrag.y = 0f;
+//		rigidbody.AddForce(slideDrag);
 
-		rigidbody.AddTorque(0f,turn * ang_vel,0f);
+//		rigidbody.AddTorque(0f,turn * ang_vel,0f);
+		controller.Torque(turn);
 //		rigidbody.AddTorque(10f * transform.rotation.x * transform.forward + 10f * transform.rotation.z * transform.right);
 //		Debug.Log(new Vector3(rectifyAngle(transform.eulerAngles.x),0f,rectifyAngle(transform.eulerAngles.z)));
 		
@@ -75,11 +71,11 @@ public class playerController : MonoBehaviour {
 //		GameObject.Find("Exhaust/InnerCore").particleEmitter.worldVelocity = rigidbody.velocity;
 	}
 
-	float rectifyAngle(float ang){
-		while(ang >= 180)
-			ang -= 360;
-		while(ang < -180)
-			ang += 360;
-		return ang;
-	}
+//	float rectifyAngle(float ang){
+//		while(ang >= 180)
+//			ang -= 360;
+//		while(ang < -180)
+//			ang += 360;
+//		return ang;
+//	}
 }

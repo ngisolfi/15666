@@ -62,8 +62,16 @@
      <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorSparks.cs" />
      <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorSpray.cs" />
      <Compile Include="Assets\Detonator Explosion Framework\TestScene\TouchToMouse.cs" />
+     <Compile Include="Assets\Die.cs" />
+     <Compile Include="Assets\Health.cs" />
+     <Compile Include="Assets\ShipController.cs" />
+     <Compile Include="Assets\SpawnBadguys.cs" />
      <Compile Include="Assets\_Scripts\AStar.cs" />
      <Compile Include="Assets\_Scripts\AStar_ss.cs" />
+     <Compile Include="Assets\_Scripts\Astar\GridHandler.cs" />
+     <Compile Include="Assets\_Scripts\Astar\Gridmo.cs" />
+     <Compile Include="Assets\_Scripts\Astar\PathFollower.cs" />
+     <Compile Include="Assets\_Scripts\Astar\Planner.cs" />
      <Compile Include="Assets\_Scripts\CrosshairDisplay.cs" />
      <Compile Include="Assets\_Scripts\Done_DestroyByBoundary.cs" />
      <Compile Include="Assets\_Scripts\Done_DestroyByContact.cs" />
