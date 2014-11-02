@@ -133,6 +133,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
   m_RootGameObject: {fileID: 1879056100}
@@ -196,6 +200,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
       value: Cylinder Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -261,6 +269,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
   m_RootGameObject: {fileID: 784639403}
@@ -279,7 +291,7 @@ GameObject:
   - 114: {fileID: 95594617}
   - 54: {fileID: 95594618}
   - 135: {fileID: 95594619}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t1
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -379,7 +391,7 @@ GameObject:
   - 114: {fileID: 127851595}
   - 54: {fileID: 127851596}
   - 135: {fileID: 127851597}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t2
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -479,7 +491,7 @@ GameObject:
   - 114: {fileID: 193701210}
   - 54: {fileID: 193701211}
   - 135: {fileID: 193701212}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t1
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -625,6 +637,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
   m_RootGameObject: {fileID: 1302237719}
@@ -644,7 +660,7 @@ GameObject:
   - 54: {fileID: 242570967}
   - 82: {fileID: 242570972}
   - 135: {fileID: 242570968}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t3
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -802,7 +818,7 @@ GameObject:
   - 114: {fileID: 281852876}
   - 54: {fileID: 281852877}
   - 135: {fileID: 281852878}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t1
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -897,7 +913,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 321615173}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: ShotSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +945,7 @@ GameObject:
   - 54: {fileID: 324596084}
   - 114: {fileID: 324596083}
   - 135: {fileID: 324596085}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t1
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -1029,7 +1045,7 @@ GameObject:
   - 114: {fileID: 327766984}
   - 54: {fileID: 327766985}
   - 135: {fileID: 327766986}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t2
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -1175,6 +1191,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
   m_RootGameObject: {fileID: 1644460711}
@@ -1238,6 +1258,10 @@ Prefab:
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
       value: Cylinder Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
@@ -1303,6 +1327,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
   m_RootGameObject: {fileID: 947905225}
@@ -1367,6 +1395,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
   m_RootGameObject: {fileID: 1727253684}
@@ -1430,6 +1462,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
       value: Cylinder Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -1600,6 +1636,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
   m_RootGameObject: {fileID: 780522049}
@@ -1663,6 +1703,10 @@ Prefab:
     - target: {fileID: 100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
       propertyPath: m_TagString
       value: Cylinder Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
@@ -1728,6 +1772,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
   m_RootGameObject: {fileID: 606082716}
@@ -1746,7 +1794,7 @@ GameObject:
   - 114: {fileID: 468798759}
   - 54: {fileID: 468798760}
   - 135: {fileID: 468798761}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t1
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -1887,7 +1935,7 @@ GameObject:
   - 114: {fileID: 528255598}
   - 54: {fileID: 528255599}
   - 135: {fileID: 528255600}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t1
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -1983,7 +2031,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 544385802}
   - 108: {fileID: 544385801}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2124,7 +2172,7 @@ GameObject:
   - 114: {fileID: 606082720}
   - 54: {fileID: 606082721}
   - 135: {fileID: 606082722}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t3
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -2270,6 +2318,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
   m_RootGameObject: {fileID: 327766980}
@@ -2329,7 +2381,7 @@ GameObject:
   - 114: {fileID: 641121046}
   - 54: {fileID: 641121047}
   - 135: {fileID: 641121048}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t1
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -2429,7 +2481,7 @@ GameObject:
   - 114: {fileID: 680823217}
   - 54: {fileID: 680823218}
   - 135: {fileID: 680823219}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t2
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -2561,7 +2613,7 @@ GameObject:
   - 114: {fileID: 695962334}
   - 54: {fileID: 695962335}
   - 135: {fileID: 695962336}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t2
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -2661,7 +2713,7 @@ GameObject:
   - 114: {fileID: 721560212}
   - 54: {fileID: 721560213}
   - 135: {fileID: 721560214}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t1
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -2807,6 +2859,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
   m_RootGameObject: {fileID: 2081782711}
@@ -2866,7 +2922,7 @@ GameObject:
   - 114: {fileID: 780522053}
   - 54: {fileID: 780522054}
   - 135: {fileID: 780522055}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t3
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -2966,7 +3022,7 @@ GameObject:
   - 114: {fileID: 784639407}
   - 54: {fileID: 784639408}
   - 135: {fileID: 784639409}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t2
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -3066,7 +3122,7 @@ GameObject:
   - 114: {fileID: 855397732}
   - 54: {fileID: 855397733}
   - 135: {fileID: 855397734}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t1
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -3166,7 +3222,7 @@ GameObject:
   - 23: {fileID: 868413420}
   - 114: {fileID: 868413419}
   - 108: {fileID: 868413424}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sun
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -3289,7 +3345,7 @@ GameObject:
   - 114: {fileID: 871342722}
   - 82: {fileID: 871342721}
   - 114: {fileID: 871342729}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3547,6 +3603,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
   m_RootGameObject: {fileID: 641121042}
@@ -3565,7 +3625,7 @@ GameObject:
   - 54: {fileID: 943794849}
   - 114: {fileID: 943794848}
   - 135: {fileID: 943794850}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t3
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -3665,7 +3725,7 @@ GameObject:
   - 114: {fileID: 947905229}
   - 54: {fileID: 947905230}
   - 135: {fileID: 947905231}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t2
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -3765,7 +3825,7 @@ GameObject:
   - 23: {fileID: 969666264}
   - 114: {fileID: 969666268}
   - 114: {fileID: 969666269}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: P3
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -3906,6 +3966,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
   m_RootGameObject: {fileID: 127851591}
@@ -3924,7 +3988,7 @@ GameObject:
   - 23: {fileID: 1079124839}
   - 114: {fileID: 1079124843}
   - 114: {fileID: 1079124844}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: P4
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -4019,7 +4083,7 @@ GameObject:
   - 114: {fileID: 1087254792}
   - 54: {fileID: 1087254793}
   - 135: {fileID: 1087254794}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t2
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -4119,7 +4183,7 @@ GameObject:
   - 114: {fileID: 1095757012}
   - 54: {fileID: 1095757013}
   - 135: {fileID: 1095757014}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t1
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -4219,7 +4283,7 @@ GameObject:
   - 114: {fileID: 1114819271}
   - 54: {fileID: 1114819272}
   - 135: {fileID: 1114819273}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t2
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -4319,7 +4383,7 @@ GameObject:
   - 23: {fileID: 1130579113}
   - 114: {fileID: 1130579117}
   - 114: {fileID: 1130579118}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: P2
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -4414,7 +4478,7 @@ GameObject:
   - 114: {fileID: 1145824059}
   - 54: {fileID: 1145824060}
   - 135: {fileID: 1145824061}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t1
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -4560,6 +4624,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
   m_RootGameObject: {fileID: 1842323800}
@@ -4578,7 +4646,7 @@ GameObject:
   - 114: {fileID: 1251684324}
   - 54: {fileID: 1251684325}
   - 135: {fileID: 1251684326}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t2
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -4724,6 +4792,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
   m_RootGameObject: {fileID: 1114819267}
@@ -4742,7 +4814,7 @@ GameObject:
   - 114: {fileID: 1302237723}
   - 54: {fileID: 1302237724}
   - 135: {fileID: 1302237725}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t1
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -4888,6 +4960,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
   m_RootGameObject: {fileID: 2083064528}
@@ -4952,6 +5028,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
   m_RootGameObject: {fileID: 1251684320}
@@ -4970,7 +5050,7 @@ GameObject:
   - 114: {fileID: 1368414026}
   - 54: {fileID: 1368414027}
   - 135: {fileID: 1368414028}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t2
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -5301,6 +5381,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
   m_RootGameObject: {fileID: 2004330164}
@@ -5364,6 +5448,10 @@ Prefab:
     - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
       propertyPath: m_TagString
       value: Cylinder Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
@@ -5429,6 +5517,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
   m_RootGameObject: {fileID: 721560208}
@@ -5447,7 +5539,7 @@ GameObject:
   - 23: {fileID: 1535829251}
   - 114: {fileID: 1535829255}
   - 114: {fileID: 1535829256}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: P5
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -5570,7 +5662,7 @@ GameObject:
   - 114: {fileID: 1644460715}
   - 54: {fileID: 1644460716}
   - 135: {fileID: 1644460717}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t1
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -5716,6 +5808,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
   m_RootGameObject: {fileID: 680823213}
@@ -5780,6 +5876,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
   m_RootGameObject: {fileID: 193701206}
@@ -5798,7 +5898,7 @@ GameObject:
   - 114: {fileID: 1727253688}
   - 54: {fileID: 1727253689}
   - 135: {fileID: 1727253690}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t2
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -5985,6 +6085,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
   m_RootGameObject: {fileID: 1087254788}
@@ -6048,6 +6152,10 @@ Prefab:
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
       value: Cylinder Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
@@ -6113,6 +6221,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
   m_RootGameObject: {fileID: 1145824055}
@@ -6177,6 +6289,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
   m_RootGameObject: {fileID: 468798755}
@@ -6236,7 +6352,7 @@ GameObject:
   - 114: {fileID: 1842323804}
   - 54: {fileID: 1842323805}
   - 135: {fileID: 1842323806}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t3
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -6382,6 +6498,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
   m_RootGameObject: {fileID: 855397728}
@@ -6400,7 +6520,7 @@ GameObject:
   - 114: {fileID: 1879056104}
   - 54: {fileID: 1879056105}
   - 135: {fileID: 1879056106}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t3
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -6546,6 +6666,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
   m_RootGameObject: {fileID: 324596079}
@@ -6561,6 +6685,7 @@ GameObject:
   - 4: {fileID: 1938027290}
   - 114: {fileID: 1938027292}
   - 114: {fileID: 1938027291}
+  - 120: {fileID: 1938027293}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -6594,7 +6719,6 @@ MonoBehaviour:
   resolution: 1
   safetyRadius: 1
   clearance: 0
-  timeBuffer: 0
 --- !u!114 &1938027292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6606,6 +6730,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2e808df02ec2a419a377b047ee27df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!120 &1938027293
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938027289}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    startWidth: 1
+    endWidth: 1
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 4294967295
+  m_UseWorldSpace: 1
 --- !u!1 &1957804578
 GameObject:
   m_ObjectHideFlags: 0
@@ -6619,7 +6776,7 @@ GameObject:
   - 23: {fileID: 1957804580}
   - 114: {fileID: 1957804579}
   - 114: {fileID: 1957804584}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: P1
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -6714,7 +6871,7 @@ GameObject:
   - 114: {fileID: 2004330168}
   - 54: {fileID: 2004330169}
   - 135: {fileID: 2004330170}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t1
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -6838,7 +6995,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
@@ -6899,7 +7060,7 @@ GameObject:
   - 114: {fileID: 2081782715}
   - 54: {fileID: 2081782716}
   - 135: {fileID: 2081782717}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t2
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -6999,7 +7160,7 @@ GameObject:
   - 114: {fileID: 2083064532}
   - 54: {fileID: 2083064533}
   - 135: {fileID: 2083064534}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t2
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -7145,6 +7306,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: baedbbad82997f445a8cb4da210404e0, type: 3}
   m_RootGameObject: {fileID: 943794844}
@@ -7163,7 +7328,7 @@ GameObject:
   - 114: {fileID: 2109722686}
   - 54: {fileID: 2109722687}
   - 135: {fileID: 2109722688}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_t2
   m_TagString: Cylinder Obstacle
   m_Icon: {fileID: 0}
@@ -7309,6 +7474,10 @@ Prefab:
       propertyPath: m_TagString
       value: Cylinder Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
   m_RootGameObject: {fileID: 281852872}
@@ -7372,6 +7541,10 @@ Prefab:
     - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
       propertyPath: m_TagString
       value: Cylinder Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2768a9a4c8d289840918dcb879705893, type: 3}

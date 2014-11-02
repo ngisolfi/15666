@@ -20,7 +20,7 @@ public class Health : MonoBehaviour {
 			
 	
 		// draw the background:
-		GUI.BeginGroup (new Rect (pos.x, pos.y, size.x, size.y));
+		GUI.BeginGroup (new Rect (pos.x, Screen.height - pos.y, size.x, size.y));
 		GUI.DrawTexture (new Rect (0,0, size.x, size.y),healthEmpty,ScaleMode.StretchToFill);
 		
 		// draw the filled-in part:

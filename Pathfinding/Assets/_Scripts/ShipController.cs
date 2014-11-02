@@ -39,7 +39,7 @@ public class ShipController : MonoBehaviour {
 	public void Torque(float turn) {
 		rigidbody.AddTorque(0f,turn * ang_vel,0f);
 	}
-	
+
 	void FixedUpdate () {
 		
 		//		rigidbody.AddForce(-Vector3.up*(5f*transform.position.y + 5f*rigidbody.velocity.y));

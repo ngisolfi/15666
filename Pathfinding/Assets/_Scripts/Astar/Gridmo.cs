@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Gridmo : MonoBehaviour
 {
 	private bool running = false;
-	private Planner[] plans;
+//	private Planner[] plans;
 	private GridHandler handler;
 
 	void Start()
