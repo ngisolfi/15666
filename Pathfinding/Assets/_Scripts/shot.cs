@@ -13,7 +13,7 @@ public class shot : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		this.transform.position += speed*this.transform.up;
+		this.transform.position += speed*Time.deltaTime*this.transform.up;
 		if(Time.time - this.startTime > secondsUntilDestroy){
 			Destroy(this.gameObject);
 		}

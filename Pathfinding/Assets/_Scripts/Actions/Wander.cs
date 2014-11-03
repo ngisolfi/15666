@@ -29,6 +29,16 @@ public class Wander : FollowPath {
 		base.Execute();
 	}
 
+	public override bool CheckPrecondition (InformationState state)
+	{
+		return true;
+	}
+
+	public override InformationState PredictedOutcome (InformationState state)
+	{
+		return InformationState.Copy(state);
+	}
+
 	void setNewTarget()
 	{
 //		Vector3 nextPoint = grid.gridToWorld((int)(Random.value*grid.GetLength(0)),(int)(Random.value*grid.GetLength(1)));

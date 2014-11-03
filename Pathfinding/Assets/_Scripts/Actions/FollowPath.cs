@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class FollowPath : Action {
+public abstract class FollowPath : Action {
 	protected List<Vector3> _path;
 	protected ShipController _controller;
 	protected int _index;

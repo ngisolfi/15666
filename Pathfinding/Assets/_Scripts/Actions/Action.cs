@@ -5,6 +5,10 @@ public abstract class Action {
 
 	public abstract void Execute();
 
+	public abstract InformationState PredictedOutcome(InformationState state);
+
+	public abstract bool CheckPrecondition(InformationState state);
+
 	public static float AngleSigned(Vector3 v1, Vector3 v2, Vector3 n)
 	{
 		return Mathf.Atan2(

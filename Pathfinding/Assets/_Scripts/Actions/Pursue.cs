@@ -21,4 +21,16 @@ public class Pursue : FollowPath {
 		
 		base.Execute();
 	}
+
+	public override bool CheckPrecondition (InformationState state)
+	{
+		return state.targetVisible;
+	}
+
+	public override InformationState PredictedOutcome (InformationState state)
+	{
+		InformationState outState = InformationState.Copy(state);
+		outState.distanceToTarget = 0f;
+		return outState;
+	}
 }
