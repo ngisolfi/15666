@@ -16,22 +16,25 @@ public class Health : MonoBehaviour {
 	}
 	
 	void OnGUI() {
-		Vector3 pos = Camera.main.WorldToScreenPoint(transform.position) - new Vector3(30,-20,0);
-		Vector2 size = new Vector2(60,10);
-		
-//		if(pos.z < 1)
+		Camera cam = Camera.current;
+		if(cam){
+			Vector3 pos = cam.WorldToScreenPoint(transform.position) - new Vector3(30,-20,0);
+			Vector2 size = new Vector2(60,10);
 			
-	
-		// draw the background:
-		GUI.BeginGroup (new Rect (pos.x, Screen.height - pos.y, size.x, size.y));
-		GUI.DrawTexture (new Rect (0,0, size.x, size.y),healthEmpty,ScaleMode.StretchToFill);
+	//		if(pos.z < 1)
+				
 		
-		// draw the filled-in part:
-		GUI.BeginGroup (new Rect (0, 0, size.x * healthRatio, size.y));
-		GUI.DrawTexture (new Rect (0,0, size.x, size.y),healthFull,ScaleMode.StretchToFill);
-		GUI.EndGroup ();
-		
-		GUI.EndGroup ();
+			// draw the background:
+			GUI.BeginGroup (new Rect (pos.x, Screen.height - pos.y, size.x, size.y));
+			GUI.DrawTexture (new Rect (0,0, size.x, size.y),healthEmpty,ScaleMode.StretchToFill);
+			
+			// draw the filled-in part:
+			GUI.BeginGroup (new Rect (0, 0, size.x * healthRatio, size.y));
+			GUI.DrawTexture (new Rect (0,0, size.x, size.y),healthFull,ScaleMode.StretchToFill);
+			GUI.EndGroup ();
+			
+			GUI.EndGroup ();
+		}
 	}
 	
 	public void takeDamage(int strength){

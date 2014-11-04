@@ -62,6 +62,7 @@
      <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorSparks.cs" />
      <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorSpray.cs" />
      <Compile Include="Assets\Detonator Explosion Framework\TestScene\TouchToMouse.cs" />
+     <Compile Include="Assets\PlayerHandler.cs" />
      <Compile Include="Assets\_Scripts\AStar.cs" />
      <Compile Include="Assets\_Scripts\AStar_ss.cs" />
      <Compile Include="Assets\_Scripts\Actions\Action.cs" />
@@ -85,6 +86,8 @@
      <Compile Include="Assets\_Scripts\LoadMazeLevel.cs" />
      <Compile Include="Assets\_Scripts\Make_grid_raycast.cs" />
      <Compile Include="Assets\_Scripts\ShipController.cs" />
+     <Compile Include="Assets\_Scripts\SmoothFollowCSharp.cs" />
+     <Compile Include="Assets\_Scripts\SpawnPlayer.cs" />
      <Compile Include="Assets\_Scripts\SpawnShips.cs" />
      <Compile Include="Assets\_Scripts\StateHandler.cs" />
      <Compile Include="Assets\_Scripts\TrafficSpawner.cs" />
@@ -103,6 +106,8 @@
      <Compile Include="Assets\_Scripts\shot.cs" />
      <Compile Include="Assets\_Scripts\trafficMover.cs" />
      <Compile Include="Assets\_Scripts\wrapTexture.cs" />
+     <Compile Include="Assets\chatBox.cs" />
+     <Compile Include="Assets\startGame.cs" />
      <None Include="Assets\SpaceScout\Shaders\StarsFar.shader" />
      <None Include="Assets\SpaceScout\Shaders\StarsClose.shader" />
      <None Include="Assets\SpaceScout\Shaders\ReflectiveSelfIllumDiffuse.shader" />

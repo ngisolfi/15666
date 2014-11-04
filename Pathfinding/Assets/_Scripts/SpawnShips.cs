@@ -8,20 +8,20 @@ public class SpawnShips : MonoBehaviour {
 	public int maxActive;
 	public int maxGenerated;
 	public string endMessage;
-	private int numGenerated;
-	private bool finished;
+	protected int numGenerated = 0;
+	protected bool finished = false;
+	protected bool running = false;
 
 	// Use this for initialization
 	void Start () {
-		numGenerated = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(!finished && Time.frameCount % 10 == 0)
+		if(running && !finished && Time.frameCount % 10 == 0)
 			spawn();
 	}
-	
+
 	void OnGUI () {
 		if(finished){
 			GameObject[] activeShips = GameObject.FindGameObjectsWithTag(ship.tag);
@@ -33,14 +33,20 @@ public class SpawnShips : MonoBehaviour {
 				
 		}
 	}
+
+	public void BeginSpawning()
+	{
+		running = true;
+	}
 	
-	void spawn(){
+	protected virtual GameObject spawn(){
 		if(numGenerated <= maxGenerated){
 			GameObject[] activeShips = GameObject.FindGameObjectsWithTag(ship.tag);
 			if(activeShips.Length < maxActive){
 				List<Transform> spawnPoints = new List<Transform>();
 				foreach(Transform spawnPoint in this.transform){
-					spawnPoints.Add(spawnPoint);
+					if(spawnPoint.name == "SpawnPoint")
+						spawnPoints.Add(spawnPoint);
 				}
 				while(spawnPoints.Count > 0){
 					int index = (int)(Random.value * spawnPoints.Count);
@@ -55,15 +61,16 @@ public class SpawnShips : MonoBehaviour {
 						}
 					}
 					if(open){
-						Instantiate(ship,spawnPoint.position,spawnPoint.rotation);
+						GameObject newShip = (GameObject) Instantiate(ship,spawnPoint.position,spawnPoint.rotation);
 						numGenerated++;
 						if(numGenerated >= maxGenerated)
 							finished = true;
-						break;
+						return newShip;
 					}
 					spawnPoints.RemoveAt(index);
 				}
 			}
 		}
+		return null;
 	}
 }

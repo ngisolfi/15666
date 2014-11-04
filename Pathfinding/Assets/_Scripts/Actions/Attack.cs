@@ -63,6 +63,6 @@ public class Attack : Action {
 			_leadFraction += 0.001f;
 		else if(closestDistance < 0f)
 			_leadFraction -= 0.001f;
-		Debug.Log(new Vector2(closestDistance,_leadFraction));
+//		Debug.Log(new Vector2(closestDistance,_leadFraction));
 	}
 }

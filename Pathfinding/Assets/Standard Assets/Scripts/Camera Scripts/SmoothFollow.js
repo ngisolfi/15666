@@ -26,11 +26,12 @@ var rotationDamping = 3.0;
 function LateUpdate () {
 	// Early out if we don't have a target
 	if (!target){
-		var player = GameObject.FindGameObjectWithTag("Player");
-		if(!player)
-			return;
-		else
-			target = player.transform;
+		return;
+//		var player = GameObject.FindGameObjectWithTag("Player");
+//		if(!player)
+//			return;
+//		else
+//			target = player.transform;
 	}
 	
 	// Calculate the current rotation angles
