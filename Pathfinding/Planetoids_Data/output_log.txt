@@ -15,17 +15,7 @@ Platform assembly: C:\Users\derek\Documents\15666\Pathfinding\Planetoids_Data\Ma
 Loading C:\Users\derek\Documents\15666\Pathfinding\Planetoids_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\derek\Documents\15666\Pathfinding\Planetoids_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
 Loading C:\Users\derek\Documents\15666\Pathfinding\Planetoids_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
-- Completed reload, in  0.035 seconds
+- Completed reload, in  0.056 seconds
 desktop: 1920x1080 60Hz; virtual: 3200x1080 at -1280,0
 <RI> Initializing input.
 <RI> Input initialized.
-Server Initializied
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
-
-UnloadTime: 1.490977 ms
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 193 unused Assets to reduce memory usage. Loaded Objects now: 602.
-Total: 6.690421 ms (FindLiveObjects: 0.070482 ms CreateObjectMapping: 0.066566 ms MarkObjects: 4.158772 ms  DeleteObjects: 1.477422 ms)
-

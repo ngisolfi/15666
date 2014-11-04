@@ -3,7 +3,7 @@ using System.Collections;
 
 public class startGame : MonoBehaviour {
 
-	private bool running;
+	private bool running = false;
 	private SpawnShips enemySpawner;
 //	private SpawnShips playerSpawner;
 	private const string typeName = "Planetoids";
@@ -32,6 +32,7 @@ public class startGame : MonoBehaviour {
 	{
 		Debug.Log("Server Joined");
 		Instantiate(chatBox);
+		running = true;
 	}
 
 	private void StartServer()
@@ -40,20 +41,25 @@ public class startGame : MonoBehaviour {
 		MasterServer.RegisterHost(typeName, gameName);
 
 		Instantiate(chatBox);
+		enemySpawner.BeginSpawning();
+		GameObject spawner = (GameObject) Instantiate(playerSpawner);
+		spawner.GetComponent<SpawnShips>().BeginSpawning();
+		running = true;
 	}
-
+	
 	void OnServerInitialized()
 	{
 		Debug.Log("Server Initializied");
+//		running = false;
+		GameObject spawner = GameObject.Find("EnemySpawn");
+		if(spawner)
+			enemySpawner = spawner.GetComponent<SpawnShips>();
 	}
 
 	// Use this for initialization
 	void Start () {
 //		MasterServer.ipAddress = "127.0.0.1";
-		running = false;
-		GameObject spawner = GameObject.Find("EnemySpawn");
-		if(spawner)
-			enemySpawner = spawner.GetComponent<SpawnShips>();
+
 //		spawner = GameObject.Find("PlayerSpawn");
 //		if(spawner)
 //			playerSpawner = spawner.GetComponent<SpawnShips>();
@@ -86,13 +92,7 @@ public class startGame : MonoBehaviour {
 					}
 				}
 			}
-			
-			if(GUILayout.Button("Start Game")){
-				enemySpawner.BeginSpawning();
-				GameObject spawner = (GameObject) Instantiate(playerSpawner);
-				spawner.GetComponent<SpawnShips>().BeginSpawning();
-				running = true;
-			}
+
 			GUILayout.EndVertical();
 			GUILayout.EndArea();
 		}

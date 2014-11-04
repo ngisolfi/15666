@@ -814,6 +814,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 272096982}
   - 114: {fileID: 272096981}
+  - 148: {fileID: 272096983}
   m_Layer: 0
   m_Name: EnemySpawn
   m_TagString: Untagged
@@ -852,6 +853,18 @@ Transform:
   - {fileID: 675637203}
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!148 &272096983
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 272096980}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 272096982}
+  m_ViewID:
+    m_ID: 1
+    m_Type: 1
 --- !u!1 &281852872
 GameObject:
   m_ObjectHideFlags: 0

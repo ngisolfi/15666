@@ -27,6 +27,7 @@ public class ShipController : MonoBehaviour {
 	}
 	
 	public void Thrust() {
+//		if(networkView.isMine){
 		rigidbody.AddForce(transform.forward * acceleration);
 		Vector3 velocity = rigidbody.velocity;
 		float velocityMagnitude = velocity.magnitude;
@@ -35,19 +36,22 @@ public class ShipController : MonoBehaviour {
 			rigidbody.velocity = velocity;
 		}
 		headingTangent = transform.right;
+//		}
 	}
 	
 	public void Torque(float turn) {
+//		if(networkView.isMine)
 		rigidbody.AddTorque(0f,turn * ang_vel,0f);
 	}
 
 	void FixedUpdate () {
 		
 		//		rigidbody.AddForce(-Vector3.up*(5f*transform.position.y + 5f*rigidbody.velocity.y));
-		
+//		if(networkView.isMine){
 		Vector3 slideDrag = -Vector3.Dot(headingTangent,rigidbody.velocity)*headingTangent;
 		slideDrag.y = 0f;
 		rigidbody.AddForce(slideDrag);
+//		}
 		
 		//		rigidbody.AddTorque(10f * transform.rotation.x * transform.forward + 10f * transform.rotation.z * transform.right);
 		//		Debug.Log(new Vector3(rectifyAngle(transform.eulerAngles.x),0f,rectifyAngle(transform.eulerAngles.z)));

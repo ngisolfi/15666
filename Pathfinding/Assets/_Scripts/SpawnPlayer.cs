@@ -8,18 +8,21 @@ public class SpawnPlayer : SpawnShips {
 		maxActive = 1;
 	}
 
-	protected override GameObject spawn ()
+	[RPC]
+	protected override GameObject spawn (Transform location)
 	{
-		GameObject newShip = base.spawn ();
-		if(newShip){
-			if(Camera.main)
-				Camera.main.enabled = false;
-			Transform cam = transform.Find("Camera");
-			if(cam){
-				cam.camera.GetComponent<SmoothFollowCSharp>().target = newShip.transform;
-				cam.camera.enabled = true;
+		GameObject newShip = base.spawn (location);
+		if(networkView.isMine){
+			if(newShip){
+				if(Camera.main)
+					Camera.main.enabled = false;
+				Transform cam = transform.Find("Camera");
+				if(cam){
+					cam.camera.GetComponent<SmoothFollowCSharp>().target = newShip.transform;
+					cam.camera.enabled = true;
+				}
+				return newShip;
 			}
-			return newShip;
 		}
 		return null;
 	}

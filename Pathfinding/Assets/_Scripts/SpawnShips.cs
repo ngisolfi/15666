@@ -18,8 +18,17 @@ public class SpawnShips : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(running && !finished && Time.frameCount % 10 == 0)
-			spawn();
+		if(running && !finished && Time.frameCount % 10 == 0){
+			Transform location = findSpawnLocation();
+			if(location){
+				if(Network.isServer){
+					spawn(location);
+					networkView.RPC("spawn",RPCMode.Others,location);
+				}else{
+					networkView.RPC("spawn",RPCMode.All,location);
+				}
+			}
+		}
 	}
 
 	void OnGUI () {
@@ -38,8 +47,8 @@ public class SpawnShips : MonoBehaviour {
 	{
 		running = true;
 	}
-	
-	protected virtual GameObject spawn(){
+
+	protected Transform findSpawnLocation(){
 		if(numGenerated <= maxGenerated){
 			GameObject[] activeShips = GameObject.FindGameObjectsWithTag(ship.tag);
 			if(activeShips.Length < maxActive){
@@ -61,16 +70,20 @@ public class SpawnShips : MonoBehaviour {
 						}
 					}
 					if(open){
-						GameObject newShip = (GameObject) Instantiate(ship,spawnPoint.position,spawnPoint.rotation);
 						numGenerated++;
 						if(numGenerated >= maxGenerated)
 							finished = true;
-						return newShip;
+						return spawnPoint;
 					}
 					spawnPoints.RemoveAt(index);
 				}
 			}
 		}
 		return null;
+	}
+
+	[RPC]
+	protected virtual GameObject spawn(Transform location){
+		return (GameObject) Instantiate(ship,location.position,location.rotation);
 	}
 }
