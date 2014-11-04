@@ -2,12 +2,21 @@
 using System.Collections;
 
 public abstract class Action {
+	protected WorldState _state;
+	
+	public Action(WorldState state)
+	{
+		_state = state;
+	}
+	
 
 	public abstract void Execute();
 
 	public abstract InformationState PredictedOutcome(InformationState state);
 
 	public abstract bool CheckPrecondition(InformationState state);
+	
+	public abstract Action nextAction();
 
 	public static float AngleSigned(Vector3 v1, Vector3 v2, Vector3 n)
 	{

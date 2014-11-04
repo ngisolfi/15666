@@ -5,7 +5,8 @@ public class shot : MonoBehaviour {
 	public float speed;
 	private float startTime;
 	public float secondsUntilDestroy;
-	public float strength;
+	public int strength;
+//	private ShipController source;
 	
 	// Use this for initialization
 	void Start () {
@@ -22,7 +23,7 @@ public class shot : MonoBehaviour {
 	void OnCollisionEnter(Collision collision){
 		Health health = collision.gameObject.GetComponent<Health>();
 		if(health)
-			health.incrementHealth(-strength);
+			health.takeDamage(strength);
 		Destroy(this.gameObject);
 	}
 }

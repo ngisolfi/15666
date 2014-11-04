@@ -90,7 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   secondsUntilDestroy: 3
-  strength: .0500000007
+  strength: 5
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

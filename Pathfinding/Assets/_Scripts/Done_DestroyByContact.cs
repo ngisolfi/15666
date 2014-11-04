@@ -56,7 +56,7 @@ public class Done_DestroyByContact : MonoBehaviour
 		//{
 			Detonator dTemp = (Detonator)currentDetonator.GetComponent("Detonator");
 			
-			float offsetSize = dTemp.size/3;
+//			float offsetSize = dTemp.size/3;
 		Vector3 hitPoint = transform.position;// hit.point +
 				//((Vector3.Scale(hit.normal, new Vector3(offsetSize, offsetSize, offsetSize))));
 			GameObject exp = (GameObject) Instantiate(currentDetonator, hitPoint, Quaternion.identity);

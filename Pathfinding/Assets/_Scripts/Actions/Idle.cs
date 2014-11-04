@@ -2,8 +2,17 @@
 using System.Collections;
 
 public class Idle : Action {
+	public Idle(WorldState state):base(state)
+	{
+	}
+
 	public override void Execute ()
 	{
+	}
+	
+	public override Action nextAction ()
+	{
+		return this;
 	}
 
 	public override InformationState PredictedOutcome (InformationState state)

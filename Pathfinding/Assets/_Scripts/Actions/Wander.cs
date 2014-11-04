@@ -9,7 +9,7 @@ public class Wander : FollowPath {
 	private int updateCount = 4;
 	private float timerStart;
 
-	public Wander(ShipController controller): base(controller)
+	public Wander(WorldState state): base(state)
 	{
 		timerStart = Time.time;
 		grid = GameObject.Find("Grid").GetComponent<GridHandler>();
@@ -27,6 +27,15 @@ public class Wander : FollowPath {
 			}
 		}
 		base.Execute();
+	}
+	
+	public override Action nextAction ()
+	{
+		if(_state.target){
+//			Debug.Log("Changed to Pursue");
+			return new Pursue(_state);
+		}
+		return this;
 	}
 
 	public override bool CheckPrecondition (InformationState state)

@@ -85,7 +85,7 @@
      <Compile Include="Assets\_Scripts\LoadMazeLevel.cs" />
      <Compile Include="Assets\_Scripts\Make_grid_raycast.cs" />
      <Compile Include="Assets\_Scripts\ShipController.cs" />
-     <Compile Include="Assets\_Scripts\SpawnBadguys.cs" />
+     <Compile Include="Assets\_Scripts\SpawnShips.cs" />
      <Compile Include="Assets\_Scripts\StateHandler.cs" />
      <Compile Include="Assets\_Scripts\TrafficSpawner.cs" />
      <Compile Include="Assets\_Scripts\WorldState.cs" />

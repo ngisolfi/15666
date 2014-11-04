@@ -9,9 +9,10 @@ public abstract class FollowPath : Action {
 	protected bool _finished;
 	protected float closenessThreshold = 5;
 
-	public FollowPath(ShipController controller){
+	public FollowPath(WorldState state):base(state)
+	{
 		_path = new List<Vector3>();
-		_controller = controller;
+		_controller = state.controller;
 	}
 
 	public List<Vector3> path

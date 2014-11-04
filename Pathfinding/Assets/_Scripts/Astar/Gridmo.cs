@@ -36,7 +36,7 @@ public class Gridmo : MonoBehaviour
 					if(handler.occupied(i,j)){
 						Gizmos.color = new Color(0f,0f,0f,0.5f);
 					}else{
-						int state = 0;
+//						int state = 0;
 						Gizmos.color = new Color(1f,0f,0f,0.5f);
 //						foreach(Planner p in this.plans){
 //							if(p.drawGrid && p.gridNodes[i,j].state > state){

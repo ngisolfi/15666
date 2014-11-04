@@ -5,11 +5,14 @@ public class Health : MonoBehaviour {
 
 	public Texture2D healthFull;
 	public Texture2D healthEmpty;
-	private float healthLevel;
+	private int healthLevel;
+	private int fullHealth = 100;
+	private float timeDamaged;
 
 	// Use this for initialization
 	void Start () {
-		healthLevel = 1f;
+		timeDamaged = -10e7f;
+		healthLevel = fullHealth;
 	}
 	
 	void OnGUI() {
@@ -24,23 +27,40 @@ public class Health : MonoBehaviour {
 		GUI.DrawTexture (new Rect (0,0, size.x, size.y),healthEmpty,ScaleMode.StretchToFill);
 		
 		// draw the filled-in part:
-		GUI.BeginGroup (new Rect (0, 0, size.x * healthLevel, size.y));
+		GUI.BeginGroup (new Rect (0, 0, size.x * healthRatio, size.y));
 		GUI.DrawTexture (new Rect (0,0, size.x, size.y),healthFull,ScaleMode.StretchToFill);
 		GUI.EndGroup ();
 		
 		GUI.EndGroup ();
 	}
 	
-	public void incrementHealth(float val){
-		healthLevel += val;
-		if (healthLevel > 1f){
-			healthLevel = 1f;
-		}else if(healthLevel < 0f){
-			healthLevel = 0f;
+	public void takeDamage(int strength){
+		if(strength > 0){
+			healthLevel -= strength;
+			if(healthLevel < 0){
+				healthLevel = 0;
+			}
+			timeDamaged = Time.time;
 		}
 	}
 	
-	public float health
+	public float timeSinceLastHit
+	{
+		get
+		{
+			return Time.time-timeDamaged;
+		}
+	}
+	
+	public float healthRatio
+	{
+		get
+		{
+			return (float) healthLevel/(float) fullHealth;
+		}
+	}
+	
+	public int health
 	{
 		get
 		{
