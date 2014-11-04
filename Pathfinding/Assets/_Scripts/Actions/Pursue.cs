@@ -28,7 +28,7 @@ public class Pursue : FollowPath {
 //			Debug.Log("Changed to Wander");
 			return new Wander(_state);
 		}
-		if(_state.distanceToTarget < 10f)
+		if(!_state.targetHidden && _state.distanceToTarget < 20f)
 			return new Attack(_state);
 		if(_state.timeSinceLastHit < 0.8f)
 			return new Evade(_state);

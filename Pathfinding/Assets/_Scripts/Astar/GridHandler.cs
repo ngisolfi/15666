@@ -321,9 +321,11 @@ public class GridHandler : MonoBehaviour {
 
 	void drawLine(List<Vector3> path){
 		LineRenderer line = GetComponent<LineRenderer>();
-		line.SetVertexCount(path.Count);
-		for(int i=0;i<path.Count;i++){
-			line.SetPosition(i,path[i]);
+		if(line){
+			line.SetVertexCount(path.Count);
+			for(int i=0;i<path.Count;i++){
+				line.SetPosition(i,path[i]);
+			}
 		}
 	}
 

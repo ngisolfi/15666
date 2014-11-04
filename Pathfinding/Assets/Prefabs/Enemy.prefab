@@ -124,7 +124,7 @@ MonoBehaviour:
   max_vel: 5
   ang_vel: 6
   tilt: 30
-  fireRate: .200000003
+  fireRate: .5
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,11 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6224bd2a20d1e4db59235705b812cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,10 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07fc82e0065b3e94597b5712f061f42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDetonator: {fileID: 100000, guid: 2a6951ec14b27ed4da27d13818dbebd2, type: 2}
-  explosionLife: 10
-  timeScale: 1
-  detailLevel: 1
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1

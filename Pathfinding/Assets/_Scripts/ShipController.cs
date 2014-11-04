@@ -15,14 +15,15 @@ public class ShipController : MonoBehaviour {
 	//	public Boundary boundary;
 	private Vector3 headingTangent;
 	
-	public void Fire() {
+	public GameObject Fire() {
 		if (Time.time > nextFire) {
 			
 			nextFire = Time.time + fireRate;
 			GameObject bullet = (GameObject) Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
 			Physics.IgnoreCollision(bullet.collider,this.collider);
-			
+			return bullet;
 		}
+		return null;
 	}
 	
 	public void Thrust() {
