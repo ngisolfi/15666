@@ -12,7 +12,7 @@ GameObject:
   - 148: {fileID: 14800000}
   m_Layer: 0
   m_Name: ChatBox
-  m_TagString: Untagged
+  m_TagString: ChatBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,6 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe7d81c5ed58514aa53acc86bf82f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: 
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1

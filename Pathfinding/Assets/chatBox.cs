@@ -15,8 +15,9 @@ public class chatBox : MonoBehaviour {
 	string inputField = "";
 	bool chatInFocus = false;
 	string inputFieldFocus = "CIFT";
-	bool absPos = false;
-	
+//	bool absPos = false;
+	public string playerName = "";
+
 	void Awake () {
 		InitializeChat();
 	}
@@ -48,15 +49,19 @@ public class chatBox : MonoBehaviour {
 		}
 		
 		GUILayout.EndScrollView();
+		bool send = false;
 		if(chatInFocus){
+			GUILayout.BeginHorizontal();
 			GUI.SetNextControlName(inputFieldFocus);
-			inputField = GUILayout.TextField(inputField, GUILayout.MaxWidth(width), GUILayout.MinWidth(width));
+			inputField = GUILayout.TextField(inputField, GUILayout.MaxWidth(width-60), GUILayout.MinWidth(width-60));
+			send = GUILayout.Button("Send");
 			GUI.FocusControl(inputFieldFocus);
+			GUILayout.EndHorizontal();
 		}
 		GUILayout.EndVertical();
 		
 		if(chatInFocus){
-			HandleNewEntries();
+			HandleNewEntries(send);
 		} else {
 			checkForInput();
 		}
@@ -77,18 +82,18 @@ public class chatBox : MonoBehaviour {
 		}
 	}
 	
-	void HandleNewEntries(){
-		if(Event.current.type == EventType.KeyDown && Event.current.character == '\n'){
+	void HandleNewEntries(bool sendPressed){
+		if(sendPressed || (Event.current.type == EventType.KeyDown && Event.current.character == '\n')){
 			if(inputField.Length <= 0){
 				unfocusChat();
 				Debug.Log("unfocusing chat (empty entry)");
 				return;
 			}
 			if(Network.isServer){
-				AddChatEntry("Cookie monster", inputField); //for offline testing
-//				networkView.RPC ("AddChatEntry", RPCMode.Others, "Cookie monster", inputField);
+				AddChatEntry(playerName, inputField); //for offline testing
+				networkView.RPC ("AddChatEntry", RPCMode.Others, playerName, inputField);
 			}else
-				networkView.RPC ("AddChatEntry", RPCMode.All, "Cookie monster", inputField);
+				networkView.RPC ("AddChatEntry", RPCMode.All, playerName, inputField);
 			unfocusChat();
 			//Debug.Log("unfocusing chat and entry sent");
 		}

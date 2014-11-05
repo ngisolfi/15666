@@ -6,9 +6,9 @@ public class shot : MonoBehaviour {
 	private float startTime;
 	public float secondsUntilDestroy;
 	public int strength;
-	private ShipController _source;
+//	private ShipController _source;
 	private Transform _target;
-	private float _closestDistance = 10e7f;
+//	private float _closestDistance = 10e7f;
 	private bool _measurementTaken = false;
 	
 	// Use this for initialization
@@ -18,7 +18,7 @@ public class shot : MonoBehaviour {
 
 	public void setupSignal(ShipController source, Transform target)
 	{
-		_source = source;
+//		_source = source;
 		_target = target;
 	}
 	
@@ -34,9 +34,9 @@ public class shot : MonoBehaviour {
 					Attack.updateLead(Vector3.Dot(_target.rigidbody.velocity,_target.position-transform.position));
 				}
 			}
-		}
-		if(Time.time - this.startTime > secondsUntilDestroy){
-			Destroy(this.gameObject);
+			if(Time.time - this.startTime > secondsUntilDestroy){
+				Network.Destroy(networkView.viewID);
+			}
 		}
 	}
 	
@@ -45,8 +45,8 @@ public class shot : MonoBehaviour {
 			Health health = collision.gameObject.GetComponent<Health>();
 			if(health)
 				health.takeDamage(strength);
+			Network.Destroy(networkView.viewID);
 		}
-		Destroy(this.gameObject);
 	}
 
 //	void updateLead(){

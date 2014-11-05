@@ -11,6 +11,7 @@ public class SpawnShips : MonoBehaviour {
 	protected int numGenerated = 0;
 	protected bool finished = false;
 	protected bool running = false;
+	protected int numActive = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,10 @@ public class SpawnShips : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		GameObject[] activeShips = GameObject.FindGameObjectsWithTag(ship.tag);
+		numActive = activeShips.Length;
+		if(numGenerated >= maxGenerated)
+			finished = true;
 		if(running && !finished && Time.frameCount % 10 == 0){
 			Transform location = findSpawnLocation();
 			if(location){
@@ -33,19 +38,28 @@ public class SpawnShips : MonoBehaviour {
 	}
 
 	void OnGUI () {
-		if(finished){
-			GameObject[] activeShips = GameObject.FindGameObjectsWithTag(ship.tag);
-			if(activeShips.Length == 0){
-				GUI.Box(new Rect(Screen.width*0.25f,Screen.height*0.25f,Screen.width*0.5f,Screen.height*0.5f),endMessage);
-				if(GUI.Button(new Rect(Screen.width*0.4f,Screen.height*0.4f,Screen.width*0.2f,Screen.height*0.2f),"Play Again?"))
-					Application.LoadLevel(Application.loadedLevel);
-			}
-				
-		}
+//		if(finished){
+//			if(numActive == 0){
+//				GUI.Box(new Rect(Screen.width*0.25f,Screen.height*0.25f,Screen.width*0.5f,Screen.height*0.5f),endMessage);
+//				if(GUI.Button(new Rect(Screen.width*0.4f,Screen.height*0.4f,Screen.width*0.2f,Screen.height*0.2f),"Play Again?"))
+//					GameObject.Find("StartGUI").GetComponent<startGame>().StartGame();
+////					Application.LoadLevel(Application.loadedLevel);
+//			}
+//		}
+	}
+
+	public bool isDepleted()
+	{
+		return finished && numActive == 0;
 	}
 
 	public void BeginSpawning()
 	{
+		foreach(GameObject s in GameObject.FindGameObjectsWithTag(ship.tag)){
+			Network.Destroy(s);
+		}
+		numGenerated = 0;
+		finished = false;
 		running = true;
 	}
 

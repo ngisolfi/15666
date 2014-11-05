@@ -1470,8 +1470,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 389489611}
-  m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 26.1746407, y: .629999995, z: 3.97806573}
+  m_LocalRotation: {x: .21351099, y: -.67410171, z: .21351096, w: .67410171}
+  m_LocalPosition: {x: 45.7692947, y: 18.8489819, z: 3.97806573}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2833,6 +2833,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 744551970}
   - 114: {fileID: 744551969}
+  - 148: {fileID: 744551971}
   m_Layer: 0
   m_Name: StartGUI
   m_TagString: Untagged
@@ -2851,7 +2852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500af4cb714f2a94dbe0f43a9c5bf9e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chatBox: {fileID: 100000, guid: b6554f166a766224f9fec796d9abcffd, type: 2}
+  chatter: {fileID: 100000, guid: b6554f166a766224f9fec796d9abcffd, type: 2}
   enemySpawner: {fileID: 100000, guid: 4b21d6ba5181c2a459378a122642f934, type: 2}
   playerSpawner: {fileID: 100002, guid: 813ddf5d97138a6429904292f4096733, type: 2}
 --- !u!4 &744551970
@@ -2866,6 +2867,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!148 &744551971
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 744551968}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 744551970}
+  m_ViewID:
+    m_ID: 1
+    m_Type: 1
 --- !u!1 &745373770
 GameObject:
   m_ObjectHideFlags: 0

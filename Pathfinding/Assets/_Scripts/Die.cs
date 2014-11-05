@@ -22,7 +22,7 @@ public class Die : MonoBehaviour {
 	void Update () {
 		if(health.health <= 0f){
 //			SpawnExplosion();
-			Destroy(gameObject);
+			Network.Destroy(gameObject);
 		}
 	}
 	

@@ -5,7 +5,7 @@ public class Attack : Action {
 
 	protected ShipController _controller;
 //	private Transform _target;
-	private static float _leadFraction;
+	private static float _leadFraction = 0f;
 
 	public Attack(WorldState state):base(state)
 	{
@@ -64,5 +64,10 @@ public class Attack : Action {
 		else if(closestDistance < 0f)
 			_leadFraction -= 0.001f;
 //		Debug.Log(new Vector2(closestDistance,_leadFraction));
+	}
+
+	public static void resetLead()
+	{
+		_leadFraction = 0f;
 	}
 }

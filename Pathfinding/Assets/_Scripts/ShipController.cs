@@ -16,12 +16,13 @@ public class ShipController : MonoBehaviour {
 	private Vector3 headingTangent;
 	
 	public GameObject Fire() {
-		if (Time.time > nextFire) {
-			
-			nextFire = Time.time + fireRate;
-			GameObject bullet = (GameObject) Network.Instantiate (shot, shotSpawn.position, shotSpawn.rotation,0);
-			Physics.IgnoreCollision(bullet.collider,this.collider);
-			return bullet;
+		if(networkView.isMine){
+			if (Time.time > nextFire) {
+				nextFire = Time.time + fireRate;
+				GameObject bullet = (GameObject) Network.Instantiate (shot, shotSpawn.position, shotSpawn.rotation,0);
+				Physics.IgnoreCollision(bullet.collider,this.collider);
+				return bullet;
+			}
 		}
 		return null;
 	}

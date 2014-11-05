@@ -51,7 +51,6 @@
      <None Include="Assets\SpaceScout\Shaders\StarsClose.shader" />
      <None Include="Assets\SpaceScout\Shaders\ReflectiveSelfIllumDiffuse.shader" />
      <None Include="Assets\Raw Mocap Data\Animations\_CompleteAnimationList.txt" />
-     <None Include="Assets\Detonator Explosion Framework\Resources\Detonator\Textures\HeatDistort.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

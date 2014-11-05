@@ -12,6 +12,9 @@ TagManager:
   - Cylinder Obstacle
   - Boundary
   - Enemy
+  - ChatBox
+  - EnemySpawn
+  - PlayerSpawn
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

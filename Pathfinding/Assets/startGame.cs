@@ -8,11 +8,29 @@ public class startGame : MonoBehaviour {
 //	private SpawnShips playerSpawner;
 	private const string typeName = "Planetoids";
 	private const string gameName = "Game1";
-	public Object chatBox;
+	public Object chatter;
 	private HostData[] hostList;
 	public GameObject enemySpawner;
 	public GameObject playerSpawner;
-	
+	private int playerCount = 0;
+	private string playerName = "";
+
+	[RPC]
+	void setPlayerName(string name)
+	{
+//		Debug.Log(name);
+		playerName = name;
+		GameObject box = GameObject.FindGameObjectWithTag("ChatBox");
+		if(box)
+			box.GetComponent<chatBox>().playerName = name;
+	}
+
+	void OnPlayerConnected(NetworkPlayer player) {
+		playerCount++;
+		networkView.RPC("setPlayerName",player,"Player " + playerCount);
+//		Debug.Log("Player " + playerCount + " connected from " + player.ipAddress + ":" + player.port);
+	}
+
 	private void RefreshHostList()
 	{
 		MasterServer.RequestHostList(typeName);
@@ -32,7 +50,8 @@ public class startGame : MonoBehaviour {
 	void OnConnectedToServer()
 	{
 		Debug.Log("Server Joined");
-		Instantiate(chatBox);
+		GameObject box = (GameObject) Instantiate(chatter);
+		box.GetComponent<chatBox>().playerName = playerName;
 		running = true;
 	}
 
@@ -41,13 +60,20 @@ public class startGame : MonoBehaviour {
 		Network.InitializeServer(4, 25000, !Network.HavePublicAddress());
 		MasterServer.RegisterHost(typeName, gameName);
 
-		Network.Instantiate(chatBox,Vector3.zero,Quaternion.identity,0);
-//		.BeginSpawning();
+		playerName = "Host";
+		GameObject box = (GameObject) Instantiate(chatter);
+		box.GetComponent<chatBox>().playerName = playerName;
+		StartGame();
+		running = true;
+	}
+
+	public void StartGame()
+	{
+		Attack.resetLead();
 		GameObject spawner = (GameObject) Instantiate(enemySpawner);
 		spawner.GetComponent<SpawnShips>().BeginSpawning();
 		spawner = (GameObject) Instantiate(playerSpawner);
 		spawner.GetComponent<SpawnShips>().BeginSpawning();
-		running = true;
 	}
 	
 	void OnServerInitialized()
@@ -72,12 +98,12 @@ public class startGame : MonoBehaviour {
 	void OnGUI()
 	{
 		if(!running){
-			GUIStyle centeredStyle = GUI.skin.GetStyle("Label");
-			centeredStyle.alignment = TextAnchor.UpperCenter;
+//			GUIStyle centeredStyle = GUI.skin.GetStyle("Label");
+//			centeredStyle.alignment = TextAnchor.UpperCenter;
 
 			GUILayout.BeginArea(new Rect(Screen.width*0.4f,Screen.height*0.25f,Screen.width*0.2f,Screen.height*0.5f));
 			GUILayout.BeginVertical();
-			GUILayout.Label("Planetoids");
+//			GUILayout.Label("Planetoids");
 			if (!Network.isClient && !Network.isServer)
 			{
 				if (GUILayout.Button("Start Server"))
@@ -98,6 +124,26 @@ public class startGame : MonoBehaviour {
 
 			GUILayout.EndVertical();
 			GUILayout.EndArea();
+		}else{
+			GameObject[] enemySpawners = GameObject.FindGameObjectsWithTag("EnemySpawn");
+			bool enemiesGone = enemySpawners.Length > 0;
+			foreach(GameObject enemySpawn in enemySpawners){
+				enemiesGone &= enemySpawn.GetComponent<SpawnShips>().isDepleted();
+			}
+			GameObject[] playerSpawners = GameObject.FindGameObjectsWithTag("PlayerSpawn");
+			bool playersGone = playerSpawners.Length > 0;
+			foreach(GameObject playerSpawn in playerSpawners){
+				playersGone &= playerSpawn.GetComponent<SpawnPlayer>().isDepleted();
+			}
+			if(enemiesGone){
+				GUI.Box(new Rect(Screen.width*0.25f,Screen.height*0.25f,Screen.width*0.5f,Screen.height*0.5f),"YOU WIN");
+				if(GUI.Button(new Rect(Screen.width*0.4f,Screen.height*0.4f,Screen.width*0.2f,Screen.height*0.2f),"Play Again?"))
+					StartGame();
+			}else if(playersGone){
+				GUI.Box(new Rect(Screen.width*0.25f,Screen.height*0.25f,Screen.width*0.5f,Screen.height*0.5f),"GAME OVER");
+				if(GUI.Button(new Rect(Screen.width*0.4f,Screen.height*0.4f,Screen.width*0.2f,Screen.height*0.2f),"Play Again?"))
+					StartGame();
+			}
 		}
 	}
 	
