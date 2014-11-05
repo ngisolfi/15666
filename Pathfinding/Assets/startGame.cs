@@ -4,12 +4,13 @@ using System.Collections;
 public class startGame : MonoBehaviour {
 
 	private bool running = false;
-	private SpawnShips enemySpawner;
+//	private SpawnShips enemySpawner;
 //	private SpawnShips playerSpawner;
 	private const string typeName = "Planetoids";
 	private const string gameName = "Game1";
 	public Object chatBox;
 	private HostData[] hostList;
+	public GameObject enemySpawner;
 	public GameObject playerSpawner;
 	
 	private void RefreshHostList()
@@ -40,9 +41,11 @@ public class startGame : MonoBehaviour {
 		Network.InitializeServer(4, 25000, !Network.HavePublicAddress());
 		MasterServer.RegisterHost(typeName, gameName);
 
-		Instantiate(chatBox);
-		enemySpawner.BeginSpawning();
-		GameObject spawner = (GameObject) Instantiate(playerSpawner);
+		Network.Instantiate(chatBox,Vector3.zero,Quaternion.identity,0);
+//		.BeginSpawning();
+		GameObject spawner = (GameObject) Instantiate(enemySpawner);
+		spawner.GetComponent<SpawnShips>().BeginSpawning();
+		spawner = (GameObject) Instantiate(playerSpawner);
 		spawner.GetComponent<SpawnShips>().BeginSpawning();
 		running = true;
 	}
@@ -51,9 +54,9 @@ public class startGame : MonoBehaviour {
 	{
 		Debug.Log("Server Initializied");
 //		running = false;
-		GameObject spawner = GameObject.Find("EnemySpawn");
-		if(spawner)
-			enemySpawner = spawner.GetComponent<SpawnShips>();
+//		GameObject spawner = GameObject.Find("EnemySpawn");
+//		if(spawner)
+//			enemySpawner = spawner.GetComponent<SpawnShips>();
 	}
 
 	// Use this for initialization

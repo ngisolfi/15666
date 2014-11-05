@@ -23,14 +23,16 @@ public class shot : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		this.transform.position += speed*Time.deltaTime*this.transform.up;
-		if(_target && !_measurementTaken){
-//			float closest = Vector3.Dot(transform.right,_target.position-transform.position);
-//			if(Mathf.Abs(closest) < Mathf.Abs(_closestDistance))
-//				_closestDistance = closest;
-			if(Vector3.Dot(this.transform.up,_target.position-transform.position) < 0f){
-				_measurementTaken = true;
-				Attack.updateLead(Vector3.Dot(_target.rigidbody.velocity,_target.position-transform.position));
+		if(networkView.isMine){
+			this.transform.position += speed*Time.deltaTime*this.transform.up;
+			if(_target && !_measurementTaken){
+	//			float closest = Vector3.Dot(transform.right,_target.position-transform.position);
+	//			if(Mathf.Abs(closest) < Mathf.Abs(_closestDistance))
+	//				_closestDistance = closest;
+				if(Vector3.Dot(this.transform.up,_target.position-transform.position) < 0f){
+					_measurementTaken = true;
+					Attack.updateLead(Vector3.Dot(_target.rigidbody.velocity,_target.position-transform.position));
+				}
 			}
 		}
 		if(Time.time - this.startTime > secondsUntilDestroy){
@@ -39,9 +41,11 @@ public class shot : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter(Collision collision){
-		Health health = collision.gameObject.GetComponent<Health>();
-		if(health)
-			health.takeDamage(strength);
+		if(networkView.isMine){
+			Health health = collision.gameObject.GetComponent<Health>();
+			if(health)
+				health.takeDamage(strength);
+		}
 		Destroy(this.gameObject);
 	}
 

@@ -86,7 +86,7 @@ public class chatBox : MonoBehaviour {
 			}
 			if(Network.isServer){
 				AddChatEntry("Cookie monster", inputField); //for offline testing
-				networkView.RPC ("AddChatEntry", RPCMode.Others, "Cookie monster", inputField);
+//				networkView.RPC ("AddChatEntry", RPCMode.Others, "Cookie monster", inputField);
 			}else
 				networkView.RPC ("AddChatEntry", RPCMode.All, "Cookie monster", inputField);
 			unfocusChat();

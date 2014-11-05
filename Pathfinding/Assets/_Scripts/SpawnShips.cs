@@ -21,12 +21,13 @@ public class SpawnShips : MonoBehaviour {
 		if(running && !finished && Time.frameCount % 10 == 0){
 			Transform location = findSpawnLocation();
 			if(location){
-				if(Network.isServer){
-					spawn(location);
-					networkView.RPC("spawn",RPCMode.Others,location);
-				}else{
-					networkView.RPC("spawn",RPCMode.All,location);
-				}
+				spawn(location);
+//				if(Network.isServer){
+//					spawn(location);
+//					networkView.RPC("spawn",RPCMode.Others,location);
+//				}else{
+//					networkView.RPC("spawn",RPCMode.All,location);
+//				}
 			}
 		}
 	}
@@ -84,6 +85,6 @@ public class SpawnShips : MonoBehaviour {
 
 	[RPC]
 	protected virtual GameObject spawn(Transform location){
-		return (GameObject) Instantiate(ship,location.position,location.rotation);
+		return (GameObject) Network.Instantiate(ship,location.position,location.rotation,networkView.GetInstanceID());
 	}
 }
