@@ -15,6 +15,8 @@ TagManager:
   - ChatBox
   - EnemySpawn
   - PlayerSpawn
+  - Alien_ship
+  - Human_ship
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

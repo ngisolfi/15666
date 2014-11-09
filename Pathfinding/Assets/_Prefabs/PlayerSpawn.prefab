@@ -23,7 +23,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400002}
-  - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
   - 148: {fileID: 14800000}
   m_Layer: 0
@@ -213,7 +212,7 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_Enabled: 1
---- !u!114 &11400000
+--- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -224,23 +223,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b846f6d82860ebe45ab3e72f78731cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 100002, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
-  maxActive: 1
-  maxGenerated: 3
-  endMessage: GAME OVER
-  lifeIcon: {fileID: 2800000, guid: ed6e97bea0f8d034baefaf26f8dc4755, type: 3}
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 265e371f71701cf46a131c07add9bd40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Derek
+  alien_ship: {fileID: 100000, guid: 30685deaf9bb1b24e8338f377c037ab0, type: 2}
+  human_ship: {fileID: 100002, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+  num_ships: 1
+  lifeIcon: {fileID: 2800000, guid: 0ea8263ec300271419b0242306434b68, type: 3}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
