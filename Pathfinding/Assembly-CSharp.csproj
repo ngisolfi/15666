@@ -69,6 +69,9 @@
      <Compile Include="Assets\_Scripts\LoadMazeLevel.cs" />
      <Compile Include="Assets\_Scripts\Make_grid_raycast.cs" />
      <Compile Include="Assets\_Scripts\PlayerHandler.cs" />
+     <Compile Include="Assets\_Scripts\Scheduler\ScheduledBehavior.cs" />
+     <Compile Include="Assets\_Scripts\Scheduler\Scheduler.cs" />
+     <Compile Include="Assets\_Scripts\Scheduler\Timer.cs" />
      <Compile Include="Assets\_Scripts\ShipController.cs" />
      <Compile Include="Assets\_Scripts\SmoothFollowCSharp.cs" />
      <Compile Include="Assets\_Scripts\SpawnPlayer.cs" />

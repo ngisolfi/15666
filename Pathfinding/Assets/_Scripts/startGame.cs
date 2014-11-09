@@ -44,7 +44,7 @@ public class startGame : MonoBehaviour {
 		Network.InitializeServer(4, 25000, !Network.HavePublicAddress());
 		MasterServer.RegisterHost(typeName, gameName);
 
-		playerName = "Host";
+//		playerName = "Host";
 		StartGame();
 		running = true;
 	}
