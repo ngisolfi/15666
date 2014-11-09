@@ -5,6 +5,7 @@ public abstract class ScheduledBehavior : MonoBehaviour {
 	private Scheduler _scheduler;
 	private int _phase;
 	public int framesBetweenUpdates = 1;
+	private float _computationTime = 0f;
 
 	public virtual void Awake() {
 		GameObject scheduleObject = GameObject.Find("Scheduler");
@@ -17,17 +18,24 @@ public abstract class ScheduledBehavior : MonoBehaviour {
 		if(_scheduler)
 			_phase = _scheduler.addBehavior(this);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public int phase {
+		get {
+			return _phase;
+		}
 	}
 
-	public int phase
-	{
-		get
-		{
-			return _phase;
+	public float computationTime {
+		get {
+			if(_computationTime > 0f)
+				return _computationTime;
+			else
+				return Time.deltaTime;
+		}
+
+		set {
+			if(value > _computationTime)
+				_computationTime = value;
 		}
 	}
 
