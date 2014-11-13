@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93d06e2774571e4493967755d52d968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 100002, guid: 0dc3eb82b7faab541b51347a1c515421, type: 2}
+  ship: {fileID: 100002, guid: 93cb2f6212db84548815eb9f31f45b80, type: 2}
   maxActive: 4
   maxGenerated: 20
   endMessage: YOU WIN

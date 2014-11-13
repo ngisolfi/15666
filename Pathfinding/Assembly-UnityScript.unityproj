@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_4_5_3;UNITY_4_5;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_5_3;UNITY_4_5;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;CROSS_PLATFORM_INPUT</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -46,12 +46,24 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\SpaceScout\Scripts\CameraComponent.js" />
-     <None Include="Assets\SpaceScout\Shaders\StarsFar.shader" />
-     <None Include="Assets\SpaceScout\Shaders\StarsClose.shader" />
-     <None Include="Assets\SpaceScout\Shaders\ReflectiveSelfIllumDiffuse.shader" />
-     <None Include="Assets\Raw Mocap Data\Animations\_CompleteAnimationList.txt" />
-     <None Include="Assets\Detonator Explosion Framework\Resources\Detonator\Textures\HeatDistort.shader" />
+     <Compile Include="Assets\Sources\CrumpleMesh.js" />
+     <Compile Include="Assets\Sources\ExtrudedMeshTrail.js" />
+     <Compile Include="Assets\Sources\FractalTexture.js" />
+     <Compile Include="Assets\Sources\HeightmapGenerator.js" />
+     <Compile Include="Assets\Sources\InitialRigidbodyVelocity.js" />
+     <Compile Include="Assets\Sources\MouseOrbit.js" />
+     <Compile Include="Assets\Sources\PaintVertices.js" />
+     <Compile Include="Assets\Sources\SinusCurveModifier.js" />
+     <Compile Include="Assets\Sources\SmoothRandomPosition.js" />
+     <Compile Include="Assets\Sources\TronTrail.js" />
+     <Compile Include="Assets\Sources\Twist.js" />
+     <Compile Include="Assets\Sources\~ControlScripts\DragTransform.js" />
+     <Compile Include="Assets\Sources\~ControlScripts\KeyboardOrbit.js" />
+     <Compile Include="Assets\Sources\~ControlScripts\VPS.js" />
+     <None Include="Assets\_Assets\SpaceScout\Shaders\StarsFar.shader" />
+     <None Include="Assets\_Assets\SpaceScout\Shaders\StarsClose.shader" />
+     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\_Assets\SpaceScout\Shaders\ReflectiveSelfIllumDiffuse.shader" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">

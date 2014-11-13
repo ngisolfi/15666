@@ -33,6 +33,11 @@ public class playerController : MonoBehaviour {
 		if (Input.GetButton ("Fire1")) {
 			controller.Fire();
 		}
+
+		if (Input.GetKey(KeyCode.W))
+			gameObject.transform.Find("Flame").gameObject.SetActive(true);
+		else
+			gameObject.transform.Find("Flame").gameObject.SetActive(false);
 		
 	}
 	
@@ -40,6 +45,8 @@ public class playerController : MonoBehaviour {
 		if(networkView.isMine){
 			float turn = Input.GetAxis ("Horizontal");
 			float moveForward = Input.GetAxis ("Vertical");
+	
+
 
 			if(moveForward > 0f){
 				controller.Thrust();

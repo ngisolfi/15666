@@ -1,0 +1,48 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class particleController : MonoBehaviour {
+
+	public int max_particles = 100;
+	public float max_velocity = 2500.0f;
+	private GameObject particles;
+	private Camera cam;
+
+	// Use this for initialization
+	void Start () {
+		cam = Camera.main;
+		particles = GameObject.Find ("Sparks");
+	}
+	
+	// Update is called once per frame
+	void Update () {
+
+		// Find the camera, place the particle system 
+		// directly in front of the lookat vector
+		particles.transform.position = cam.transform.position + cam.transform.forward * 150.0f;
+
+		float vel = this.rigidbody.velocity.magnitude;
+
+		// Update the particles on the ship's thruster
+		ParticleSystem thruster = GameObject.Find ("Thruster").particleSystem;
+		thruster.startSize = vel / 300.0f + 0.8f;
+		Color slow = new Color (1.0f, 0.2f, 0.1f);
+		Color fast = new Color (0.2f, 0.4f, 1.0f);
+		thruster.startColor = Color.Lerp (slow, fast, vel / max_velocity);
+	
+		// Should we provide purple space clouds?
+		if (vel > 0.3f * max_velocity) 
+			particles.SetActive(true);
+		else
+			particles.SetActive(false);
+
+		// Max velocity is roughly 1300
+		int n_particles = Mathf.RoundToInt (max_particles * vel / max_velocity);
+
+		particles.particleEmitter.minEmission = n_particles;
+		particles.particleEmitter.maxEmission = n_particles;
+
+		particles.particleEmitter.localVelocity = new Vector3(0.0f, 0.0f, vel / 1.25f);
+		particles.particleEmitter.rndVelocity = new Vector3(vel / 3.0f, vel / 3.0f, 0.0f);
+	}
+}

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Die : MonoBehaviour {
 
+	public GameObject onDeathExplosion;
 	private Health health;
 //	private AudioSource point;
 //	public GameObject currentDetonator;
@@ -22,10 +23,17 @@ public class Die : MonoBehaviour {
 	void Update () {
 		if(health.health <= 0f){
 //			SpawnExplosion();
+			Network.Instantiate (onDeathExplosion,transform.position,Quaternion.identity,0);
+
 			Network.Destroy(gameObject);
+			if(gameObject.tag=="asteroid"){
+			Destroy (gameObject);
+			}
 		}
 	}
-	
+
+
+
 //	private void SpawnExplosion()
 //	{
 //		//Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

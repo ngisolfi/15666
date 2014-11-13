@@ -15,6 +15,7 @@ TagManager:
   - ChatBox
   - EnemySpawn
   - PlayerSpawn
+  - asteroid
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

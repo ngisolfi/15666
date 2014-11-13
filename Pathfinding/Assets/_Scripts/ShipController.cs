@@ -28,6 +28,7 @@ public class ShipController : MonoBehaviour {
 	}
 	
 	public void Thrust() {
+		gameObject.transform.Find("Flame").gameObject.SetActive(true);
 		if(networkView.isMine){
 			rigidbody.AddForce(transform.forward * acceleration);
 			Vector3 velocity = rigidbody.velocity;

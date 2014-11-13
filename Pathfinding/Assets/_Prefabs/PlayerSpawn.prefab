@@ -224,11 +224,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b846f6d82860ebe45ab3e72f78731cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 100002, guid: 382a1d8bd351d954c84d67a294193e7c, type: 2}
+  ship: {fileID: 100010, guid: 56766d09e99ff004091ff9555fde3f55, type: 2}
   maxActive: 1
   maxGenerated: 3
   endMessage: GAME OVER
-  lifeIcon: {fileID: 2800000, guid: ed6e97bea0f8d034baefaf26f8dc4755, type: 3}
+  lifeIcon: {fileID: 2800000, guid: 63daff8838177204f93e87c3bb27cdb5, type: 3}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

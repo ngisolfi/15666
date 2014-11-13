@@ -17,7 +17,7 @@ public class Health : MonoBehaviour {
 	
 	void OnGUI() {
 		Camera cam = Camera.current;
-		if(cam){
+		if( healthLevel!=fullHealth){
 			Vector3 pos = cam.WorldToScreenPoint(transform.position) - new Vector3(30,-20,0);
 			Vector2 size = new Vector2(60,10);
 			

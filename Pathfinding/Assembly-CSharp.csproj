@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\PlayerHandler.cs" />
+     <Compile Include="Assets\Sources\LightningBolt.cs" />
      <Compile Include="Assets\_Scripts\AStar.cs" />
      <Compile Include="Assets\_Scripts\AStar_ss.cs" />
      <Compile Include="Assets\_Scripts\Actions\Action.cs" />
@@ -90,11 +91,12 @@
      <Compile Include="Assets\_Scripts\trafficMover.cs" />
      <Compile Include="Assets\_Scripts\wrapTexture.cs" />
      <Compile Include="Assets\chatBox.cs" />
+     <Compile Include="Assets\fade.cs" />
      <Compile Include="Assets\startGame.cs" />
-     <None Include="Assets\SpaceScout\Shaders\StarsFar.shader" />
-     <None Include="Assets\SpaceScout\Shaders\StarsClose.shader" />
-     <None Include="Assets\SpaceScout\Shaders\ReflectiveSelfIllumDiffuse.shader" />
-     <None Include="Assets\Raw Mocap Data\Animations\_CompleteAnimationList.txt" />
+     <None Include="Assets\_Assets\SpaceScout\Shaders\StarsFar.shader" />
+     <None Include="Assets\_Assets\SpaceScout\Shaders\StarsClose.shader" />
+     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\_Assets\SpaceScout\Shaders\ReflectiveSelfIllumDiffuse.shader" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">

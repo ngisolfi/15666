@@ -8,7 +8,7 @@ public class wrapTexture : MonoBehaviour {
 	void Start () {
 	
 
-		Material runtimeMaterial = new Material(Shader.Find("VertexLit"));
+		Material runtimeMaterial = new Material(Shader.Find("Bumped Diffuse"));
 		runtimeMaterial.mainTexture = surface;
 		//assuming sphere is a GameObject or Monobehavior
 		renderer.material = runtimeMaterial;
