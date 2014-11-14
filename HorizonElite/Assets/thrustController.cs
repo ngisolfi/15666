@@ -8,11 +8,12 @@ public class thrustController : MonoBehaviour {
 	public float rollSpeed;
 
 	private Vector3 thrusterLocation;
-
+	private laserFire laserSpawn;
 	// Use this for initialization
 	void Start () {
 	
 		thrusterLocation = GameObject.Find("Thruster").transform.position;
+		laserSpawn = GameObject.Find ("laserSpawner").GetComponent<laserFire>();
 	}
 	
 	// Update is called once per frame
@@ -22,6 +23,10 @@ public class thrustController : MonoBehaviour {
 		//Thrust On
 			rigidbody.AddForce(speed*transform.forward);//(transform.position - thrusterLocation).normalized);
 			Debug.Log ((transform.position-thrusterLocation).normalized);
+		}
+		if(Input.GetMouseButtonDown(1)){
+			laserSpawn.fireLaser();
+
 		}
 		if(Input.GetKey(KeyCode.W)){
 
