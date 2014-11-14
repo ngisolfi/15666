@@ -22,7 +22,6 @@ public class thrustController : MonoBehaviour {
 		if (Input.GetMouseButton (0)) {
 		//Thrust On
 			rigidbody.AddForce(speed*transform.forward);//(transform.position - thrusterLocation).normalized);
-			Debug.Log ((transform.position-thrusterLocation).normalized);
 		}
 		if(Input.GetMouseButtonDown(1)){
 			laserSpawn.fireLaser();
