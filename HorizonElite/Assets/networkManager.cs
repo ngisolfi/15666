@@ -15,6 +15,7 @@ public class networkManager : MonoBehaviour {
 	public GameObject human_ship;
 	private GameObject ship;
 	public GameObject cam;
+	public GameObject backgroundCam;
 
 	void OnServerInitialized(){
 	}
@@ -68,26 +69,34 @@ public class networkManager : MonoBehaviour {
 	}
 	
 	private void Spawn(){
-		if (Network.isServer)
-			ship = human_ship;
-		else
-			ship = alien_ship;
+		if (Network.isServer) {
 
+						ship = human_ship;
+						Debug.Log ("server spawning ship" + ship.ToString ());
+				} else {
+						ship = alien_ship;
+						Debug.Log ("server spawning ship" + ship.ToString ());
+				}
 		// Determine a spawn location and instantiate a new ship of the player's type
 		Vector3 spawn_location = GetSpawnLocation();
 		Quaternion spawn_direction = GetSpawnDirection ();
-		GameObject spawned = (GameObject)Network.Instantiate(ship, 
+		GameObject spawned = (GameObject)Network.Instantiate (ship, 
 		                                                     spawn_location, 
 		                                                     spawn_direction, 
-		                                                     networkView.GetInstanceID());
+		                                                      0);//networkView.GetInstanceID());
 
 		GameObject cam_spawned = (GameObject)Network.Instantiate (cam,
 		             		        							  spawn_location,
 		                    		                              spawn_direction,
-		                            		                      networkView.GetInstanceID ());
+		                                                          0);//networkView.GetInstanceID ());
+
+		GameObject backGround_camSpawn = (GameObject)Network.Instantiate (backgroundCam,
+		                                                                  Vector3.zero,
+		                                                                  spawn_direction,
+		                                                                  0);//networkView.GetInstanceID ());
 
 		cam_spawned.GetComponent<cameraFollow> ().target = spawned.transform;
-		
+		backGround_camSpawn.GetComponent<paintBackground> ().parentCamera = cam_spawned.camera;
 		// If the spawn was successful, set the camera to point to the spawned object
 		/*if (spawned)
 		{

@@ -3,12 +3,13 @@ using System.Collections;
 
 public class paintBackground : MonoBehaviour {
 
-	private Camera parentCamera;
+	public Camera parentCamera;
 	private Vector3 _originalPosition;
 
 	void Start () {
 
-		parentCamera = Camera.main;							
+	//	if(parentCamera==null)
+	//		parentCamera = Camera.main;							
 
 	}
 	

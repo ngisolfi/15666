@@ -18,34 +18,35 @@ public class thrustController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+				if (networkView.isMine) {
+						if (Input.GetMouseButton (0)) {
+								//Thrust On
+								rigidbody.AddForce (speed * transform.forward);//(transform.position - thrusterLocation).normalized);
+						}
+						if (Input.GetMouseButtonDown (1)) {
+								laserSpawn.fireLaser ();
 
-		if (Input.GetMouseButton (0)) {
-		//Thrust On
-			rigidbody.AddForce(speed*transform.forward);//(transform.position - thrusterLocation).normalized);
-		}
-		if(Input.GetMouseButtonDown(1)){
-			laserSpawn.fireLaser();
+						}
+						if (Input.GetKey (KeyCode.W)) {
 
-		}
-		if(Input.GetKey(KeyCode.W)){
+								rigidbody.AddRelativeTorque (new Vector3 (pitchSpeed, 0, 0));
+								//rotate to fly down
+						}
+						if (Input.GetKey (KeyCode.S)) {
+								//rotate to fly up
+								rigidbody.AddRelativeTorque (new Vector3 (-pitchSpeed, 0, 0));
 
-			rigidbody.AddRelativeTorque(new Vector3(pitchSpeed,0,0));
-			//rotate to fly down
-		}
-		if(Input.GetKey (KeyCode.S)){
-			//rotate to fly up
-			rigidbody.AddRelativeTorque(new Vector3(-pitchSpeed,0,0));
-
-		}
-		if(Input.GetKey (KeyCode.A)){
-			//roll to the left
-			rigidbody.AddRelativeTorque (new Vector3(0,0,rollSpeed));
-		}
-		if(Input.GetKey (KeyCode.D)){
-			//roll to the right
-			rigidbody.AddRelativeTorque(new Vector3(0,0,-rollSpeed));
-		}
+						}
+						if (Input.GetKey (KeyCode.A)) {
+								//roll to the left
+								rigidbody.AddRelativeTorque (new Vector3 (0, 0, rollSpeed));
+						}
+						if (Input.GetKey (KeyCode.D)) {
+								//roll to the right
+								rigidbody.AddRelativeTorque (new Vector3 (0, 0, -rollSpeed));
+						}
 
 
-	}
+				}
+		}
 }
