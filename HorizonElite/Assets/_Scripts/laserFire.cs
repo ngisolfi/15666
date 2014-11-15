@@ -7,7 +7,7 @@ public class laserFire : MonoBehaviour {
 	
 	public void fireLaser(){
 
-		Instantiate(laserShot, transform.position, Quaternion.LookRotation(transform.forward));
-
+		GameObject laser = (GameObject) Instantiate(laserShot, transform.position, Quaternion.LookRotation(transform.forward));
+		laser.GetComponent<SU_LaserShot>().firedBy = transform.parent;
 	}
 }
