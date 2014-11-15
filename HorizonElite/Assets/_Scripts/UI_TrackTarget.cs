@@ -19,7 +19,7 @@ public class UI_TrackTarget : MonoBehaviour {
 	void Update () {
 		if(Camera.main){
 			Vector3 screenPos = Camera.main.WorldToScreenPoint(target.forward*leadDistance + target.position);
-			Vector3 uiPos = new Vector3(2f*screenPos.x/Screen.width - 1f,2f*screenPos.y/Screen.height - 1f,0f);
+			Vector3 uiPos = new Vector3((2f*screenPos.x-Screen.width)/Screen.height,2f*screenPos.y/Screen.height - 1f,0f);
 			transform.position = uiPos*UIcamera.orthographicSize;
 		}
 	}
