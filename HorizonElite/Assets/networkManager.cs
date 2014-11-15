@@ -16,6 +16,15 @@ public class networkManager : MonoBehaviour {
 	private GameObject ship;
 	public GameObject cam;
 	public GameObject backgroundCam;
+	public GameObject titleCam;
+
+	private GameObject titleCamHandle;
+
+	void Start(){
+
+		titleCamHandle = Instantiate (titleCam, Vector3.zero, Quaternion.identity) as GameObject;
+
+	}
 
 	void OnServerInitialized(){
 	}
@@ -69,8 +78,9 @@ public class networkManager : MonoBehaviour {
 	}
 	
 	private void Spawn(){
+		Destroy (titleCamHandle);
 		if (Network.isServer) {
-
+					
 						ship = human_ship;
 						Debug.Log ("server spawning ship" + ship.ToString ());
 				} else {
