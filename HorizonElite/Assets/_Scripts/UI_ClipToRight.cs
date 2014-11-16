@@ -17,7 +17,7 @@ public class UI_ClipToRight : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 uiPos = transform.position;
-		uiPos.x = ((Screen.width-2f*(float)offset)/(float)Screen.height)*UIcamera.orthographicSize;
+		uiPos.x = ((Screen.width-2f*(float)offset)/(float)Screen.height)*UIcamera.orthographicSize-renderer.bounds.extents.x;
 		transform.position = uiPos;
 	}
 }
