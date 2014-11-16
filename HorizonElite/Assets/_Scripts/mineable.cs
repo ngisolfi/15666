@@ -4,28 +4,26 @@ using System.Collections;
 
 public class mineable : MonoBehaviour {
 
-	//public bool DEUTERIUM,TRITIUM,HELIUM,LITHIUM,BERYLLIUM,BORON;
-
-	//The element we are wanting to fill
-	public progressBar overlayProgressBar;
-	public float amountPerFrame;
-	//private progressBar elementProgress;
+	public string element;
+	public float collect_rate = 0.f;
+	private float time_left = 0.0f;
 
 	// Use this for initialization
 	void Start () {
-
-		//elementProgress = overlayProgressBar.GetComponent<progressBar> ();
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+			
 	}
 
-	void OnTriggerStay( Collider other){
+	void OnTriggerEnter(Collider other)
+	{
+		other.GetComponent<payloadBar> ().enteredAtmosphere (element);
+	}
 
-		overlayProgressBar.changeOre (amountPerFrame);
+	void OnTriggerStay(Collider other){
 
+		time_left -= Time.deltaTime;
+		if (time_left <= 0.0f) {
+			time_left = collect_rate;
+			other.GetComponent<payloadBar> ().collectResource (element, 1);
+		}
 	}
 }

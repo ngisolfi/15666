@@ -17,7 +17,9 @@ public class networkManager : MonoBehaviour {
 	public GameObject cam;
 	public GameObject backgroundCam;
 	public GameObject titleCam;
-
+	public GameObject crosshair;
+	public GameObject payload;
+	
 	private GameObject titleCamHandle;
 
 	void Start(){
@@ -107,6 +109,22 @@ public class networkManager : MonoBehaviour {
 
 		cam_spawned.GetComponent<cameraFollow> ().target = spawned.transform;
 		backGround_camSpawn.GetComponent<paintBackground> ().parentCamera = cam_spawned.camera;
+
+
+		/*GameObject my_crosshair = (GameObject)Network.Instantiate (crosshair,
+		                                                          Vector3.zero,
+		                                                          Quaternion.identity,
+		                                                          0);
+
+		my_crosshair.GetComponent<UI_TrackTarget> ().target = spawned.transform;
+		*/
+
+		/*GameObject payload_spawned = (GameObject)Network.Instantiate (payload,
+		                                                             Vector3.zero,
+		                                                             Quaternion.identity,
+		                                                             0);*/
+
+
 		// If the spawn was successful, set the camera to point to the spawned object
 		/*if (spawned)
 		{
