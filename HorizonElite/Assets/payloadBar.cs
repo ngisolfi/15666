@@ -152,7 +152,7 @@ public class GUIQuad {
 		quad.layer = 21;
 
 		// Fix this once we begin snapping to screen size
-		quad.transform.position = new Vector3 (-1.0f, -0.8f, 0.0f);
+		quad.transform.position = new Vector3 (.6f, -0.9f, 0.0f);
 		quad.transform.localScale = new Vector3 (0.0f, 0.1f, 0.001f);
 		addLength (0.0f);
 	}

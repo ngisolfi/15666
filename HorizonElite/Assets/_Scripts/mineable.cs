@@ -5,7 +5,7 @@ using System.Collections;
 public class mineable : MonoBehaviour {
 
 	public string element;
-	public float collect_rate = 0.f;
+	public float collect_rate = 0.0f;
 	private float time_left = 0.0f;
 
 	// Use this for initialization
