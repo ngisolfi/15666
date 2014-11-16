@@ -27,6 +27,8 @@ public class SU_LaserShot : MonoBehaviour {
 	public float life = 2.0f;
 	// Default velocity of laser beam
 	public float velocity = 1000.0f;
+	// Health level reduced on contact
+	public int strength = 20;
 	// Reference to impact effect prefab to spawn upon impact
 	public Transform impactEffect;
 	// Reference to explosion effect prefab to spawn if object is destroyed
@@ -73,11 +75,17 @@ public class SU_LaserShot : MonoBehaviour {
 					// Instantiate the imapct effect at impact position
 					Instantiate(impactEffect, _hit.point, _rotation);
 					// If random number is a small value...
-					if (Random.Range(0,20) < 2) {
-						// Instantiate the explosion effect at the point of impact
-						Instantiate(explosionEffect, _hit.transform.position, _rotation);
-						// Destroy the game object that we just hit
-						Destroy(_hit.transform.gameObject);
+//					if (Random.Range(0,20) < 2) {
+					Health health = _hit.transform.gameObject.GetComponent<Health>();
+					if(health){
+						if (health.healthLevel <= 0) {
+							// Instantiate the explosion effect at the point of impact
+							Instantiate(explosionEffect, _hit.transform.position, _rotation);
+							// Destroy the game object that we just hit
+							Destroy(_hit.transform.gameObject);
+						}else{
+							health.healthLevel -= strength;
+						}
 					}
 					// Destroy the laser shot game object
 					Destroy(gameObject);
