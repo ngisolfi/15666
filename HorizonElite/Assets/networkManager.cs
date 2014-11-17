@@ -95,17 +95,19 @@ public class networkManager : MonoBehaviour {
 		GameObject spawned = (GameObject)Network.Instantiate (ship, 
 		                                                     spawn_location, 
 		                                                     spawn_direction, 
-		                                                      0);//networkView.GetInstanceID());
+		                                                      0);
+		// Turn off the ship's tractor beam at the beginning of the game
+		spawned.transform.FindChild("tractorBeam").gameObject.SetActive(false);
 
 		GameObject cam_spawned = (GameObject)Network.Instantiate (cam,
 		             		        							  spawn_location,
 		                    		                              spawn_direction,
-		                                                          0);//networkView.GetInstanceID ());
+		                                                          0);
 
 		GameObject backGround_camSpawn = (GameObject)Network.Instantiate (backgroundCam,
 		                                                                  Vector3.zero,
 		                                                                  spawn_direction,
-		                                                                  0);//networkView.GetInstanceID ());
+		                                                                  0);
 
 		cam_spawned.GetComponent<cameraFollow> ().target = spawned.transform;
 		backGround_camSpawn.GetComponent<paintBackground> ().parentCamera = cam_spawned.camera;

@@ -12,6 +12,10 @@ public class payloadBar : MonoBehaviour {
 	public Material helium;
 	public Material lithium;
 	public Material tritium;
+	private TextMesh payloadText;
+	private Light payloadLight;
+
+	public float tractor_beam_distance = 0.0f;
 
 	public int max_payload = 0;
 	private int tot_length = 0;
@@ -19,11 +23,13 @@ public class payloadBar : MonoBehaviour {
 	public float min_image_space = 0.0f;
 	public float fraction_of_width = 0.0f;
 	private float total_width = 0.0f;
+	private bool lightIncreasing=true;
 
 	// Use this for initialization
 	void Start () {
 		quads = new List<GUIQuad> ();
-
+		payloadText = GameObject.Find ("payloadPercent").GetComponent<TextMesh>();
+		payloadLight = GameObject.Find ("payloadLight").GetComponent<Light> ();
 		// Set width that this GUI should take up on the screen
 		total_width = (float)Screen.width * fraction_of_width;
 	}
@@ -40,8 +46,27 @@ public class payloadBar : MonoBehaviour {
 		quads [count].setPosition (imspace_x);
 	}
 
+	void FixedUpdate(){
+
+		if (tot_length >= max_payload) {
+			if(payloadLight.intensity<=0f){
+				lightIncreasing=true;
+			} else if (payloadLight.intensity>=4f){
+				lightIncreasing=false;
+			}
+			
+			if(lightIncreasing){
+				payloadLight.intensity+=.2f;
+			} else {
+				payloadLight.intensity-=.2f;
+			}
+			
+			return;
+		}
+	}
 	public void collectResource(string element, int delta_len)
 	{
+
 		Debug.Log ("payload: " + tot_length.ToString ());
 		// Check if we are already overburdened
 		if (tot_length >= max_payload)
@@ -78,6 +103,10 @@ public class payloadBar : MonoBehaviour {
 		}
 
 		tot_length += delta_len;
+
+		int print = Mathf.FloorToInt((float)tot_length / (float)max_payload * 100.0f);
+		payloadText.text = "("+print.ToString()+"%)";
+
 	}
 
 	Material elementToMaterial(string element)

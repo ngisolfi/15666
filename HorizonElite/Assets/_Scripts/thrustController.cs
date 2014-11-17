@@ -25,7 +25,7 @@ public class thrustController : MonoBehaviour {
 				//Thrust On
 				rigidbody.AddForce (speed * transform.forward);//(transform.position - thrusterLocation).normalized);
 			}
-			if (Input.GetButton("Fire2") && Time.time > nextFire) {
+			if (Input.GetButtonDown("Fire2") && Time.time > nextFire) {
 				nextFire = Time.time + fireRate;
 				laserSpawn.fireLaser ();
 			}
