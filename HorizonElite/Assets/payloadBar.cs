@@ -16,7 +16,7 @@ public class payloadBar : MonoBehaviour {
 	private Light payloadLight;
 
 	public float tractor_beam_distance = 0.0f;
-
+	public int BE, BO, DE, HE, LI, TR;
 	public int max_payload = 0;
 	private int tot_length = 0;
 
@@ -25,11 +25,9 @@ public class payloadBar : MonoBehaviour {
 	private float total_width = 0.0f;
 	private bool lightIncreasing=true;
 
-	private ShipCapacity capacityHandler;
-
 	// Use this for initialization
 	void Start () {
-		capacityHandler = gameObject.GetComponent<ShipCapacity>();
+		BE = BO = DE = HE = LI = TR = 0;
 		quads = new List<GUIQuad> ();
 		payloadText = GameObject.Find ("payloadPercent").GetComponent<TextMesh>();
 		payloadLight = GameObject.Find ("payloadLight").GetComponent<Light> ();
@@ -67,60 +65,47 @@ public class payloadBar : MonoBehaviour {
 			return;
 		}
 	}
-
-	void updateQuadPositions()
-	{
-//		float start = 0.0;
-//		foreach(GUIQuad quad in quads){
-//
-//		}
-	}
-
 	public void collectResource(string element, int delta_len)
 	{
 
 		Debug.Log ("payload: " + tot_length.ToString ());
-
-		capacityHandler.depositOre(element,delta_len);
-
 		// Check if we are already overburdened
-//		if (tot_length >= max_payload)
-//			return;
+		if (tot_length >= max_payload)
+			return;
 
-//		float imspace_dx =  (float)delta_len / (float)max_payload * total_width;
-//		
-//		bool set = false;
-//		float length_so_far = 0;
-//		for (int ii = 0; ii < quads.Count; ++ii) 
-//		{
-//			length_so_far += quads[ii].getLength();
-//
-//			// Iterate through the list until we find the right color
-//			if (element.ToUpper().CompareTo(quads[ii].getElement ()) == 0)
-//			{
-//				quads[ii].addLength(imspace_dx);
-//				set = true;
-//			}
-//
-//			else
-//			{
-//				// If iterator is before the specified quad, ignore and continue
-//				if (!set)
-//					continue;
-//
-//				// Otherwise, update elements in the list after specified quad with
-//				// updated length
-//				else
-//				{
-//					quads[ii].addDeltaPosition(imspace_dx);
-//				}
-//			}
-//		}
+		float imspace_dx =  (float)delta_len / (float)max_payload * total_width;
+		
+		bool set = false;
+		float length_so_far = 0;
+		for (int ii = 0; ii < quads.Count; ++ii) 
+		{
+			length_so_far += quads[ii].getLength();
+
+			// Iterate through the list until we find the right color
+			if (element.ToUpper().CompareTo(quads[ii].getElement ()) == 0)
+			{
+				quads[ii].addLength(imspace_dx);
+				set = true;
+			}
+
+			else
+			{
+				// If iterator is before the specified quad, ignore and continue
+				if (!set)
+					continue;
+
+				// Otherwise, update elements in the list after specified quad with
+				// updated length
+				else
+				{
+					quads[ii].addDeltaPosition(imspace_dx);
+				}
+			}
+		}
 
 		tot_length += delta_len;
 
-//		int print = Mathf.FloorToInt((float)tot_length / (float)max_payload * 100.0f);
-		int print = capacityHandler.percentFull();
+		int print = Mathf.FloorToInt((float)tot_length / (float)max_payload * 100.0f);
 		payloadText.text = "("+print.ToString()+"%)";
 
 	}
@@ -216,7 +201,6 @@ public class GUIQuad {
 
 	public void addLength(float x_len)
 	{
-		length += x_len;
 		Vector3 p = quad.transform.position;
 		Vector3 s = quad.transform.localScale;
 

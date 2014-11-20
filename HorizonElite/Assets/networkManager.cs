@@ -24,8 +24,8 @@ public class networkManager : MonoBehaviour {
 
 	void Start(){
 
-		titleCamHandle = Instantiate (titleCam, Vector3.zero, Quaternion.identity) as GameObject;
-
+		titleCamHandle = Instantiate (titleCam, Vector3.zero, Quaternion.identity)as GameObject;
+		GameObject.FindGameObjectWithTag ("BKGCam").GetComponent<paintBackground> ().parentCamera = GameObject.Find ("spectator").camera;
 	}
 
 	void OnServerInitialized(){
@@ -115,13 +115,13 @@ public class networkManager : MonoBehaviour {
 		backGround_camSpawn.GetComponent<paintBackground> ().parentCamera = cam_spawned.camera;
 
 
-		/*GameObject my_crosshair = (GameObject)Network.Instantiate (crosshair,
+		GameObject my_crosshair = (GameObject)Network.Instantiate (crosshair,
 		                                                          Vector3.zero,
 		                                                          Quaternion.identity,
 		                                                          0);
 
 		my_crosshair.GetComponent<UI_TrackTarget> ().target = spawned.transform;
-		*/
+
 
 		/*GameObject payload_spawned = (GameObject)Network.Instantiate (payload,
 		                                                             Vector3.zero,

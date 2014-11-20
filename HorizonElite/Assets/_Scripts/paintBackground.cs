@@ -8,8 +8,8 @@ public class paintBackground : MonoBehaviour {
 
 	void Start () {
 
-	//	if(parentCamera==null)
-	//		parentCamera = Camera.main;							
+			if (parentCamera == null)
+				parentCamera = GameObject.FindGameObjectWithTag ("titleCamera").camera;//Camera.main;							
 
 	}
 	
@@ -19,6 +19,8 @@ public class paintBackground : MonoBehaviour {
 			transform.rotation = parentCamera.transform.rotation;
 			camera.fieldOfView = parentCamera.fieldOfView;
 
-		}
+		} //else {
+			//parentCamera = GameObject.FindGameObjectWithTag("titleCam").camera;
+		//}
 	}
 }

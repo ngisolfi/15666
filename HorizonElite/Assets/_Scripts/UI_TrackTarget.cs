@@ -8,11 +8,14 @@ public class UI_TrackTarget : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		foreach(Transform sibling in transform.parent){
-			if(sibling.name == "Camera"){
-				UIcamera = sibling.camera;
-			}
-		}
+//		foreach(Transform sibling in transform.parent){
+//			if(sibling.name == "Camera"){
+//				UIcamera = sibling.camera;
+//			}
+//		}
+
+		UIcamera = GameObject.FindGameObjectWithTag ("UICam").camera;
+
 	}
 	
 	// Update is called once per frame
