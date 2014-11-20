@@ -16,18 +16,20 @@ public class progressBar : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		OreCapacity collector = container.GetComponent<OreCapacity>();
-		float capacity_fraction = 0f;
-		if(collector){
-			capacity_fraction = collector.elementFraction(element);
+		if(container){
+			OreCapacity collector = container.GetComponent<OreCapacity>();
+			float capacity_fraction = 0f;
+			if(collector){
+				capacity_fraction = collector.elementFraction(element);
+			}
+
+
+
+			renderer.material.SetFloat ("_Cutoff", Mathf.Max((int)(capacity_fraction*256f),1));
+	//		renderer.material.SetFloat ("_Cutoff",Mathf.InverseLerp(0, Screen.width, Input.mousePosition.x)); 
+			renderer.material.color = Color.Lerp (start, end, capacity_fraction);
+	//		renderer.material.color = Color.Lerp (start, end, Mathf.InverseLerp(Screen.width, 0,  Input.mousePosition.x));
 		}
-
-
-
-		renderer.material.SetFloat ("_Cutoff", Mathf.Max((int)(capacity_fraction*256f),1));
-//		renderer.material.SetFloat ("_Cutoff",Mathf.InverseLerp(0, Screen.width, Input.mousePosition.x)); 
-		renderer.material.color = Color.Lerp (start, end, capacity_fraction);
-//		renderer.material.color = Color.Lerp (start, end, Mathf.InverseLerp(Screen.width, 0,  Input.mousePosition.x));
 
 
 //		if(Mathf.InverseLerp(0, Screen.width, Input.mousePosition.x)>0){
