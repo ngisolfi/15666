@@ -16,7 +16,7 @@ public class payloadBar : MonoBehaviour {
 	private Light payloadLight;
 
 	public float tractor_beam_distance = 0.0f;
-
+	public int BE, BO, DE, HE, LI, TR;
 	public int max_payload = 0;
 	private int tot_length = 0;
 
@@ -27,6 +27,7 @@ public class payloadBar : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		BE = BO = DE = HE = LI = TR = 0;
 		quads = new List<GUIQuad> ();
 		payloadText = GameObject.Find ("payloadPercent").GetComponent<TextMesh>();
 		payloadLight = GameObject.Find ("payloadLight").GetComponent<Light> ();
