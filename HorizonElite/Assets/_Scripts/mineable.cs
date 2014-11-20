@@ -20,7 +20,7 @@ public class mineable : MonoBehaviour {
 		if (other.gameObject.tag.CompareTo ("Player") != 0)
 			return;
 
-		other.GetComponent<payloadBar> ().enteredAtmosphere (element);
+//		other.GetComponent<payloadBar> ().enteredAtmosphere (element);
 
 		// Set the tractor beam on, clear all particles that were previously in the emitter
 		other.transform.FindChild ("tractorBeam").gameObject.SetActive (true);
@@ -36,17 +36,20 @@ public class mineable : MonoBehaviour {
 
 	void OnTriggerStay(Collider other){
 
-		time_left -= Time.deltaTime;
-		if (time_left <= 0.0f) {
-			time_left = collect_rate;
-			other.GetComponent<payloadBar> ().collectResource (element, 1);
-		}
+		ShipCapacity capacity = other.GetComponent<ShipCapacity> ();
+		if(capacity){
+			time_left -= Time.deltaTime;
+			if (time_left <= 0.0f) {
+				time_left = collect_rate;
+				capacity.depositOre (element.ToUpper(), 1);
+			}
 
-		// Make the tractor beam face the planet
-		Vector3 planet2ship = (other.transform.position - planet.transform.position).normalized;
-		other.transform.FindChild ("tractorBeam").transform.position = 
-			other.transform.position - planet2ship * other.GetComponent<payloadBar>().tractor_beam_distance; 
-		
-		other.transform.FindChild ("tractorBeam").transform.LookAt (other.transform.position);
+			// Make the tractor beam face the planet
+			Vector3 planet2ship = (other.transform.position - planet.transform.position).normalized;
+			other.transform.FindChild ("tractorBeam").transform.position = 
+				other.transform.position - planet2ship * capacity.tractor_beam_distance; 
+			
+			other.transform.FindChild ("tractorBeam").transform.LookAt (other.transform.position);
+		}
 	}
 }

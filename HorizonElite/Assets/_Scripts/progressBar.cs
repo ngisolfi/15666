@@ -3,40 +3,49 @@ using System.Collections;
 
 public class progressBar : MonoBehaviour {
 
-	public float oreLevel;
+//	public float oreLevel=0f;
 	public MeshRenderer fullIcon;
 	public Color start,end;
-	private int cutoffLevel=1;
+//	private int cutoffLevel=0;
+	public string element;
+	public GameObject container;
 
 
-void Start(){
+	void Start(){
 		fullIcon.enabled = false;
 	}
-void FixedUpdate () { 
-		//renderer.material.SetFloat ("_Cutoff", cutoffLevel);
-		renderer.material.SetFloat ("_Cutoff",Mathf.InverseLerp(0, Screen.width, Input.mousePosition.x)); 
-		//renderer.material.color = Color.Lerp (Color.blue, Color.green, oreLevel/256f);
-		renderer.material.color = Color.Lerp (start, end, Mathf.InverseLerp(Screen.width, 0,  Input.mousePosition.x));
 
-
-		if(Mathf.InverseLerp(0, Screen.width, Input.mousePosition.x)>0){
-			fullIcon.enabled = false;
-		}else{
-			fullIcon.enabled = true;
+	void FixedUpdate () {
+		OreCapacity collector = container.GetComponent<OreCapacity>();
+		float capacity_fraction = 0f;
+		if(collector){
+			capacity_fraction = collector.elementFraction(element);
 		}
 
 
-}
 
-	public void changeOre( float amount ){
-		if (oreLevel <= 256f) {
-			oreLevel += amount;
-			cutoffLevel = Mathf.RoundToInt(oreLevel);
-			Debug.Log (fullIcon);
-			fullIcon.enabled = false;
-		} else {
-			fullIcon.enabled = true;
-		}
+		renderer.material.SetFloat ("_Cutoff", Mathf.Max((int)(capacity_fraction*256f),1));
+//		renderer.material.SetFloat ("_Cutoff",Mathf.InverseLerp(0, Screen.width, Input.mousePosition.x)); 
+		renderer.material.color = Color.Lerp (start, end, capacity_fraction);
+//		renderer.material.color = Color.Lerp (start, end, Mathf.InverseLerp(Screen.width, 0,  Input.mousePosition.x));
+
+
+//		if(Mathf.InverseLerp(0, Screen.width, Input.mousePosition.x)>0){
+//			fullIcon.enabled = false;
+//		}else{
+//			fullIcon.enabled = true;
+//		}
 	}
+
+//	public void changeOre( int amount ){
+//		if (oreLevel <= 256f) {
+//			oreLevel = (float)amount;
+//			cutoffLevel = amount;
+////			Debug.Log (fullIcon);
+//			fullIcon.enabled = false;
+//		} else {
+//			fullIcon.enabled = true;
+//		}
+//	}
 
 }

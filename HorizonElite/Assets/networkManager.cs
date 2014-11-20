@@ -96,8 +96,10 @@ public class networkManager : MonoBehaviour {
 		                                                     spawn_location, 
 		                                                     spawn_direction, 
 		                                                      0);
+		spawned.GetComponent<ShipCapacity>().homeShip = GameObject.Find("Environment/RedSolarSystem/redPlanets/O21/battleShipOrbiter");
 		// Turn off the ship's tractor beam at the beginning of the game
 		spawned.transform.FindChild("tractorBeam").gameObject.SetActive(false);
+		GameObject.Find ("UI/payloadForeground").GetComponent<UI_payload>().playerShip = spawned;
 
 		GameObject cam_spawned = (GameObject)Network.Instantiate (cam,
 		             		        							  spawn_location,
