@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class paintBackground : MonoBehaviour {
@@ -6,12 +6,12 @@ public class paintBackground : MonoBehaviour {
 	public Camera parentCamera;
 	private Vector3 _originalPosition;
 
-	void Start () {
-
-			if (parentCamera == null)
-				parentCamera = GameObject.FindGameObjectWithTag ("titleCamera").camera;//Camera.main;							
-
-	}
+//	void Start () {
+//
+////			if (parentCamera == null)
+////				parentCamera = GameObject.FindGameObjectWithTag ("titleCamera").camera;//Camera.main;							
+//
+//	}
 	
 	void Update () {		
 		if (parentCamera != null) {

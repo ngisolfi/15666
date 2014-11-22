@@ -40,7 +40,12 @@ public class SU_LaserShot : MonoBehaviour {
 	private Vector3 _velocity;
 	private Vector3 _newPos;
 	private Vector3 _oldPos;	
-	
+
+	private float timer = 0;
+	void Awake(){
+		timer = Time.time;
+	}
+
 	void Start () {
 		// Set the new position to the current position of the transform
 		_newPos = transform.position;
@@ -49,10 +54,14 @@ public class SU_LaserShot : MonoBehaviour {
 		// Set the velocity vector 3 to the specified velocity and set the direction to face forward of the transform
 		_velocity = velocity * transform.forward;
 		// Set the gameobject to destroy after period "life"
-		Destroy(gameObject, life);
+		////Network.Destroy(//(gameObject, life);
 	}
 	
 	void Update () {
+		if(Time.time - timer > 2.0f){
+			if(networkView.isMine)
+				Network.Destroy (gameObject);
+		}
 		// Change new position by the velocity magnitude (in the direction of transform.forward) and since
 		// we are in the update function we need to multiply by deltatime.
 		_newPos += transform.forward * _velocity.magnitude * Time.deltaTime;
@@ -73,22 +82,24 @@ public class SU_LaserShot : MonoBehaviour {
 					// throw particles out from the object we just hit...
 					Quaternion _rotation = Quaternion.FromToRotation(Vector3.up, _hit.normal);
 					// Instantiate the imapct effect at impact position
-					Instantiate(impactEffect, _hit.point, _rotation);
+					Network.Instantiate(impactEffect, _hit.point, _rotation,0);
 					// If random number is a small value...
 //					if (Random.Range(0,20) < 2) {
 					Health health = _hit.transform.gameObject.GetComponent<Health>();
 					if(health){
 						if (health.healthLevel <= 0) {
 							// Instantiate the explosion effect at the point of impact
-							Instantiate(explosionEffect, _hit.transform.position, _rotation);
+							Network.Instantiate(explosionEffect, _hit.transform.position, _rotation,0);
 							// Destroy the game object that we just hit
-							Destroy(_hit.transform.gameObject);
+							if(networkView.isMine)
+							Network.Destroy(_hit.transform.gameObject);
 						}else{
 							health.healthLevel -= strength;
 						}
 					}
 					// Destroy the laser shot game object
-					Destroy(gameObject);
+					if(networkView.isMine)
+						Network.Destroy(gameObject);
 				}
 			}
 		}

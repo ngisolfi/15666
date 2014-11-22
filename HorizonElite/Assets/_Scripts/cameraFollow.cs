@@ -30,12 +30,14 @@ public class cameraFollow : MonoBehaviour {
 		}
 	// Update is called once per frame
 	void CameraUpdate () {
-	
-		Quaternion lookDirection = target.rotation;//Quaternion.LookRotation (target.position - transform.position);
-		transform.rotation = Quaternion.Lerp (transform.rotation,lookDirection, Time.deltaTime*lookAtDamping);
+		if (target != null) {
 
-		//if(Vector3.Distance (transform.position,target.position)>distanceBehind){
-			transform.position = Vector3.Lerp (transform.position,target.position-target.forward*distanceBehind+target.up*distanceAbove,Time.deltaTime*followDamping);
-		//}
+						Quaternion lookDirection = target.rotation;//Quaternion.LookRotation (target.position - transform.position);
+						transform.rotation = Quaternion.Lerp (transform.rotation, lookDirection, Time.deltaTime * lookAtDamping);
+
+						//if(Vector3.Distance (transform.position,target.position)>distanceBehind){
+						transform.position = Vector3.Lerp (transform.position, target.position - target.forward * distanceBehind + target.up * distanceAbove, Time.deltaTime * followDamping);
+						//}
+				}
 	}
 }
