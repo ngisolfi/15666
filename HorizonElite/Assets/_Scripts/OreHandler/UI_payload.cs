@@ -52,8 +52,8 @@ public class UI_payload : MonoBehaviour {
 	}
 
 	void Start(){
-		payloadText = GameObject.Find ("payloadPercent").GetComponent<TextMesh>();
-		payloadLight = GameObject.Find ("payloadLight").GetComponent<Light> ();
+		payloadText = GameObject.Find ("UI/element_payloadBar/component_text/text_Percent").GetComponent<TextMesh>();
+		payloadLight = GameObject.Find ("UI/element_payloadBar/component_light").GetComponent<Light> ();
 	}
 
 	// Update is called once per frame
