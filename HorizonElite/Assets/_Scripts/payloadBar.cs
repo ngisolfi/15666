@@ -29,8 +29,13 @@ public class payloadBar : MonoBehaviour {
 	void Start () {
 		BE = BO = DE = HE = LI = TR = 0;
 		quads = new List<GUIQuad> ();
-		payloadText = GameObject.Find ("payloadPercent").GetComponent<TextMesh>();
-		payloadLight = GameObject.Find ("payloadLight").GetComponent<Light> ();
+		if(Network.isServer){
+			payloadText = GameObject.Find ("p1UI/element_payloadBar/component_text/text_Percent").GetComponent<TextMesh>();
+			payloadLight = GameObject.Find ("p1UI/element_payloadBar/component_light").GetComponent<Light> ();
+		} else{
+			payloadText = GameObject.Find ("p2UI/element_payloadBar/component_text/text_Percent").GetComponent<TextMesh>();
+			payloadLight = GameObject.Find ("p2UI/element_payloadBar/component_light").GetComponent<Light>();
+		}
 		// Set width that this GUI should take up on the screen
 		total_width = (float)Screen.width * fraction_of_width;
 	}

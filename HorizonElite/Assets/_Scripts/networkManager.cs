@@ -19,7 +19,7 @@ public class networkManager : MonoBehaviour {
 	public GameObject titleCam;
 	public GameObject crosshair;
 	public GameObject payload;
-	
+	public GameObject UI;
 	private GameObject titleCamHandle;
 	private GameObject titleBackgroundHandle;
 	void Start(){
@@ -94,28 +94,64 @@ public class networkManager : MonoBehaviour {
 		} else {
 			ship = alien_ship;
 		}
-
-
+		
 		// Determine a spawn location and instantiate a new ship of the player's type
 		Vector3 spawn_location = GetSpawnLocation();
 		Quaternion spawn_direction = GetSpawnDirection ();
 
 		// player to be placed in the whorld
-		GameObject player = (GameObject)Network.Instantiate (ship, 
+		GameObject player = Network.Instantiate (ship, 
 		                                                     spawn_location, 
 		                                                     spawn_direction, 
-		                                                      0);
+		                                                      0) as GameObject;
+
+		if(Network.isServer)
+			player.name = "player1";
+		else
+			player.name = "player2";
 
 		// designate home planet for spawned player
 		if(Network.isServer){
-			player.GetComponent<ShipCapacity>().homeShip = GameObject.Find("Environment/RedSolarSystem/redPlanets/O21/battleShipOrbiter");
+			player.GetComponent<ShipCapacity>().homeShip = GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter");
 		} else {
-			player.GetComponent<ShipCapacity>().homeShip = GameObject.Find ("Environment/BlueSolarSystem/BluePlanets/O21/Battleship Orbiter");
+			player.GetComponent<ShipCapacity>().homeShip = GameObject.Find ("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter");
+		}
+
+
+		if(Network.isServer){
+			GameObject myUI = Network.Instantiate (UI,
+			                                       new Vector3(0f,0f,-1),
+			                                       Quaternion.LookRotation(Vector3.forward),
+			                                       0) as GameObject;
+			myUI.name = "p1UI";
+			GameObject.Find ("p1UI/element_miningProgress/component_wheels/wheel_beryllium/be_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter");
+			GameObject.Find ("p1UI/element_miningProgress/component_wheels/wheel_boron/b_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter");
+			GameObject.Find ("p1UI/element_miningProgress/component_wheels/wheel_deuterium/d_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter");
+			GameObject.Find ("p1UI/element_miningProgress/component_wheels/wheel_helium/he_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter");
+			GameObject.Find ("p1UI/element_miningProgress/component_wheels/wheel_lithium/li_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter");
+			GameObject.Find ("p1UI/element_miningProgress/component_wheels/wheel_tritium/t_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter");
+
+
+		} else {
+			GameObject myUI = Network.Instantiate (UI,
+			                                       new Vector3(0f,0f,-2),
+			                                       Quaternion.LookRotation (-Vector3.forward),
+			                                       0) as GameObject;
+			myUI.name="p2UI";
+			GameObject.Find ("p2UI/element_miningProgress/component_wheels/wheel_beryllium/be_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter");
+			GameObject.Find ("p2UI/element_miningProgress/component_wheels/wheel_boron/b_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter");
+			GameObject.Find ("p2UI/element_miningProgress/component_wheels/wheel_deuterium/d_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter");
+			GameObject.Find ("p2UI/element_miningProgress/component_wheels/wheel_helium/he_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter");
+			GameObject.Find ("p2UI/element_miningProgress/component_wheels/wheel_lithium/li_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter");
+			GameObject.Find ("p2UI/element_miningProgress/component_wheels/wheel_tritium/t_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter");
+
 		}
 
 		//setting up this ship with its payload ui stuff
-		GameObject.Find ("UI/element_payloadBar/component_background").GetComponent<UI_payload>().playerShip = player;
-
+		if (Network.isServer)
+						GameObject.Find ("p1UI/element_payloadBar/component_background").GetComponent<UI_payload> ().playerShip = player;
+				else
+						GameObject.Find ("p2UI/element_payloadBar/component_background").GetComponent<UI_payload> ().playerShip = player;
 		// the camera which will follow the player
 		GameObject player_camera = (GameObject)Network.Instantiate (cam, spawn_location,spawn_direction,0);
 		player_camera.GetComponent<cameraFollow> ().target = player.transform;
