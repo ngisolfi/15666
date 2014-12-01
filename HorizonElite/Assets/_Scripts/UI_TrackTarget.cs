@@ -30,7 +30,7 @@ public class UI_TrackTarget : MonoBehaviour {
 			}
 			Vector3 screenPos = Camera.main.WorldToScreenPoint(worldAim);
 			Vector3 uiPos = new Vector3((2f*screenPos.x-Screen.width)/Screen.height,2f*screenPos.y/Screen.height - 1f,0f);
-			transform.position = uiPos*UIcamera.orthographicSize;
+			transform.localPosition = uiPos*UIcamera.orthographicSize;
 		}
 	}
 }
