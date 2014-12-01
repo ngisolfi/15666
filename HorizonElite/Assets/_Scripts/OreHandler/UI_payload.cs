@@ -49,11 +49,21 @@ public class UI_payload : MonoBehaviour {
 		quads["HELIUM"] = setQuad(helium);
 		quads["LITHIUM"] = setQuad(lithium);
 		quads["TRITIUM"] = setQuad(tritium);
+		if (Network.isServer)
+			playerShip = GameObject.Find ("player1");
+		else
+			playerShip = GameObject.Find ("player2");
+
 	}
 
 	void Start(){
-		payloadText = GameObject.Find ("payloadPercent").GetComponent<TextMesh>();
-		payloadLight = GameObject.Find ("payloadLight").GetComponent<Light> ();
+		if(Network.isServer){
+			payloadText = GameObject.Find ("p1UI/element_payloadBar/component_text/text_Percent").GetComponent<TextMesh>();
+			payloadLight = GameObject.Find ("p1UI/element_payloadBar/component_light").GetComponent<Light> ();
+		} else if(Network.isClient){
+			payloadText = GameObject.Find ("p2UI/element_payloadBar/component_text/text_Percent").GetComponent<TextMesh>();
+			payloadLight = GameObject.Find("p2UI/element_payloadBar/component_light").GetComponent<Light>();
+		}
 	}
 
 	// Update is called once per frame

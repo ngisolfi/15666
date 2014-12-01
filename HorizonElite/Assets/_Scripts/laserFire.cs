@@ -8,7 +8,8 @@ public class laserFire : MonoBehaviour {
 
 	public void fireLaser(Vector3 target){
 
-		GameObject laser = (GameObject) Instantiate(laserShot, transform.position, Quaternion.LookRotation(target - transform.position));
+
+		GameObject laser = (GameObject) Network.Instantiate(laserShot, transform.position, Quaternion.LookRotation(transform.forward),0);
 		SU_LaserShot shot = laser.GetComponent<SU_LaserShot>();
 		if(shot){
 			shot.firedBy = transform.parent;
