@@ -11,11 +11,13 @@ public class thrustController : MonoBehaviour {
 
 	private Vector3 thrusterLocation;
 	private laserFire laserSpawn;
+	private AimLaser laserSight;
 	// Use this for initialization
 	void Start () {
 	
-		thrusterLocation = GameObject.Find("Thruster").transform.position;
-		laserSpawn = GameObject.Find ("laserSpawner").GetComponent<laserFire>();
+		thrusterLocation = transform.Find("Thruster").position;
+		laserSpawn = transform.Find ("laserSpawner").gameObject.GetComponent<laserFire>();
+		laserSight = gameObject.GetComponent<AimLaser>();
 	}
 	
 	// Update is called once per frame
@@ -27,7 +29,7 @@ public class thrustController : MonoBehaviour {
 			}
 			if (Input.GetButtonDown("Fire2") && Time.time > nextFire) {
 				nextFire = Time.time + fireRate;
-				laserSpawn.fireLaser ();
+				laserSpawn.fireLaser (laserSight.target);
 			}
 			if (Input.GetAxis("Vertical") > 0f) {
 

@@ -21,7 +21,14 @@ public class UI_TrackTarget : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Camera.main){
-			Vector3 screenPos = Camera.main.WorldToScreenPoint(target.forward*leadDistance + target.position);
+			Vector3 worldAim;
+			AimLaser targetAim = target.GetComponent<AimLaser>();
+			if(targetAim){
+				worldAim = targetAim.target;
+			}else{
+				worldAim = target.forward*leadDistance + target.position;
+			}
+			Vector3 screenPos = Camera.main.WorldToScreenPoint(worldAim);
 			Vector3 uiPos = new Vector3((2f*screenPos.x-Screen.width)/Screen.height,2f*screenPos.y/Screen.height - 1f,0f);
 			transform.position = uiPos*UIcamera.orthographicSize;
 		}
