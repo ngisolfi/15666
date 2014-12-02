@@ -119,10 +119,11 @@ public class networkManager : MonoBehaviour {
 
 
 		if(Network.isServer){
-			GameObject myUI = Network.Instantiate (UI,
-			                                       new Vector3(0f,0f,-1),
-			                                       Quaternion.LookRotation(Vector3.forward),
-			                                       0) as GameObject;
+//			GameObject myUI = Network.Instantiate (UI,
+//			                                       new Vector3(0f,0f,-1),
+//			                                       Quaternion.LookRotation(Vector3.forward),
+//			                                       0) as GameObject;
+			GameObject myUI = Instantiate (UI, new Vector3(0f,0f,-1), Quaternion.LookRotation(Vector3.forward)) as GameObject;
 			myUI.name = "p1UI";
 			GameObject.Find ("p1UI/element_miningProgress/component_wheels/wheel_beryllium/be_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter");
 			GameObject.Find ("p1UI/element_miningProgress/component_wheels/wheel_boron/b_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter");
@@ -130,13 +131,17 @@ public class networkManager : MonoBehaviour {
 			GameObject.Find ("p1UI/element_miningProgress/component_wheels/wheel_helium/he_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter");
 			GameObject.Find ("p1UI/element_miningProgress/component_wheels/wheel_lithium/li_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter");
 			GameObject.Find ("p1UI/element_miningProgress/component_wheels/wheel_tritium/t_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter");
-
+			UI_TrackTarget tracker = myUI.transform.Find("Crosshair").gameObject.GetComponent<UI_TrackTarget>();
+			if(tracker)
+				tracker.target = player.transform;
 
 		} else {
-			GameObject myUI = Network.Instantiate (UI,
-			                                       new Vector3(0f,0f,-2),
-			                                       Quaternion.LookRotation (-Vector3.forward),
-			                                       0) as GameObject;
+//			GameObject myUI = Network.Instantiate (UI,
+//			                                       new Vector3(0f,0f,-2),
+//			                                       Quaternion.LookRotation (-Vector3.forward),
+//			                                       0) as GameObject;
+			GameObject myUI = Instantiate (UI, new Vector3(0f,0f,-1), Quaternion.LookRotation(Vector3.forward)) as GameObject;
+
 			myUI.name="p2UI";
 			GameObject.Find ("p2UI/element_miningProgress/component_wheels/wheel_beryllium/be_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter");
 			GameObject.Find ("p2UI/element_miningProgress/component_wheels/wheel_boron/b_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter");
@@ -144,7 +149,9 @@ public class networkManager : MonoBehaviour {
 			GameObject.Find ("p2UI/element_miningProgress/component_wheels/wheel_helium/he_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter");
 			GameObject.Find ("p2UI/element_miningProgress/component_wheels/wheel_lithium/li_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter");
 			GameObject.Find ("p2UI/element_miningProgress/component_wheels/wheel_tritium/t_progress").GetComponent<progressBar>().container=GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter");
-
+			UI_TrackTarget tracker = myUI.transform.Find("Crosshair").gameObject.GetComponent<UI_TrackTarget>();
+			if(tracker)
+				tracker.target = player.transform;
 		}
 
 		//setting up this ship with its payload ui stuff
