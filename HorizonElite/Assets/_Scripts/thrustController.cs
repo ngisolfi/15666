@@ -19,7 +19,7 @@ public class thrustController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (networkView.isMine) {
 			if (Input.GetButton("Fire1")) {
 				//Thrust On

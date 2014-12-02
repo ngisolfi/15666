@@ -17,7 +17,7 @@ public class networkManager : MonoBehaviour {
 	public GameObject cam;
 	public GameObject backgroundCam;
 	public GameObject titleCam;
-	public GameObject crosshair;
+	public GameObject crosshair_gameobject;
 	public GameObject payload;
 	public GameObject UI;
 	private GameObject titleCamHandle;
@@ -161,13 +161,26 @@ public class networkManager : MonoBehaviour {
 
 
 
-//		GameObject my_crosshair = (GameObject)Network.Instantiate (crosshair,
-//		                                                          Vector3.zero,
-//		                                                          Quaternion.identity,
-//		                                                          0);
-//
-//		my_crosshair.GetComponent<UI_TrackTarget> ().target = spawned.transform;
-//
+//		if (Network.isServer)
+//		{
+//			GameObject crosshair = (GameObject)Network.Instantiate (crosshair_gameobject,
+//		    	                                                    Vector3.zero,
+//		                                                            Quaternion.identity,
+//		                                                            0);
+//		   	crosshair.name = "p1_crosshair";
+//		    crosshair.GetComponent<UI_TrackTarget>().target = GameObject.Find("player1").transform;
+//		}
+//		else
+//		{
+//			GameObject crosshair = (GameObject)Network.Instantiate (crosshair_gameobject,
+//			                                                        Vector3.zero,
+//			                                                        Quaternion.identity,
+//			                                                        0);
+//			crosshair.name = "p2_crosshair";
+//			crosshair.GetComponent<UI_TrackTarget>().target = GameObject.Find("player2").transform;
+//		}
+		
+
 
 		/*GameObject payload_spawned = (GameObject)Network.Instantiate (payload,
 		                                                             Vector3.zero,

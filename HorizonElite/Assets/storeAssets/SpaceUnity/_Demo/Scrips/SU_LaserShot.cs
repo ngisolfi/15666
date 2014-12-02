@@ -57,7 +57,7 @@ public class SU_LaserShot : MonoBehaviour {
 		////Network.Destroy(//(gameObject, life);
 	}
 	
-	void Update () {
+	void FixedUpdate () {
 		if(Time.time - timer > 2.0f){
 			if(networkView.isMine)
 				Network.Destroy (gameObject);
