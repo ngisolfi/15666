@@ -15,7 +15,7 @@ public class particleController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		// Find the camera, place the particle system 
 		// directly in front of the lookat vector
@@ -25,7 +25,10 @@ public class particleController : MonoBehaviour {
 
 		// Update the particles on the ship's thruster
 		ParticleSystem thruster = GameObject.Find ("Thruster").particleSystem;
-		thruster.startSize = vel / 300.0f + 0.8f;
+		if (Network.isServer)
+			thruster.startSize = vel / 150.0f + 2.0f;
+		else
+			thruster.startSize = vel / 300.0f + 0.8f;
 		Color slow = new Color (1.0f, 0.2f, 0.1f);
 		Color fast = new Color (0.2f, 0.4f, 1.0f);
 		thruster.startColor = Color.Lerp (slow, fast, vel / max_velocity);
@@ -44,5 +47,9 @@ public class particleController : MonoBehaviour {
 
 		particles.particleEmitter.localVelocity = new Vector3(0.0f, 0.0f, vel / 1.25f);
 		particles.particleEmitter.rndVelocity = new Vector3(vel / 3.0f, vel / 3.0f, 0.0f);
+		
+		// Make the ship's trail renderer end width a function of velocity
+		GameObject.Find ("Thruster").GetComponent<TrailRenderer>().endWidth = 2900.0f * vel / max_velocity + 100.0f;
+		
 	}
 }

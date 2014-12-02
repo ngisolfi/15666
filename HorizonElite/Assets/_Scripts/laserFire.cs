@@ -4,7 +4,7 @@ using System.Collections;
 public class laserFire : MonoBehaviour {
 
 	public GameObject laserShot;
-	public float laserSpeed = 1000f;
+	public float laserSpeed;
 
 	public void fireLaser(Vector3 target){
 
@@ -12,7 +12,7 @@ public class laserFire : MonoBehaviour {
 		SU_LaserShot shot = laser.GetComponent<SU_LaserShot>();
 		if(shot){
 			shot.firedBy = transform.parent;
-			shot.velocity = laserSpeed;
+			shot.velocity = laserSpeed + transform.parent.rigidbody.velocity.magnitude;
 		}
 	}
 }
