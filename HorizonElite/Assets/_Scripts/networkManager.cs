@@ -117,7 +117,7 @@ public class networkManager : MonoBehaviour {
 		}
 		
 		// Determine a spawn location and instantiate a new ship of the player's type
-		Transform spawnPoint = homeOrbiter.transform.Find("battleshipPrefab/spawn_point");
+		Transform spawnPoint = homeOrbiter.transform.Find("mirror/spawn_point");
 		Vector3 spawn_location = spawnPoint.position;
 		Quaternion spawn_direction = spawnPoint.rotation;
 
@@ -183,6 +183,11 @@ public class networkManager : MonoBehaviour {
 		// the camera which will follow the player
 //		GameObject player_camera = (GameObject)Network.Instantiate (cam, spawn_location,spawn_direction,0);
 		GameObject player_camera = Instantiate (cam, spawn_location,spawn_direction) as GameObject;
+		if (Network.isServer)
+			player_camera.name = "camView_p1";
+		else
+			player_camera.name = "camView_p2";
+
 		player_camera.GetComponent<cameraFollow> ().target = player.transform;
 		// have the backgroundCamera now follow the player's network camera
 		GameObject player_BGcamera = Instantiate (backgroundCam, Vector3.zero, Quaternion.identity) as GameObject;

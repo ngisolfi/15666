@@ -30,6 +30,8 @@ public class mineable : MonoBehaviour {
 
 	void OnTriggerExit(Collider other)
 	{
+		if (other.gameObject.tag.CompareTo ("Player") != 0)
+			return;
 		// Set the tractor beam off
 		other.transform.FindChild ("tractorBeam").gameObject.SetActive (false);
 	}
