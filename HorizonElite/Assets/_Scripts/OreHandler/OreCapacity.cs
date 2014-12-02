@@ -17,6 +17,43 @@ public class OreCapacity : MonoBehaviour {
 		levels["LITHIUM"] = 0;
 		levels["TRITIUM"] = 0;
 	}
+	
+	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
+		int beryllium = 0;
+		int boron = 0;
+		int deuterium = 0;
+		int helium = 0;
+		int lithium = 0;
+		int tritium = 0;
+		
+		if (stream.isWriting) {
+			beryllium = levels["BERYLLIUM"];
+			boron = levels["BORON"];
+			deuterium = levels["DEUTERIUM"];
+			helium = levels["HELIUM"];
+			lithium = levels["LITHIUM"];
+			tritium = levels["TRITIUM"];
+			stream.Serialize(ref beryllium);
+			stream.Serialize(ref boron);
+			stream.Serialize(ref deuterium);
+			stream.Serialize(ref helium);
+			stream.Serialize(ref lithium);
+			stream.Serialize(ref tritium);
+		} else {
+			stream.Serialize(ref beryllium);
+			stream.Serialize(ref boron);
+			stream.Serialize(ref deuterium);
+			stream.Serialize(ref helium);
+			stream.Serialize(ref lithium);
+			stream.Serialize(ref tritium);
+			levels["BERYLLIUM"] = beryllium;
+			levels["BORON"] = boron;
+			levels["DEUTERIUM"] = deuterium;
+			levels["HELIUM"] = helium;
+			levels["LITHIUM"] = lithium;
+			levels["TRITIUM"] = tritium;
+		}
+	}
 
 	protected virtual int amountAddable(string element, int amount){
 		return Mathf.Min(levels[element] + amount,levelCap);
