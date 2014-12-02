@@ -22,6 +22,7 @@ public class networkManager : MonoBehaviour {
 	public GameObject UI;
 	private GameObject titleCamHandle;
 	private GameObject titleBackgroundHandle;
+	
 	void Start(){
 
 
@@ -212,13 +213,32 @@ public class networkManager : MonoBehaviour {
 	}
 
 	private Vector3 GetSpawnLocation()
-	{
-		return Vector3.zero;
+	{	
+		Transform spawner;
+		if (Network.isServer)
+		{
+			spawner = GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter/battleshipPrefab/spawn_point").transform;
+		}
+		else
+		{
+			spawner = GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter/battleshipPrefab/spawn_point").transform;
+		}
+		
+		return spawner.position;
 	}
 
 	private Quaternion GetSpawnDirection()
 	{
-		return Quaternion.identity;
+		Transform spawner;
+		if (Network.isServer)
+		{
+			spawner = GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter/battleshipPrefab/spawn_point").transform;	
+		}
+		else
+		{
+			spawner = GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter/battleshipPrefab/spawn_point").transform;
+		}
+		
+		return spawner.rotation;
 	}
-
 }
