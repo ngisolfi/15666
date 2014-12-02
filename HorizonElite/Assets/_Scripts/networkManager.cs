@@ -117,8 +117,9 @@ public class networkManager : MonoBehaviour {
 		}
 		
 		// Determine a spawn location and instantiate a new ship of the player's type
-		Vector3 spawn_location = GetSpawnLocation();
-		Quaternion spawn_direction = GetSpawnDirection ();
+		Transform spawnPoint = homeOrbiter.transform.Find("battleshipPrefab/spawn_point");
+		Vector3 spawn_location = spawnPoint.position;
+		Quaternion spawn_direction = spawnPoint.rotation;
 
 		// player to be placed in the whorld
 		GameObject player = Network.Instantiate (ship, 
@@ -233,33 +234,33 @@ public class networkManager : MonoBehaviour {
 		}*/
 	}
 
-	private Vector3 GetSpawnLocation()
-	{	
-		Transform spawner;
-		if (Network.isServer)
-		{
-			spawner = GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter/battleshipPrefab/spawn_point").transform;
-		}
-		else
-		{
-			spawner = GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter/battleshipPrefab/spawn_point").transform;
-		}
-		
-		return spawner.position;
-	}
-
-	private Quaternion GetSpawnDirection()
-	{
-		Transform spawner;
-		if (Network.isServer)
-		{
-			spawner = GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter/battleshipPrefab/spawn_point").transform;	
-		}
-		else
-		{
-			spawner = GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter/battleshipPrefab/spawn_point").transform;
-		}
-		
-		return spawner.rotation;
-	}
+//	private Vector3 GetSpawnLocation()
+//	{	
+//		Transform spawner;
+//		if (Network.isServer)
+//		{
+//			spawner = GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter/battleshipPrefab/spawn_point").transform;
+//		}
+//		else
+//		{
+//			spawner = GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter/battleshipPrefab/spawn_point").transform;
+//		}
+//		
+//		return spawner.position;
+//	}
+//
+//	private Quaternion GetSpawnDirection()
+//	{
+//		Transform spawner;
+//		if (Network.isServer)
+//		{
+//			spawner = GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/battleShipOrbiter/battleshipPrefab/spawn_point").transform;	
+//		}
+//		else
+//		{
+//			spawner = GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/battleShipOrbiter/battleshipPrefab/spawn_point").transform;
+//		}
+//		
+//		return spawner.rotation;
+//	}
 }
