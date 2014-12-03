@@ -25,7 +25,7 @@ public class progressBar : MonoBehaviour {
 
 
 
-			renderer.material.SetFloat ("_Cutoff", Mathf.Max((int)((1-capacity_fraction)*256f),1));
+			renderer.material.SetFloat ("_Cutoff", Mathf.Max((int)((capacity_fraction)*256f),1));
 	//		renderer.material.SetFloat ("_Cutoff",Mathf.InverseLerp(0, Screen.width, Input.mousePosition.x)); 
 			renderer.material.color = Color.Lerp (start, end, capacity_fraction);
 	//		renderer.material.color = Color.Lerp (start, end, Mathf.InverseLerp(Screen.width, 0,  Input.mousePosition.x));

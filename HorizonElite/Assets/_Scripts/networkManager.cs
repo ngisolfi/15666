@@ -23,6 +23,8 @@ public class networkManager : MonoBehaviour {
 	public GameObject UI;
 	private GameObject titleCamHandle;
 	private GameObject titleBackgroundHandle;
+	public GameObject humanWin;
+	public GameObject alienWin;
 	
 	void Start(){
 
@@ -95,6 +97,10 @@ public class networkManager : MonoBehaviour {
 		GameObject homeOrbiter;
 		//Different meshes for alien/human
 		if (Network.isServer) {
+			//Win condition involves blowing up blue star
+			GameObject humansWin = Network.Instantiate (humanWin,new Vector3(0f,0f,-75000f),Quaternion.identity,0) as GameObject;
+			humansWin.GetComponent<winCondition>().enemySun = GameObject.Find ("Environment/BlueSolarSystem/blueSun");
+			humansWin.name = "humanWinCondition";
 			ship = human_ship;
 			homeOrbiter = Network.Instantiate (orbiter, Vector3.zero, Quaternion.identity, 0) as GameObject;
 			homeOrbiter.name = "humanOrbiter";
@@ -105,6 +111,10 @@ public class networkManager : MonoBehaviour {
 //			homeOrbiter.transform.localRotation = Quaternion.Euler(293.0699f,90f,270f);
 //			player.transform.localScale = Vector3.one*7500f;
 		} else {
+			//Win condition involves blowing up red star
+			GameObject aliensWin = Network.Instantiate (alienWin,new Vector3(0f,0f,75000f),Quaternion.identity,0) as GameObject;
+			aliensWin.GetComponent<winCondition>().enemySun = GameObject.Find ("Environment/RedSolarSystem/redSun");
+			aliensWin.name = "alienWinCondition";
 			ship = alien_ship;
 			homeOrbiter = Network.Instantiate (orbiter, Vector3.zero, Quaternion.identity, 0) as GameObject;
 			homeOrbiter.name = "alienOrbiter";

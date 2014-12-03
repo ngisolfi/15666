@@ -7,6 +7,8 @@ public class mineable : MonoBehaviour {
 	public string element;
 	public float collect_rate = 0.0f;
 	private float time_left = 0.0f;
+	public bool human_home;
+	public bool alien_home;
 	
 	public GameObject planet;
 
@@ -17,6 +19,10 @@ public class mineable : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
+		// Don't do shit if it ain't not our home
+		if (!(Network.isServer && alien_home) && !(Network.isClient && human_home))
+			return;
+
 		if (other.gameObject.tag.CompareTo ("Player") != 0)
 			return;
 
@@ -30,6 +36,10 @@ public class mineable : MonoBehaviour {
 
 	void OnTriggerExit(Collider other)
 	{
+		// Don't do shit if it ain't not our home
+		if (!(Network.isServer && alien_home) && !(Network.isClient && human_home))
+			return;
+
 		if (other.gameObject.tag.CompareTo ("Player") != 0)
 			return;
 		// Set the tractor beam off
@@ -37,6 +47,10 @@ public class mineable : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider other){
+
+		// Don't do shit if it ain't not our home
+		if (!(Network.isServer && alien_home) && !(Network.isClient && human_home))
+			return;
 
 		ShipCapacity capacity = other.GetComponent<ShipCapacity> ();
 		if(capacity){
