@@ -19,7 +19,7 @@ public class PlayerControlledState : State {
 	
 	public override State transitionNext ()
 	{
-		if(_handler.playerControlled = false){
+		if(_handler.playerControlled == false){
 			return idle_state;
 		}else{
 			return base.transitionNext ();

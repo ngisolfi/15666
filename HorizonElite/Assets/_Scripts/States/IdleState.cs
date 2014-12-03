@@ -4,6 +4,7 @@ using System.Collections;
 public class IdleState : State {
 	public State player_controlled_state;
 	public State approach_state;
+	public State wander_state;
 
 	public override State transitionNext()
 	{
@@ -13,6 +14,5 @@ public class IdleState : State {
 			return approach_state;
 		else
 			return base.transitionNext();
-		
 	}
 }
