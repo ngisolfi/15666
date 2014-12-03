@@ -32,9 +32,9 @@ public class spawnAsteroidField : MonoBehaviour {
 			if (bad_counter > number / 2)
 				break;
 
-			GameObject temp = Instantiate(asteroids[(int)Random.Range(0,3)],
+			GameObject temp = Network.Instantiate(asteroids[(int)Random.Range(0,3)],
 			                   /*Random.insideUnitSphere*radius*/BoxMullerRand(center, spread),
-			                   Quaternion.LookRotation (Random.onUnitSphere))  as GameObject;
+			                   Quaternion.LookRotation (Random.onUnitSphere), 0)  as GameObject;
 
 			// Check for collisions with other asteroids
 			bool spawn = true;

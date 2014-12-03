@@ -25,6 +25,7 @@ public class networkManager : MonoBehaviour {
 	private GameObject titleBackgroundHandle;
 	public GameObject humanWin;
 	public GameObject alienWin;
+	public GameObject asField;
 	
 	void Start(){
 
@@ -97,6 +98,10 @@ public class networkManager : MonoBehaviour {
 		GameObject homeOrbiter;
 		//Different meshes for alien/human
 		if (Network.isServer) {
+
+			//Only the server should network instantiate the asteroid field
+			Network.Instantiate (asField,Vector3.zero,Quaternion.identity,0);
+
 			//Win condition involves blowing up blue star
 			GameObject humansWin = Network.Instantiate (humanWin,new Vector3(0f,0f,-75000f),Quaternion.identity,0) as GameObject;
 			humansWin.GetComponent<winCondition>().enemySun = GameObject.Find ("Environment/BlueSolarSystem/blueSun");

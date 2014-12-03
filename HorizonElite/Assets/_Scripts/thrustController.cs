@@ -11,13 +11,13 @@ public class thrustController : MonoBehaviour {
 	private Vector3 gravity_force = Vector3.zero;
 	public float gravity_torque;
 
-	private Vector3 thrusterLocation;
+	//private Vector3 thrusterLocation;
 	private laserFire laserSpawn;
 	private AimLaser laserSight;
 	// Use this for initialization
 	void Start () {
 	
-		thrusterLocation = transform.Find("Thruster").position;
+		//thrusterLocation = transform.Find("Thruster").position;
 		laserSpawn = transform.Find ("laserSpawner").gameObject.GetComponent<laserFire>();
 		laserSight = gameObject.GetComponent<AimLaser>();
 	}
