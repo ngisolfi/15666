@@ -12,21 +12,31 @@ public class Health : MonoBehaviour {
 	private float temp_drag, temp_ang_drag;
 
 
-//
-//	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
-//		int health = 0;
-//		
-//		if (stream.isWriting) {
-//			health = healthLevel;
-//			stream.Serialize(ref health);
-//		} else {
-//			stream.Serialize(ref health);
-//			healthLevel = health;
-//		}
-//	}
-//
+
+	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
+		int health = 0;
+		
+		if (stream.isWriting) {
+			health = healthLevel;
+			stream.Serialize(ref health);
+		} else {
+			stream.Serialize(ref health);
+			healthLevel = health;
+		}
+	}
 
 
+	[RPC]
+	public void dealDamage( int damage ){
+
+		if(gameObject.GetComponent<StateHandler>().playerControlled)
+			healthLevel -= damage;
+		else
+			healthLevel -= 100*damage;
+	//	if(healthLevel<0)
+	//		healthLevel=0;
+
+	}
 
 
 	// Use this for initialization
@@ -40,13 +50,13 @@ public class Health : MonoBehaviour {
 		if (networkView.isMine)
 		{
 			Debug.Log ("health: " + healthLevel.ToString() + " netView ID: " + networkView.viewID);
-			if(healthLevel<=0){
+			if(healthLevel==0){
 				Network.Instantiate (explosion,transform.position,Quaternion.identity,0);
 				if(spawn!=null){
 					
 					disableShip();
 					StartCoroutine("respawnTimer");
-					healthLevel = 100;	
+						
 		
 				}else
 					Network.Destroy (gameObject);
@@ -74,6 +84,9 @@ public class Health : MonoBehaviour {
 		rigidbody.drag=1e08f;
 		rigidbody.angularDrag=1e08f;
 		Invoke("trailReset",0.01f);
+		healthLevel = -10;//wtf? bit shift hax
+
+
 	}
 	
 	void enableShip()
@@ -87,6 +100,7 @@ public class Health : MonoBehaviour {
 		rigidbody.angularDrag=temp_ang_drag;
 		transform.Find("Thruster").GetComponent<ParticleSystem>().renderer.enabled=true;
 		gameObject.tag = "Player";
+		healthLevel = 100;
 	}
 
 	void trailReset(){

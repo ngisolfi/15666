@@ -28,7 +28,7 @@ public class SU_LaserShot : MonoBehaviour {
 	// Default velocity of laser beam
 	public float velocity = 1000.0f;
 	// Health level reduced on contact
-	public int strength = 20;
+	public int strength = 1;
 	// Reference to impact effect prefab to spawn upon impact
 	public Transform impactEffect;
 	// Reference to explosion effect prefab to spawn if object is destroyed
@@ -82,21 +82,23 @@ public class SU_LaserShot : MonoBehaviour {
 					// throw particles out from the object we just hit...
 					Quaternion _rotation = Quaternion.FromToRotation(Vector3.up, _hit.normal);
 					// Instantiate the imapct effect at impact position
-					Network.Instantiate(impactEffect, _hit.point, _rotation,0);
+					Network.Instantiate(impactEffect, _hit.collider.gameObject.transform.position, _rotation,0);
 					// If random number is a small value...
 //					if (Random.Range(0,20) < 2) {
+				
 					Health health = _hit.transform.gameObject.GetComponent<Health>();
-					if(health){
-						if (health.healthLevel <= 0) {
+					if(health)
+						_hit.transform.gameObject.networkView.RPC ("dealDamage",RPCMode.AllBuffered,strength);
+			//			if (health.healthLevel <= 0) {
 //							// Instantiate the explosion effect at the point of impact
 //							Network.Instantiate(explosionEffect, _hit.transform.position, _rotation,0);
 //							// Destroy the game object that we just hit
 //							if(networkView.isMine)
 //							Network.Destroy(_hit.transform.gameObject);
-						}else{
-							health.healthLevel -= strength;
-						}
-					}
+			//			}else{
+			//				health.healthLevel -= strength;
+			//			}
+			//		}
 					// Destroy the laser shot game object
 					if(networkView.isMine)
 						Network.Destroy(gameObject);

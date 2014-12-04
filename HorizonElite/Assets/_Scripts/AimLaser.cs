@@ -4,6 +4,7 @@ using System.Collections;
 public class AimLaser : MonoBehaviour {
 	private Transform _target;
 	public float staticLead = 500f;
+	public float stupidification=0f;
 	private laserFire _gun;
 	public float targetAngle = 15f;
 
@@ -45,7 +46,10 @@ public class AimLaser : MonoBehaviour {
 			if(_target){
 				// doesn't consider motion of ship while laser travels (can be updated for accuracy)
 				if(_target.rigidbody){
-					return _target.position + _target.rigidbody.velocity*(_target.position-transform.position).magnitude/_gun.shotspeed;
+					if(gameObject.GetComponent<StateHandler>().playerControlled)
+						return _target.position + _target.rigidbody.velocity*(_target.position-transform.position).magnitude/_gun.shotspeed;
+					else
+						return _target.position + new Vector3(Random.Range (-stupidification,stupidification),Random.Range(-stupidification,stupidification),Random.Range(-stupidification,stupidification)) + _target.rigidbody.velocity*(_target.position-transform.position).magnitude/_gun.shotspeed;
 				}else{
 					return _target.position;
 				}

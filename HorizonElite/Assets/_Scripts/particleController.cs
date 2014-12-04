@@ -68,6 +68,8 @@ public class particleController : MonoBehaviour {
 	public void disableTrailRenderer()
 	{
 		if (!gameObject.GetComponent<StateHandler>().playerControlled)
-			gameObject.GetComponentInChildren<TrailRenderer> ().enabled = false;
+			//gameObject.GetComponentInChildren<TrailRenderer> ().enabled = false;
+			gameObject.GetComponentInChildren<TrailRenderer> ().endWidth = 300.0f;
+
 	}
 }
