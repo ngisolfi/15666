@@ -54,6 +54,9 @@ public class mineable : MonoBehaviour {
 		if (!(Network.isServer && alien_home) && !(Network.isClient && human_home))
 			return;
 
+		if (other.gameObject.tag.CompareTo ("Player") != 0)
+			return;
+
 		ShipCapacity capacity = other.GetComponent<ShipCapacity> ();
 		if(capacity){
 			time_left -= Time.deltaTime;

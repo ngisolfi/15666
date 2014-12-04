@@ -45,6 +45,7 @@ public class Health : MonoBehaviour {
 
 	void disableShip()
 	{
+		gameObject.tag = "Untagged";
 		transform.FindChild("laserSpawner").GetComponent<laserFire>().can_fire=false;
 		gameObject.GetComponent<ShipCapacity>().destroyLoad();
 		transform.Find ("Thruster").gameObject.GetComponent<TrailRenderer>().time=0f;
@@ -59,6 +60,7 @@ public class Health : MonoBehaviour {
 	
 	void enableShip()
 	{
+
 		transform.FindChild("laserSpawner").GetComponent<laserFire>().can_fire=true;		
 		transform.position = spawn.Find("mirror/spawn_point").position;
 		transform.LookAt(spawn.position);
@@ -66,6 +68,7 @@ public class Health : MonoBehaviour {
 		rigidbody.drag=temp_drag;
 		rigidbody.angularDrag=temp_ang_drag;
 		transform.Find("Thruster").GetComponent<ParticleSystem>().renderer.enabled=true;
+		gameObject.tag = "Player";
 	}
 
 	void trailReset(){
