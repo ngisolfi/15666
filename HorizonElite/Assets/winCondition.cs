@@ -23,13 +23,17 @@ public class winCondition : MonoBehaviour {
 	//This is probably what is blatantly wrong
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
 		bool uLose = false;
-		
+//		float timer = 5.0f;
 		if (stream.isWriting) {
 			uLose = iWin;
+//			timer = gameOverTimer;
 			stream.Serialize(ref uLose);
+//			stream.Serialize (ref timer);
 		} else {
+//			stream.Serialize (ref timer);
 			stream.Serialize(ref uLose);
 			iWin = uLose;
+//			gameOverTimer=timer;
 		}
 	}
 
@@ -49,8 +53,12 @@ public class winCondition : MonoBehaviour {
 	void FixedUpdate () {
 		if(networkView.isMine){
 			if(enemyWinCondition){
-				if(enemyWinCondition.iWin)
+				if(enemyWinCondition.iWin){
+					if (!iLose)
+						gameOverTimer = 5.0f;
+
 					iLose = true;
+				}
 			}else{
 				findEnemyWinCondition();
 			}
