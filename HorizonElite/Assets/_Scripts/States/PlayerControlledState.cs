@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class PlayerControlledState : State {
-	public State idle_state;
 
 	public override void execute ()
 	{

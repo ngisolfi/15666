@@ -5,9 +5,21 @@ public class State : MonoBehaviour {
 	protected StateHandler _handler;
 	protected thrustController _controller;
 
+	protected State idle_state;
+	protected State player_controlled_state;
+	protected State approach_state;
+	protected State wander_state;
+	protected State pursue_state;
+
 	protected virtual void Awake () {
 		_handler = transform.parent.GetComponent<StateHandler>();
 		_controller = transform.parent.GetComponent<thrustController>();
+
+		idle_state = GetComponent<IdleState>();
+		player_controlled_state = GetComponent<PlayerControlledState>();
+		approach_state = GetComponent<ApproachState>();
+		wander_state = GetComponent<WanderState>();
+		pursue_state = GetComponent<PursueState>();
 	}
 
 	// Use this for initialization

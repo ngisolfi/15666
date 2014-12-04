@@ -18,6 +18,22 @@ public class AimLaser : MonoBehaviour {
 			if(Vector3.Angle(transform.forward,_target.position-transform.position) > targetAngle){
 				_target = null;
 			}
+		}else{
+			lockonEnemy();
+		}
+	}
+
+	public bool inSight
+	{
+		get{
+			return _target != null;
+		}
+	}
+
+	public Transform enemy
+	{
+		get{
+			return _target;
 		}
 	}
 
@@ -28,7 +44,7 @@ public class AimLaser : MonoBehaviour {
 			if(_target){
 				// doesn't consider motion of ship while laser travels (can be updated for accuracy)
 				if(_target.rigidbody){
-					return _target.position + _target.rigidbody.velocity*(_target.position-transform.position).magnitude/_gun.laserSpeed;
+					return _target.position + _target.rigidbody.velocity*(_target.position-transform.position).magnitude/_gun.shotspeed;
 				}else{
 					return _target.position;
 				}
@@ -41,10 +57,14 @@ public class AimLaser : MonoBehaviour {
 		}
 	}
 
-	public void senseEnemy(Transform enemy)
+	public void lockonEnemy()
 	{
-		if(!_target && Vector3.Angle(transform.forward,enemy.position-transform.position) < targetAngle){
-			_target = enemy;
+		_target = null;
+		foreach(Transform e in GetComponent<Sensor>().enemies){
+			if(Vector3.Angle(transform.forward,e.position-transform.position) < targetAngle){
+				_target = e;
+				break;
+			}
 		}
 	}
 }

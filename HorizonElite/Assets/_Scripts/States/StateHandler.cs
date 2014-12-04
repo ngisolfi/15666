@@ -25,7 +25,6 @@ public class StateHandler : MonoBehaviour {
 				previous = _currentState;
 				_currentState = previous.transitionNext();
 			}while(previous != _currentState);
-			
 		}
 	}
 }
