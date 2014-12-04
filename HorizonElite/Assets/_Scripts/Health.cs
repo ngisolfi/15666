@@ -11,17 +11,27 @@ public class Health : MonoBehaviour {
 
 	private float temp_drag, temp_ang_drag;
 
+	[HideInInspector]
+	public bool ship_disabled = false;
 
+	public float healthFraction(){
+		return (float) healthLevel/(float) max_health;
+	}
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
 		int health = 0;
+//		bool ship_broke = false;
 		
 		if (stream.isWriting) {
 			health = healthLevel;
+//			ship_broke = ship_disabled;
 			stream.Serialize(ref health);
+//			stream.Serialize(ref ship_broke);
 		} else {
 			stream.Serialize(ref health);
+//			stream.Serialize(ref ship_broke);
 			healthLevel = health;
+//			ship_disabled = ship_broke;
 		}
 	}
 
@@ -41,7 +51,8 @@ public class Health : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		healthLevel = 100;
+//		healthLevel = 100;
+		healthLevel = max_health;
 	}
 	
 	// Update is called once per frame
@@ -50,7 +61,7 @@ public class Health : MonoBehaviour {
 		if (networkView.isMine)
 		{
 			Debug.Log ("health: " + healthLevel.ToString() + " netView ID: " + networkView.viewID);
-			if(healthLevel==0){
+			if(healthLevel==0 && !ship_disabled){
 				Network.Instantiate (explosion,transform.position,Quaternion.identity,0);
 				if(spawn!=null){
 					
@@ -84,7 +95,8 @@ public class Health : MonoBehaviour {
 		rigidbody.drag=1e08f;
 		rigidbody.angularDrag=1e08f;
 		Invoke("trailReset",0.01f);
-		healthLevel = -10;//wtf? bit shift hax
+		ship_disabled = true;
+//		healthLevel = -10;//wtf? bit shift hax
 
 
 	}
@@ -100,7 +112,9 @@ public class Health : MonoBehaviour {
 		rigidbody.angularDrag=temp_ang_drag;
 		transform.Find("Thruster").GetComponent<ParticleSystem>().renderer.enabled=true;
 		gameObject.tag = "Player";
-		healthLevel = 100;
+		healthLevel = max_health;
+		ship_disabled = false;
+//		healthLevel = 100;
 	}
 
 	void trailReset(){

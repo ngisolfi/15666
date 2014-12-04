@@ -14,7 +14,7 @@ public class UI_payload : MonoBehaviour {
 	private Light payloadLight;
 	private bool lightIncreasing=true;
 
-	public GameObject playerShip;
+	public ShipCapacity playerCapacity;
 
 	GameObject setQuad(Material material){
 		GameObject quad = GameObject.CreatePrimitive (PrimitiveType.Quad);
@@ -50,68 +50,64 @@ public class UI_payload : MonoBehaviour {
 		quads["LITHIUM"] = setQuad(lithium);
 		quads["TRITIUM"] = setQuad(tritium);
 		if (Network.isServer)
-			playerShip = GameObject.Find ("player1");
+			playerCapacity = GameObject.Find ("player1").GetComponent<ShipCapacity>();
 		else
-			playerShip = GameObject.Find ("player2");
+			playerCapacity = GameObject.Find ("player2").GetComponent<ShipCapacity>();
+		payloadText = transform.parent.Find("component_text/text_Percent").GetComponent<TextMesh>();
+		payloadLight = transform.parent.Find("component_light").GetComponent<Light>();
 
 	}
 
-	void Start(){
-		if(Network.isServer){
-			payloadText = GameObject.Find ("p1UI/element_payloadBar/component_text/text_Percent").GetComponent<TextMesh>();
-			payloadLight = GameObject.Find ("p1UI/element_payloadBar/component_light").GetComponent<Light> ();
-		} else if(Network.isClient){
-			payloadText = GameObject.Find ("p2UI/element_payloadBar/component_text/text_Percent").GetComponent<TextMesh>();
-			payloadLight = GameObject.Find("p2UI/element_payloadBar/component_light").GetComponent<Light>();
-		}
-	}
+//	void Start(){
+//		if(Network.isServer){
+//			payloadText = GameObject.Find ("p1UI/element_payloadBar/component_text/text_Percent").GetComponent<TextMesh>();
+//			payloadLight = GameObject.Find ("p1UI/element_payloadBar/component_light").GetComponent<Light> ();
+//		} else if(Network.isClient){
+//			payloadText = GameObject.Find ("p2UI/element_payloadBar/component_text/text_Percent").GetComponent<TextMesh>();
+//			payloadLight = GameObject.Find("p2UI/element_payloadBar/component_light").GetComponent<Light>();
+//		}
+//	}
 
 	// Update is called once per frame
 	void Update () {
-		if(playerShip){
-			ShipCapacity capacity = playerShip.GetComponent<ShipCapacity>();
-			if(capacity){
-				resetQuads();
-				float size = transform.renderer.bounds.extents.x*2f;
-				float xpos = transform.position.x - renderer.bounds.extents.x;
-				Vector3 quadPos;
-				Vector3 quadScale;
-				float barSize;
-				foreach(string element in capacity.fill_order){
-					barSize = capacity.elementFraction(element)*size;
-					quadPos = quads[element].transform.position;
-					quadPos.x = xpos + barSize*0.5f;
-					quads[element].transform.localPosition = quadPos;
-					quadScale = quads[element].transform.localScale;
-					quadScale.x = barSize;
-					quads[element].transform.localScale = quadScale;
-					xpos += quadScale.x;
-				}
-				if (payloadText)
-					payloadText.text = "("+capacity.percentFull().ToString()+"%)";
+		if(playerCapacity){
+			resetQuads();
+			float size = transform.renderer.bounds.extents.x*2f;
+			float xpos = transform.position.x - renderer.bounds.extents.x;
+			Vector3 quadPos;
+			Vector3 quadScale;
+			float barSize;
+			foreach(string element in playerCapacity.fill_order){
+				barSize = playerCapacity.elementFraction(element)*size;
+				quadPos = quads[element].transform.position;
+				quadPos.x = xpos + barSize*0.5f;
+				quads[element].transform.localPosition = quadPos;
+				quadScale = quads[element].transform.localScale;
+				quadScale.x = barSize;
+				quads[element].transform.localScale = quadScale;
+				xpos += quadScale.x;
 			}
+			if (payloadText)
+				payloadText.text = "("+playerCapacity.percentFull().ToString()+"%)";
 		}
 	}
 
 	void FixedUpdate(){
-		if(playerShip){
-			ShipCapacity capacity = playerShip.GetComponent<ShipCapacity>();
-			if(capacity){
-				if (capacity.percentFull() == 100) {
-					if(payloadLight.intensity<=0f){
-						lightIncreasing=true;
-					} else if (payloadLight.intensity>=4f){
-						lightIncreasing=false;
-					}
-					
-					if(lightIncreasing){
-						payloadLight.intensity+=.2f;
-					} else {
-						payloadLight.intensity-=.2f;
-					}
-					
-					return;
+		if(playerCapacity){
+			if (playerCapacity.percentFull() == 100) {
+				if(payloadLight.intensity<=0f){
+					lightIncreasing=true;
+				} else if (payloadLight.intensity>=4f){
+					lightIncreasing=false;
 				}
+				
+				if(lightIncreasing){
+					payloadLight.intensity+=.2f;
+				} else {
+					payloadLight.intensity-=.2f;
+				}
+				
+				return;
 			}
 		}
 	}
