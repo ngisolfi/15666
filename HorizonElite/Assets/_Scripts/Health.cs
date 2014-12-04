@@ -19,12 +19,27 @@ public class Health : MonoBehaviour {
 	
 		if(healthLevel<=0){
 			Network.Instantiate (explosion,transform.position,Quaternion.identity,0);
-			if(spawn!=null)
+			if(spawn!=null){
+				transform.Find ("Thruster").gameObject.GetComponent<TrailRenderer>().time=0f;
+				Invoke("trailReset",0.01f);
+				//transform.Find ("Thruster").gameObject.GetComponent<TrailRenderer>().enabled=false;
 				transform.position = spawn.position;
-			else
+				healthLevel = 100;
+				//transform.Find ("Thruster").gameObject.GetComponent<TrailRenderer>().enabled=true;
+				//transform.Find ("Thruster").gameObject.GetComponent<TrailRenderer>().time=15f;
+
+			}else
 				Network.Destroy (gameObject);
 
+
 		}
+
+	}
+
+	void trailReset(){
+
+
+		transform.Find ("Thruster").gameObject.GetComponent<TrailRenderer>().time = 15f;
 
 	}
 }
