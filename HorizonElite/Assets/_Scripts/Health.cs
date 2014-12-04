@@ -10,7 +10,25 @@ public class Health : MonoBehaviour {
 	public Transform spawn;
 
 	private float temp_drag, temp_ang_drag;
-	
+
+
+//
+//	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
+//		int health = 0;
+//		
+//		if (stream.isWriting) {
+//			health = healthLevel;
+//			stream.Serialize(ref health);
+//		} else {
+//			stream.Serialize(ref health);
+//			healthLevel = health;
+//		}
+//	}
+//
+
+
+
+
 	// Use this for initialization
 	void Start () {
 		healthLevel = 100;
@@ -21,7 +39,7 @@ public class Health : MonoBehaviour {
 	
 		if (networkView.isMine)
 		{
-	
+			Debug.Log ("health: " + healthLevel.ToString() + " netView ID: " + networkView.viewID);
 			if(healthLevel<=0){
 				Network.Instantiate (explosion,transform.position,Quaternion.identity,0);
 				if(spawn!=null){

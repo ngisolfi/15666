@@ -13,33 +13,54 @@ public class winCondition : MonoBehaviour {
 	private bool reported = false;
 
 	[HideInInspector]
-	public float gameOverTimer = 0.0f;
+	public float gameOverTimer = 5.0f;
 
 	private GameObject explosion;
 
-	// Use this for initialization
-	void Start () {
+
+	//This is probably what is blatantly wrong
+		void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
+			bool uLose = false;
+			
+			if (stream.isWriting) {
+				uLose = iWin;
+				stream.Serialize(ref uLose);
+			} else {
+				stream.Serialize(ref uLose);
+				iWin = uLose;
+			}
+		}
 	
-	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		if(networkView.isMine){
+			if(iLose){
+				if(Network.isServer){
+					GameObject.Find ("p1UI").GetComponent<activateWinLoseLogos>().activateLoseLogo();
+				}else{
+					GameObject.Find("p2UI").GetComponent<activateWinLoseLogos>().activateLoseLogo ();
+				}
+			}
 
-		if (iWin || iLose)
-		{
-			gameOverTimer -= Time.deltaTime;
-			if (gameOverTimer <= 0)
-				Application.Quit();
-
-			// Emit the explosion for 5 - 2 = 3.0 seconds
-			if (gameOverTimer < 2.0f)
-				explosion.particleEmitter.emit = false;
+			if (iWin || iLose)
+			{
+				gameOverTimer -= Time.deltaTime;
+				if (gameOverTimer <= 0)
+					Application.Quit();
+	
+				// Emit the explosion for 5 - 2 = 3.0 seconds
+				if (gameOverTimer < 2.0f && explosion!=null)
+					explosion.GetComponent<ParticleEmitter>().emit = false;
+					//explosion.particleEmitter.emit = false;
+			}
+	
 		}
-
 	}
 
 	void OnTriggerEnter( Collider other ){
 		if (other.tag == "battleShip" && other.networkView.isMine && !reported){
+			reported=true;
 			iWin = true;
 			youLose();
 			gameOverTimer = 5.0f;
@@ -63,17 +84,17 @@ public class winCondition : MonoBehaviour {
 				GameObject.Find ("alienWinCondition").GetComponent<winCondition>().gameOverTimer = 5.0f;
 			}
 			GameObject.Find("p1UI").GetComponent<activateWinLoseLogos>().activateWinLogo();
-			if(GameObject.Find ("p2UI")!=null)
-				GameObject.Find("p2UI").GetComponent<activateWinLoseLogos>().activateLoseLogo();
+	//		if(GameObject.Find ("p2UI")!=null)
+	//			GameObject.Find("p2UI").GetComponent<activateWinLoseLogos>().activateLoseLogo();
 		}else{
 			if(GameObject.Find ("humanWinCondition")!=null)
 			{
 				GameObject.Find ("humanWinCondition").GetComponent<winCondition>().iLose = true;
-				GameObject.Find ("alienWinCondition").GetComponent<winCondition>().gameOverTimer = 5.0f;
+				GameObject.Find ("humanWinCondition").GetComponent<winCondition>().gameOverTimer = 5.0f;
 			}
-			GameObject.Find("p2UI").GetComponent<activateWinLoseLogos>().activateLoseLogo();
-			if(GameObject.Find ("p1UI")!=null)
-				GameObject.Find("p1UI").GetComponent<activateWinLoseLogos>().activateWinLogo();
+			GameObject.Find("p2UI").GetComponent<activateWinLoseLogos>().activateWinLogo();
+	//		if(GameObject.Find ("p1UI")!=null)
+	//			GameObject.Find("p1UI").GetComponent<activateWinLoseLogos>().activateWinLogo();
 		}
 	}
 
