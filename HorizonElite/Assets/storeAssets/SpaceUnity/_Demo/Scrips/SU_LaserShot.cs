@@ -28,7 +28,7 @@ public class SU_LaserShot : MonoBehaviour {
 	// Default velocity of laser beam
 	public float velocity = 1000.0f;
 	// Health level reduced on contact
-	public int strength = 1;
+	public int strength = 5;
 	// Reference to impact effect prefab to spawn upon impact
 	public Transform impactEffect;
 	// Reference to explosion effect prefab to spawn if object is destroyed

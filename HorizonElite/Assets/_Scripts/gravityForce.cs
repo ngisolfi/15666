@@ -22,9 +22,9 @@ public class gravityForce : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-	
-		if(!gameObject.GetComponent<StateHandler>().playerControlled)
-			return;
+// Uncomment for gravitee	
+//		if(!gameObject.GetComponent<StateHandler>().playerControlled)
+//			return;
 		gravity_force = Vector3.zero;
 		Vector3 my_pos = transform.position;
 		

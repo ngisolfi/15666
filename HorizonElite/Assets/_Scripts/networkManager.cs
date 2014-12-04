@@ -44,7 +44,7 @@ public class networkManager : MonoBehaviour {
 		getAudioClips();
 		toggleTitleMusic(true);
 
-		Network.minimumAllocatableViewIDs = 1000;
+		Network.minimumAllocatableViewIDs = 10000;
 	}
 
 	void OnServerInitialized(){
