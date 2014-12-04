@@ -146,7 +146,7 @@ public class networkManager : MonoBehaviour {
 		GameObject player = Network.Instantiate (ship, spawn_location, Quaternion.identity, 0) as GameObject;
 		
 		// Look at the battleship orbiter to begin
-//		player.transform.LookAt(homeOrbiter.transform.position);
+		player.transform.LookAt(homeOrbiter.transform.position);
 
 		if(Network.isServer)
 			player.networkView.RPC ("rename", RPCMode.AllBuffered, "player1");

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class WanderState : PathFollowerState {
-	public float time_between_updates;
+	public float time_between_updates = 10f;
 	protected float last_update = -10e-7f;
 	protected float x_limit = 60000f;
 	protected float y_limit = 60000f;
