@@ -82,8 +82,10 @@ public class OreCapacity : MonoBehaviour {
 	public virtual float elementFraction(string element){
 		if(element.CompareTo("ALL") == 0){
 			int total = 0;
-			foreach(int value in levels.Values){
-				total += value;
+			//foreach(int value in levels.Values){
+			foreach(KeyValuePair<string, int> kvp in levels){
+				//total += value;
+				total += kvp.Value;
 			}
 			return (float)total/(float)(levelCap*6);
 		}else{
