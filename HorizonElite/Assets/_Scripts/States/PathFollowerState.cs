@@ -17,10 +17,12 @@ public class PathFollowerState : ApproachState {
 		}
 		avoidObstacles();
 		LineRenderer line = GetComponent<LineRenderer>();
-		line.SetVertexCount(_targetList.Count + 1);
-		line.SetPosition(0,_controller.transform.position);
-		for(int i=0;i<_targetList.Count;i++){
-			line.SetPosition(i+1,_targetList[i]);
+		if(line){
+			line.SetVertexCount(_targetList.Count + 1);
+			line.SetPosition(0,_controller.transform.position);
+			for(int i=0;i<_targetList.Count;i++){
+				line.SetPosition(i+1,_targetList[i]);
+			}
 		}
 		base.execute();
 	}

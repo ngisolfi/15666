@@ -8,6 +8,12 @@ public class laserFire : MonoBehaviour {
 	
 	public bool can_fire = true;
 
+	public float shotspeed{
+		get{
+			return laserSpeed + 2.0f * transform.parent.rigidbody.velocity.magnitude;
+		}
+	}
+
 	public void fireLaser(Vector3 target){
 		
 		// Allow other scripts to turn this on and off
@@ -18,7 +24,7 @@ public class laserFire : MonoBehaviour {
 		SU_LaserShot shot = laser.GetComponent<SU_LaserShot>();
 		if(shot){
 			shot.firedBy = transform.parent;
-			shot.velocity = laserSpeed + 2.0f * transform.parent.rigidbody.velocity.magnitude;
+			shot.velocity = shotspeed;
 		}
 	}
 }
