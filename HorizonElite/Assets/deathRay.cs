@@ -19,31 +19,76 @@ public class deathRay : MonoBehaviour {
 	void Start () {
 		//rotator = GameObject.Find ("/Rotator");
 	}
-	
+
+
+	[RPC]
+	public void turnOnGreen(){
+
+		transform.Find ("mirror/Rotator/green").gameObject.GetComponent<ParticleRenderer> ().enabled = true;
+
+	}
+
+	[RPC]
+	public void turnOnRed(){
+		
+		transform.Find ("mirror/Rotator/red").gameObject.GetComponent<ParticleRenderer> ().enabled = true;
+		
+	}
+	[RPC]
+	public void turnOnBlue(){
+		
+		transform.Find ("mirror/Rotator/blue").gameObject.GetComponent<ParticleRenderer> ().enabled = true;
+		
+	}
+	[RPC]
+	public void turnOnYellow(){
+		
+		transform.Find ("mirror/Rotator/yellow").gameObject.GetComponent<ParticleRenderer> ().enabled = true;
+		
+	}
+	[RPC]
+	public void turnOnPurple(){
+		
+		transform.Find ("mirror/Rotator/purple").gameObject.GetComponent<ParticleRenderer> ().enabled = true;
+		
+	}
+	[RPC]
+	public void turnOnCyan(){
+		
+		transform.Find ("mirror/Rotator/cyan").gameObject.GetComponent<ParticleRenderer> ().enabled = true;
+		
+	}
+
+
 	// Update is called once per frame
 	void Update () {
-		if(LIcomplete)
-			transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleRenderer>().enabled=true;
-
-
+		if(LIcomplete){
+			//transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleRenderer>().enabled=true;
+			gameObject.networkView.RPC ("turnOnGreen",RPCMode.AllBuffered);
+		}
 		if(Dcomplete)
-			transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleRenderer>().enabled=true;
+			//transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleRenderer>().enabled=true;
+			gameObject.networkView.RPC ("turnOnRed",RPCMode.AllBuffered);
 
 
 		if(Tcomplete)
-			transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleRenderer>().enabled=true;
+			//transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleRenderer>().enabled=true;
+			gameObject.networkView.RPC ("turnOnBlue",RPCMode.AllBuffered);
 
 
 		if(HEcomplete)
-			transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleRenderer>().enabled=true;
+			//transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleRenderer>().enabled=true;
+			gameObject.networkView.RPC ("turnOnYellow",RPCMode.AllBuffered);
 
 
 		if(Bcomplete)
-			transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleRenderer>().enabled=true;
+			//transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleRenderer>().enabled=true;
+			gameObject.networkView.RPC ("turnOnPurple",RPCMode.AllBuffered);
 
 
 		if(BEcomplete)
-			transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleRenderer>().enabled=true;
+			//transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleRenderer>().enabled=true;
+			gameObject.networkView.RPC ("turnOnCyan",RPCMode.AllBuffered);
 
 		if(DRcomplete && once){
 			//Don't do this twice

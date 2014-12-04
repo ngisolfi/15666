@@ -22,7 +22,153 @@ public class bShipController : MonoBehaviour {
 		//		laserSpawn = transform.Find ("laserSpawner").gameObject.GetComponent<laserFire>();
 		//		laserSight = gameObject.GetComponent<AimLaser>();
 	}
-	
+
+	[RPC]
+	public void fireDeathRay(){
+
+		gameObject.GetComponent<ParticleSystem>().enableEmission=true;
+		if(!gameObject.GetComponent<ParticleSystem>().isPlaying)
+			gameObject.GetComponent<ParticleSystem>().Play();
+		
+
+		float size = 200.0f;
+		Vector3 force = Vector3.one*300.0f;
+		float time = 5.0f;
+		float speed = 1500.0f;
+		transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minSize=size;
+		transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
+		transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
+		transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
+		transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+		transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+		transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
+		transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
+		
+		transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minSize=size;
+		transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
+		transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
+		transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
+		transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+		transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+		transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
+		transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
+		
+		transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minSize=size;
+		transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
+		transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
+		transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
+		transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+		transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+		transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
+		transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
+		
+		transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minSize=size;
+		transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
+		transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
+		transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
+		transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+		transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+		transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
+		transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
+		
+		transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minSize=size;
+		transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
+		transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
+		transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
+		transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+		transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+		transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
+		transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
+		
+		transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minSize=size;
+		transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
+		transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
+		transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
+		transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+		transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+		transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
+		transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
+
+		if(!gameObject.GetComponent<AudioSource>().isPlaying)
+			gameObject.GetComponent<AudioSource> ().Play ();
+
+	}
+
+
+
+
+
+	[RPC]
+	public void chargeDeathRay() {
+
+
+		//transform.Find("battleshipPrefab").gameObject.GetComponent<ParticleSystem>().enableEmission=false;
+		gameObject.GetComponent<ParticleSystem>().enableEmission=false;
+		
+		transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minSize=25;
+		transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
+		transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
+		transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
+		transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+		transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+		transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
+		transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
+		
+		transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minSize=25;
+		transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
+		transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
+		transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
+		transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+		transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+		transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
+		transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
+		
+		transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minSize=25;
+		transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
+		transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
+		transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
+		transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+		transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+		transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
+		transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
+		
+		transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minSize=25;
+		transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
+		transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
+		transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
+		transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+		transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+		transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
+		transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
+		
+		transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minSize=25;
+		transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
+		transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
+		transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
+		transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+		transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+		transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
+		transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
+		
+		transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minSize=25;
+		transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
+		transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
+		transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
+		transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+		transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+		transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
+		transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
+		
+		gameObject.GetComponent<AudioSource> ().Stop ();
+		
+	}
+
+
+
+
+
+
+
 	// Update is called once per frame
 	void FixedUpdate () {
 		if(hasControl){
@@ -42,137 +188,140 @@ public class bShipController : MonoBehaviour {
 					rigidbody.AddForce (speed * transform.forward);//(transform.position - thrusterLocation).normalized);
 				}
 				if (Input.GetButton("Fire2") ){//&& Time.time > nextFire) {
+
+					gameObject.networkView.RPC ("fireDeathRay",RPCMode.AllBuffered);
 					//nextFire = Time.time + fireRate;
 					//				laserSpawn.fireLaser (laserSight.target);
 					//transform.Find("battleshipPrefab").gameObject.GetComponent<ParticleSystem>().enableEmission=true;
-					gameObject.GetComponent<ParticleSystem>().enableEmission=true;
-					if(!gameObject.GetComponent<ParticleSystem>().isPlaying)
-						gameObject.GetComponent<ParticleSystem>().Play();
-
-					gameObject.GetComponent<ParticleSystem>().enableEmission=true;
-
-					float size = 200.0f;
-					Vector3 force = Vector3.one*300.0f;
-					float time = 5.0f;
-					float speed = 1500.0f;
-					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minSize=size;
-					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
-					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
-					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
-					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
-					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
-					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
-					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
-	
-					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minSize=size;
-					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
-					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
-					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
-					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
-					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
-					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
-					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
-	
-					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minSize=size;
-					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
-					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
-					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
-					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
-					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
-					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
-					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
-	
-					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minSize=size;
-					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
-					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
-					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
-					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
-					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
-					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
-					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
-	
-					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minSize=size;
-					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
-					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
-					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
-					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
-					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
-					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
-					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
-	
-					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minSize=size;
-					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
-					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
-					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
-					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
-					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
-					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
-					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
+//					gameObject.GetComponent<ParticleSystem>().enableEmission=true;
+//					if(!gameObject.GetComponent<ParticleSystem>().isPlaying)
+//						gameObject.GetComponent<ParticleSystem>().Play();
+//
+//					gameObject.GetComponent<ParticleSystem>().enableEmission=true;
+//
+//					float size = 200.0f;
+//					Vector3 force = Vector3.one*300.0f;
+//					float time = 5.0f;
+//					float speed = 1500.0f;
+//					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minSize=size;
+//					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
+//					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
+//					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
+//					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+//					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+//					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
+//					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
+//	
+//					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minSize=size;
+//					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
+//					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
+//					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
+//					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+//					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+//					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
+//					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
+//	
+//					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minSize=size;
+//					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
+//					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
+//					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
+//					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+//					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+//					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
+//					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
+//	
+//					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minSize=size;
+//					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
+//					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
+//					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
+//					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+//					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+//					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
+//					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
+//	
+//					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minSize=size;
+//					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
+//					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
+//					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
+//					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+//					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+//					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
+//					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
+//	
+//					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minSize=size;
+//					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxSize=size;
+//					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minEnergy=time;
+//					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxEnergy=time;
+//					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+//					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+//					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().localVelocity=new Vector3(0f,0f,-speed);
+//					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleAnimator>().rndForce=force;
 	
 	
 	
 				} else {
 	
-					//transform.Find("battleshipPrefab").gameObject.GetComponent<ParticleSystem>().enableEmission=false;
-					gameObject.GetComponent<ParticleSystem>().enableEmission=false;
-
-					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minSize=25;
-					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
-					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
-					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
-					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
-					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
-					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
-					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
-	
-					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minSize=25;
-					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
-					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
-					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
-					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
-					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
-					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
-					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
-	
-					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minSize=25;
-					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
-					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
-					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
-					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
-					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
-					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
-					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
-	
-					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minSize=25;
-					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
-					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
-					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
-					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
-					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
-					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
-					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
-	
-					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minSize=25;
-					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
-					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
-					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
-					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
-					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
-					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
-					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
-	
-					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minSize=25;
-					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
-					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
-					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
-					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
-					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
-					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
-					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
-	
-	
-	
-	
+					gameObject.networkView.RPC ("chargeDeathRay",RPCMode.AllBuffered);
+//					//transform.Find("battleshipPrefab").gameObject.GetComponent<ParticleSystem>().enableEmission=false;
+//					gameObject.GetComponent<ParticleSystem>().enableEmission=false;
+//
+//					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minSize=25;
+//					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
+//					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
+//					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
+//					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+//					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+//					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
+//					transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
+//	
+//					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minSize=25;
+//					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
+//					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
+//					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
+//					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+//					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+//					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
+//					transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
+//	
+//					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minSize=25;
+//					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
+//					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
+//					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
+//					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+//					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+//					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
+//					transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
+//	
+//					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minSize=25;
+//					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
+//					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
+//					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
+//					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+//					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+//					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
+//					transform.Find("mirror/Rotator/yellow").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
+//	
+//					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minSize=25;
+//					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
+//					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
+//					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
+//					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+//					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+//					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
+//					transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
+//	
+//					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minSize=25;
+//					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxSize=25;
+//					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minEnergy=2;
+//					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxEnergy=2;
+//					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().minEmission=100;
+//					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().maxEmission=100;
+//					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleEmitter>().localVelocity=Vector3.zero;
+//					transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleAnimator>().rndForce=Vector3.zero;
+//	
+//	
+//	
+//	
 	
 				}
 				if (Input.GetAxis("Vertical") > 0f) {

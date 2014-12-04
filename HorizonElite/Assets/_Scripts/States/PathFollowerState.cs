@@ -71,6 +71,8 @@ public class PathFollowerState : ApproachState {
 	}
 
 	protected void clearWaypoints(){
+		if(_targetList.Count==0)
+			return;
 		_target = _targetList[_targetList.Count-1];
 		_targetList.Clear();
 		_targetList.Add(_target);
