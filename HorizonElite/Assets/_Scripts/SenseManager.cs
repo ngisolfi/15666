@@ -34,7 +34,7 @@ public class SenseManager : MonoBehaviour {
 				sensor.clearSenses();
 				foreach(GameObject alienShip in aliens){
 					Vector3 diff = alienShip.transform.position-humanShip.transform.position;
-					if(Vector3.Angle(humanShip.transform.forward,diff) < sightAngleLimit && diff.sqrMagnitude < sightDistanceLimit*sightDistanceLimit){
+					if(Vector3.Angle(humanShip.transform.forward,diff) < sightAngleLimit && diff.sqrMagnitude < sightDistanceLimit*sightDistanceLimit && !alienShip.GetComponent<Health>().ship_disabled){
 						sensor.senseEnemy(alienShip.transform);
 					}
 				}
@@ -45,7 +45,7 @@ public class SenseManager : MonoBehaviour {
 				sensor.clearSenses();
 				foreach(GameObject humanShip in humans){
 					Vector3 diff = humanShip.transform.position-alienShip.transform.position;
-					if(Vector3.Angle(alienShip.transform.forward,diff) < sightAngleLimit && diff.sqrMagnitude < sightDistanceLimit*sightDistanceLimit){
+					if(Vector3.Angle(alienShip.transform.forward,diff) < sightAngleLimit && diff.sqrMagnitude < sightDistanceLimit*sightDistanceLimit && !humanShip.GetComponent<Health>().ship_disabled){
 						sensor.senseEnemy(humanShip.transform);
 					}
 				}

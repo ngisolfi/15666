@@ -223,11 +223,12 @@ public class networkManager : MonoBehaviour {
 			myUI.GetComponent<EnemyIndicators>().playerShip = player;
 		}
 
+		// handled in script
 		// setting up this ship with its payload ui stuff
-		if (Network.isServer)
-			GameObject.Find ("p1UI/element_payloadBar/component_background").GetComponent<UI_payload> ().playerShip = player;
-		else
-			GameObject.Find ("p2UI/element_payloadBar/component_background").GetComponent<UI_payload> ().playerShip = player;
+//		if (Network.isServer)
+//			GameObject.Find ("p1UI/element_payloadBar/component_background").GetComponent<UI_payload> ().playerShip = player;
+//		else
+//			GameObject.Find ("p2UI/element_payloadBar/component_background").GetComponent<UI_payload> ().playerShip = player;
 		// the camera which will follow the player
 		
 		//GameObject player_camera = Instantiate (cam, spawn_location,Quaternion.LookRotation(homeOrbiter.transform.position)) as GameObject;
