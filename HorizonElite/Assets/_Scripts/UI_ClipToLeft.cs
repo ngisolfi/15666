@@ -8,7 +8,7 @@ public class UI_ClipToLeft : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		foreach(Transform sibling in transform.parent){
-			if(sibling.name == "Camera"){
+			if(sibling.name == "uiCamera"){
 				UIcamera = sibling.camera;
 			}
 		}
@@ -17,7 +17,8 @@ public class UI_ClipToLeft : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 uiPos = transform.position;
-		uiPos.x = ((2f*(float)offset-Screen.width)/(float)Screen.height)*UIcamera.orthographicSize+renderer.bounds.extents.x;
+		float extent = transform.Find("BoundingBox").lossyScale.x*0.5f;
+		uiPos.x = ((2f*(float)offset-Screen.width)/(float)Screen.height)*UIcamera.orthographicSize+extent;
 		transform.position = uiPos;
 	}
 }
