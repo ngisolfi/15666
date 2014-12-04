@@ -29,6 +29,10 @@ public class gravityForce : MonoBehaviour {
 		// Loop over all planetary bodies, adding to the gravity force vector
 		foreach (GameObject b in bodies)
 		{
+
+			if(b == null)
+				continue;
+
 			// m1 (i.e. mass of ship) is absorbed into gravitational_constant
 			Vector3 direction = b.transform.position - my_pos;
 			float r = direction.magnitude;

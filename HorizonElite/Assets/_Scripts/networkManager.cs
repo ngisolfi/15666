@@ -26,6 +26,8 @@ public class networkManager : MonoBehaviour {
 	public GameObject humanWin;
 	public GameObject alienWin;
 	public GameObject asField;
+	public int aiPerTeam=10;
+	public float aiSpawnRadius=100f;
 	
 	private AudioSource title_music;
 	private AudioSource game_music;
@@ -41,6 +43,8 @@ public class networkManager : MonoBehaviour {
 	void Start(){
 		getAudioClips();
 		toggleTitleMusic(true);
+
+		Network.minimumAllocatableViewIDs = 1000;
 	}
 
 	void OnServerInitialized(){
@@ -115,6 +119,7 @@ public class networkManager : MonoBehaviour {
 			//Only the server should network instantiate the asteroid field
 			//Network.Instantiate (asField,Vector3.zero,Quaternion.identity,0);
 
+
 			//Win condition involves blowing up blue star
 			GameObject humansWin = Network.Instantiate (humanWin,new Vector3(0f,0f,-75000f),Quaternion.identity,0) as GameObject;
 			humansWin.GetComponent<winCondition>().enemySun = GameObject.Find ("Environment/BlueSolarSystem/blueSun");
@@ -125,6 +130,12 @@ public class networkManager : MonoBehaviour {
 			homeOrbiter.networkView.RPC ("rename", RPCMode.AllBuffered, "humanOrbiter");
 			if(homePlanet)
 				homeOrbiter.GetComponent<planetOrbit>().planet = homePlanet.transform;
+
+			for (int i=0;i<aiPerTeam;i++){
+				GameObject aiShip = Network.Instantiate(ship,homeOrbiter.transform.Find ("mirror/spawn_point").position + UnityEngine.Random.insideUnitSphere*aiSpawnRadius,Quaternion.identity,0) as GameObject;
+				aiShip.GetComponent<StateHandler>().playerControlled=false;
+				aiShip.GetComponent<Health>().spawn = homeOrbiter.transform;
+			}
 
 		} else {
 			//Win condition involves blowing up red star
@@ -137,6 +148,12 @@ public class networkManager : MonoBehaviour {
 			homeOrbiter.networkView.RPC("rename", RPCMode.AllBuffered, "alienOrbiter");
 			if(homePlanet)
 				homeOrbiter.GetComponent<planetOrbit>().planet = homePlanet.transform;
+
+			for (int i=0;i<aiPerTeam;i++){
+				GameObject aiShip = Network.Instantiate(ship,homeOrbiter.transform.Find ("mirror/spawn_point").position + UnityEngine.Random.insideUnitSphere*aiSpawnRadius,Quaternion.identity,0) as GameObject;
+				aiShip.GetComponent<StateHandler>().playerControlled=false;
+				aiShip.GetComponent<Health>().spawn = homeOrbiter.transform;
+			}
 		}
 		
 		// Determine a spawn location and instantiate a new ship of the player's type
