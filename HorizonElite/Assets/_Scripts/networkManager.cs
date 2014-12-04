@@ -174,6 +174,7 @@ public class networkManager : MonoBehaviour {
 			UI_TrackTarget tracker = myUI.transform.Find("Crosshair").gameObject.GetComponent<UI_TrackTarget>();
 			if(tracker)
 				tracker.target = player.transform;
+			myUI.GetComponent<EnemyIndicators>().playerShip = player;
 
 		} else {
 
@@ -190,6 +191,7 @@ public class networkManager : MonoBehaviour {
 			UI_TrackTarget tracker = myUI.transform.Find("Crosshair").gameObject.GetComponent<UI_TrackTarget>();
 			if(tracker)
 				tracker.target = player.transform;
+			myUI.GetComponent<EnemyIndicators>().playerShip = player;
 		}
 
 		// setting up this ship with its payload ui stuff
