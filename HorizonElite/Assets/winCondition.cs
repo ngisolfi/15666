@@ -3,7 +3,9 @@ using System.Collections;
 
 public class winCondition : MonoBehaviour {
 
+	public GameObject mySun;
 	public GameObject enemySun;
+	public winCondition enemyWinCondition;
 	public GameObject sunExplosion;
 	public GameObject winDecal;
 	public GameObject loseDecal;
@@ -19,28 +21,47 @@ public class winCondition : MonoBehaviour {
 
 
 	//This is probably what is blatantly wrong
-		void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
-			bool uLose = false;
-			
-			if (stream.isWriting) {
-				uLose = iWin;
-				stream.Serialize(ref uLose);
-			} else {
-				stream.Serialize(ref uLose);
-				iWin = uLose;
-			}
+	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
+		bool uLose = false;
+		
+		if (stream.isWriting) {
+			uLose = iWin;
+			stream.Serialize(ref uLose);
+		} else {
+			stream.Serialize(ref uLose);
+			iWin = uLose;
 		}
-	
+	}
+
+	void findEnemyWinCondition(){
+		if(Network.isServer){
+			GameObject condition = GameObject.Find("alienWinCondition");
+			if(condition)
+				enemyWinCondition = condition.GetComponent<winCondition>();
+		}else{
+			GameObject condition = GameObject.Find("humanWinCondition");
+			if(condition)
+				enemyWinCondition = condition.GetComponent<winCondition>();
+		}
+	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		if(networkView.isMine){
+			if(enemyWinCondition){
+				if(enemyWinCondition.iWin)
+					iLose = true;
+			}else{
+				findEnemyWinCondition();
+			}
 			if(iLose){
 				if(Network.isServer){
 					GameObject.Find ("p1UI").GetComponent<activateWinLoseLogos>().activateLoseLogo();
 				}else{
 					GameObject.Find("p2UI").GetComponent<activateWinLoseLogos>().activateLoseLogo ();
 				}
+				// blow up my own sun (since suns aren't networked, they have to be blown up on both ends)
+				blowUpSun(mySun);
 			}
 
 			if (iWin || iLose)
@@ -59,21 +80,27 @@ public class winCondition : MonoBehaviour {
 	}
 
 	void OnTriggerEnter( Collider other ){
-		if (other.tag == "battleShip" && other.networkView.isMine && !reported){
-			reported=true;
-			iWin = true;
-			youLose();
-			gameOverTimer = 5.0f;
+		if(networkView.isMine){
+			if (other.tag == "battleShip" && other.networkView.isMine && !reported){
+				reported=true;
+				iWin = true;
+				youLose();
+				gameOverTimer = 5.0f;
 
-			// Explode the enemy's sun
-			Vector3 sun_pos = Vector3.zero;
-			if (enemySun != null)
-			{
-				sun_pos = enemySun.transform.position;
-				Destroy(enemySun);
+				// Explode the enemy's sun
+				blowUpSun(enemySun);
 			}
-			explosion = (GameObject)Network.Instantiate(sunExplosion, sun_pos, Quaternion.identity, 0); 
 		}
+	}
+
+	void blowUpSun(GameObject sun){
+		Vector3 sun_pos = Vector3.zero;
+		if (sun != null)
+		{
+			sun_pos = sun.transform.position;
+			Destroy(sun);
+		}
+		explosion = (GameObject)Network.Instantiate(sunExplosion, sun_pos, Quaternion.identity, 0); 
 	}
 
 	void youLose(){

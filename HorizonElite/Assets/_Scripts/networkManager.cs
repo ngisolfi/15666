@@ -186,6 +186,7 @@ public class networkManager : MonoBehaviour {
 
 			GameObject humansWin = Network.Instantiate (humanWin,new Vector3(0f,0f,-75000f),Quaternion.identity,0) as GameObject;
 			humansWin.GetComponent<winCondition>().enemySun = GameObject.Find ("Environment/BlueSolarSystem/blueSun");
+			humansWin.GetComponent<winCondition>().mySun = GameObject.Find ("Environment/RedSolarSystem/redSun");
 			humansWin.networkView.RPC ("rename", RPCMode.AllBuffered, "humanWinCondition");
 			humansWin.GetComponent<winCondition>().winDecal=myUI.transform.Find("winDecal").gameObject;
 			humansWin.GetComponent<winCondition>().loseDecal=myUI.transform.Find("loseDecal").gameObject;
@@ -211,6 +212,7 @@ public class networkManager : MonoBehaviour {
 
 			GameObject aliensWin = Network.Instantiate (alienWin,new Vector3(0f,0f,75000f),Quaternion.identity,0) as GameObject;
 			aliensWin.GetComponent<winCondition>().enemySun = GameObject.Find ("Environment/RedSolarSystem/redSun");
+			aliensWin.GetComponent<winCondition>().mySun = GameObject.Find ("Environment/BlueSolarSystem/blueSun");
 			aliensWin.networkView.RPC ("rename", RPCMode.AllBuffered, "alienWinCondition");
 			aliensWin.GetComponent<winCondition>().winDecal=myUI.transform.Find("winDecal").gameObject;
 			aliensWin.GetComponent<winCondition>().loseDecal=myUI.transform.Find("loseDecal").gameObject;
