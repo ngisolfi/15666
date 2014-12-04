@@ -43,8 +43,8 @@ public class Health : MonoBehaviour {
 			healthLevel -= damage;
 		else
 			healthLevel -= 100*damage;
-	//	if(healthLevel<0)
-	//		healthLevel=0;
+		if(healthLevel<0)
+			healthLevel=0;
 
 	}
 
