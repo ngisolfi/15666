@@ -84,7 +84,7 @@ public class thrustController : MonoBehaviour {
 			
 			// Add a torque if gravity is strong
 			//Debug.Log ("gforce: " + gravity_force.magnitude.ToString());
-			if (gravity_force.magnitude > 250.0f)
+			if (gravity_force.magnitude > 200.0f)
 			{
 				float t = gravity_torque * Mathf.Sqrt(Mathf.Sqrt(gravity_force.magnitude));
 				Vector3 rotate_axis = Vector3.Cross (transform.forward, gravity_force.normalized);

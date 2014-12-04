@@ -117,7 +117,7 @@ public class networkManager : MonoBehaviour {
 		if (Network.isServer) {
 
 			//Only the server should network instantiate the asteroid field
-			Network.Instantiate (asField,Vector3.zero,Quaternion.identity,0);
+			//Network.Instantiate (asField,Vector3.zero,Quaternion.identity,0);
 
 
 			//Win condition involves blowing up blue star
@@ -260,8 +260,8 @@ public class networkManager : MonoBehaviour {
 	
 	public void toggleTitleMusic(bool on)
 	{
-		if(!networkView.isMine)
-			return;
+		//if(!networkView.isMine)
+		//	return;
 		if (on)
 			title_music.Play ();
 		else
@@ -270,8 +270,8 @@ public class networkManager : MonoBehaviour {
 	
 	public void toggleGameMusic(bool on)
 	{
-		if(!networkView.isMine)
-			return;
+		//if(!networkView.isMine)
+		//	return;
 		if (on)
 			game_music.Play ();
 		else
@@ -323,7 +323,7 @@ public class networkManager : MonoBehaviour {
 			prologue.Stop();
 		if (deathray_instructions.isPlaying)
 			deathray_instructions.Stop();
-		end_mining.Play ();
+			end_mining.Play ();
 		played_end_mining_audio = true;
 	}
 	
