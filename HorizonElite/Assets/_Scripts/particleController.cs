@@ -11,20 +11,35 @@ public class particleController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		cam = Camera.main;
-		particles = GameObject.Find ("Sparks");
+		particles = transform.Find ("Sparks").gameObject;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 
+		// Make the ship's trail renderer end width a function of velocity
+		float vel = this.rigidbody.velocity.magnitude;
+
+		if (!gameObject.GetComponent<StateHandler> ().playerControlled)
+		{
+			particles.SetActive(false);
+			return;
+		}
+		else
+		{
+			gameObject.GetComponentInChildren<TrailRenderer> ().enabled = true;
+			gameObject.GetComponentInChildren<TrailRenderer> ().endWidth = 2900.0f * vel / max_velocity + 100.0f;
+		}
+
+		if (!networkView.isMine)
+			return;
+
 		// Find the camera, place the particle system 
 		// directly in front of the lookat vector
 		particles.transform.position = cam.transform.position + cam.transform.forward * 150.0f;
-
-		float vel = this.rigidbody.velocity.magnitude;
-
+		
 		// Update the particles on the ship's thruster
-		ParticleSystem thruster = GameObject.Find ("Thruster").particleSystem;
+		ParticleSystem thruster = transform.Find ("Thruster").gameObject.particleSystem;
 		if (Network.isServer)
 			thruster.startSize = vel / 150.0f + 2.0f;
 		else
@@ -47,9 +62,5 @@ public class particleController : MonoBehaviour {
 
 		particles.particleEmitter.localVelocity = new Vector3(0.0f, 0.0f, vel / 1.25f);
 		particles.particleEmitter.rndVelocity = new Vector3(vel / 3.0f, vel / 3.0f, 0.0f);
-		
-		// Make the ship's trail renderer end width a function of velocity
-		GameObject.Find ("Thruster").GetComponent<TrailRenderer>().endWidth = 2900.0f * vel / max_velocity + 100.0f;
-		
 	}
 }
