@@ -193,6 +193,7 @@ public class networkManager : MonoBehaviour {
 			
 			if(tracker)
 				tracker.target = player.transform;
+			myUI.GetComponent<EnemyIndicators>().playerShip = player;
 
 		} else {
 
@@ -217,6 +218,7 @@ public class networkManager : MonoBehaviour {
 			
 			if(tracker)
 				tracker.target = player.transform;
+			myUI.GetComponent<EnemyIndicators>().playerShip = player;
 		}
 
 		// setting up this ship with its payload ui stuff

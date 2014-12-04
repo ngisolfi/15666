@@ -3,6 +3,10 @@ using System.Collections;
 
 public class PursueState : PathFollowerState {
 	protected Transform _enemy;
+	public int pulse_rate = 10;
+	public float pulse_duration = 2f;
+	protected int _pulsecount = 0;
+	protected float _pulsestart = -10e7f;
 
 	protected Transform enemy
 	{
@@ -20,9 +24,14 @@ public class PursueState : PathFollowerState {
 	{
 		if(enemy){
 			setTarget(enemy.position);
-			if(transform.parent.GetComponent<AimLaser>().inSight)
+			if(transform.parent.GetComponent<AimLaser>().inSight && _pulsecount < pulse_rate)
 			{
 				_controller.fire();
+				_pulsecount++;
+			}
+			if(Time.time-_pulsestart > pulse_duration){
+				_pulsecount = 0;
+				_pulsestart = Time.time;
 			}
 		}
 		base.execute();
