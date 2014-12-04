@@ -15,17 +15,17 @@ public class SenseManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		List<GameObject> humans = new List<GameObject>();
-		List<GameObject> aliens = new List<GameObject>();
-		foreach(GameObject ship in GameObject.FindGameObjectsWithTag("Player")){
-			if(Network.isClient ^ ship.networkView.isMine){
-				humans.Add(ship);
-			}else{
-				aliens.Add(ship);
-			}
-		}
-//		GameObject[] humans = GameObject.FindGameObjectsWithTag("Player");
-//		GameObject[] aliens = GameObject.FindGameObjectsWithTag("Enemies");
+//		List<GameObject> humans = new List<GameObject>();
+//		List<GameObject> aliens = new List<GameObject>();
+//		foreach(GameObject ship in GameObject.FindGameObjectsWithTag("Player")){
+//			if(Network.isClient ^ ship.networkView.isMine){
+//				humans.Add(ship);
+//			}else{
+//				aliens.Add(ship);
+//			}
+//		}
+		GameObject[] humans = GameObject.FindGameObjectsWithTag("Player");
+		GameObject[] aliens = GameObject.FindGameObjectsWithTag("Enemies");
 
 		Sensor sensor;
 		if(Network.isServer){

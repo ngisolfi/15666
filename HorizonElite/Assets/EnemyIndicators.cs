@@ -16,18 +16,21 @@ public class EnemyIndicators : MonoBehaviour {
 	void Update () {
 		List<Transform> visible = playerShip.GetComponent<Sensor>().enemies;
 		Transform target;
-		foreach(GameObject indicator in _indicators){
-			target = indicator.GetComponent<UI_TrackTarget>().target;
+		GameObject indicator;
+		for(int i=_indicators.Count-1;i>=0;i--){
+//		foreach(GameObject indicator in _indicators){
+			target = _indicators[i].GetComponent<UI_TrackTarget>().target;
 			if(visible.Contains(target)){
 				visible.Remove(target);
 			}else{
-				_indicators.Remove(indicator);
+				indicator = _indicators[i];
+				_indicators.RemoveAt(i);
 				Destroy(indicator);
 			}
 		}
 
 		foreach(Transform v in visible){
-			GameObject indicator = Instantiate(indicator_prefab) as GameObject;
+			indicator = Instantiate(indicator_prefab) as GameObject;
 			indicator.GetComponent<UI_TrackTarget>().target = v;
 			_indicators.Add(indicator);
 		}
