@@ -20,18 +20,18 @@ public class Health : MonoBehaviour {
 
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info) {
 		int health = 0;
-//		bool ship_broke = false;
+		bool ship_broke = false;
 		
 		if (stream.isWriting) {
 			health = healthLevel;
-//			ship_broke = ship_disabled;
+			ship_broke = ship_disabled;
 			stream.Serialize(ref health);
-//			stream.Serialize(ref ship_broke);
+			stream.Serialize(ref ship_broke);
 		} else {
 			stream.Serialize(ref health);
-//			stream.Serialize(ref ship_broke);
+			stream.Serialize(ref ship_broke);
 			healthLevel = health;
-//			ship_disabled = ship_broke;
+			ship_disabled = ship_broke;
 		}
 	}
 
