@@ -137,7 +137,7 @@ public class networkManager : MonoBehaviour {
 		                                                     Quaternion.identity, 
 		                                                      0) as GameObject;
 		// Look at the battleship orbiter to begin
-		player.transform.LookAt(homeOrbiter.transform.position);
+//		player.transform.LookAt(homeOrbiter.transform.position);
 
 		if(Network.isServer)
 			player.name = "player1";
