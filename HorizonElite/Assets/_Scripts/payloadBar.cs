@@ -55,6 +55,7 @@ public class payloadBar : MonoBehaviour {
 	void FixedUpdate(){
 
 		if (tot_length >= max_payload) {
+			
 			if(payloadLight.intensity<=0f){
 				lightIncreasing=true;
 			} else if (payloadLight.intensity>=4f){

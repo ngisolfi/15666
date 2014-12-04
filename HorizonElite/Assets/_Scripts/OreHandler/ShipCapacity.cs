@@ -16,7 +16,7 @@ public class ShipCapacity : OreCapacity {
 		fill_order = new List<string>();
 	}
 
-	void Update(){
+	void FixedUpdate(){
 		if(homeShip){
 			float d = (transform.position-homeShip.transform.position).sqrMagnitude;
 			//			Debug.Log(Mathf.Sqrt(d));
@@ -24,6 +24,11 @@ public class ShipCapacity : OreCapacity {
 				dumpLoad();
 			}
 		}
+	
+		if (percentFull() == 100)
+			// We have a full payload
+			// Play the payload dropoff instructions audio clip if it has not been played before
+			GameObject.Find("GameInstance").GetComponent<networkManager>().playMiningEndAudio();
 	}
 
 	protected override int amountAddable(string element, int amount){
@@ -64,6 +69,20 @@ public class ShipCapacity : OreCapacity {
 			element = fill_order[i];
 			amountToDrain = drainElement(element,amountToDrain);
 			homeShip.GetComponent<OreCapacity>().depositOre(element,startAmount-amountToDrain);
+			if(amountToDrain == 0)
+				break;
+		}
+	}
+	
+	public void destroyLoad()
+	{
+		int amountToDrain = drainSpeed;
+		int startAmount;
+		string element;
+		for(int i=fill_order.Count-1;i>=0;i--){
+			startAmount = amountToDrain;
+			element = fill_order[i];
+			amountToDrain = drainElement(element,amountToDrain);
 			if(amountToDrain == 0)
 				break;
 		}

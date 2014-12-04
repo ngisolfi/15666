@@ -33,9 +33,12 @@ public class networkManager : MonoBehaviour {
 	private AudioSource begin_mining;
 	private AudioSource end_mining;
 	private AudioSource deathray_instructions;
+	private bool played_prologue_audio = false;
+	private bool played_begin_mining_audio = false;
+	private bool played_end_mining_audio = false;
+	private bool played_death_ray_audio = false;
 	
 	void Start(){
-
 		getAudioClips();
 		toggleTitleMusic(true);
 	}
@@ -152,6 +155,9 @@ public class networkManager : MonoBehaviour {
 
 		// designate home planet for spawned player
 		player.GetComponent<ShipCapacity>().homeShip = homeOrbiter;
+		
+		// designate respawn point
+		player.GetComponent<Health>().spawn = homeOrbiter.transform.Find("mirror/spawn_point");
 
 		if(Network.isServer){
 
@@ -239,21 +245,61 @@ public class networkManager : MonoBehaviour {
 	
 	public void playPrologueAudio()
 	{
+		if (played_prologue_audio)
+			return;
+			
+		if (begin_mining.isPlaying)
+			begin_mining.Stop();
+		if (end_mining.isPlaying)
+			end_mining.Stop();
+		if (deathray_instructions.isPlaying)
+			deathray_instructions.Stop();
 		prologue.Play ();
+		played_prologue_audio = true;
 	}
 	
 	public void playMiningBeginAudio()
 	{
+		if (played_begin_mining_audio)
+			return;
+			
+		if (prologue.isPlaying)
+			prologue.Stop();
+		if (end_mining.isPlaying)
+			end_mining.Stop();
+		if (deathray_instructions.isPlaying)
+			deathray_instructions.Stop();
 		begin_mining.Play ();
+		played_begin_mining_audio = true;
 	}
 	
 	public void playMiningEndAudio()
 	{
+		if (played_end_mining_audio)
+			return;
+			
+		if (begin_mining.isPlaying)
+			begin_mining.Stop();
+		if (prologue.isPlaying)
+			prologue.Stop();
+		if (deathray_instructions.isPlaying)
+			deathray_instructions.Stop();
 		end_mining.Play ();
+		played_end_mining_audio = true;
 	}
 	
 	public void playDeathRayInstructionsAudio()
 	{
+		if (played_death_ray_audio)
+			return;
+			
+		if (begin_mining.isPlaying)
+			begin_mining.Stop();
+		if (end_mining.isPlaying)
+			end_mining.Stop();
+		if (prologue.isPlaying)
+			prologue.Stop();
 		deathray_instructions.Play();
+		played_death_ray_audio = true;
 	}
 }

@@ -9,6 +9,8 @@ public class Health : MonoBehaviour {
 	public GameObject explosion;
 	public Transform spawn;
 
+	private float temp_drag, temp_ang_drag;
+	
 	// Use this for initialization
 	void Start () {
 		healthLevel = 100;
@@ -20,13 +22,10 @@ public class Health : MonoBehaviour {
 		if(healthLevel<=0){
 			Network.Instantiate (explosion,transform.position,Quaternion.identity,0);
 			if(spawn!=null){
-				transform.Find ("Thruster").gameObject.GetComponent<TrailRenderer>().time=0f;
-				Invoke("trailReset",0.01f);
-				//transform.Find ("Thruster").gameObject.GetComponent<TrailRenderer>().enabled=false;
-				transform.position = spawn.position;
+				
+				disableShip();
+				StartCoroutine("respawnTimer");
 				healthLevel = 100;
-				//transform.Find ("Thruster").gameObject.GetComponent<TrailRenderer>().enabled=true;
-				//transform.Find ("Thruster").gameObject.GetComponent<TrailRenderer>().time=15f;
 
 			}else
 				Network.Destroy (gameObject);
@@ -34,6 +33,36 @@ public class Health : MonoBehaviour {
 
 		}
 
+	}
+	
+	IEnumerator respawnTimer(){
+	
+		yield return new WaitForSeconds(3);
+		enableShip();
+	}
+
+	void disableShip()
+	{
+		transform.FindChild("laserSpawner").GetComponent<laserFire>().can_fire=false;
+		gameObject.GetComponent<ShipCapacity>().destroyLoad();
+		transform.Find ("Thruster").gameObject.GetComponent<TrailRenderer>().time=0f;
+		temp_drag=rigidbody.drag;
+		temp_ang_drag=rigidbody.angularDrag;
+		renderer.enabled=false;
+		transform.Find("Thruster").GetComponent<ParticleSystem>().renderer.enabled=false;
+		rigidbody.drag=1e08f;
+		rigidbody.angularDrag=1e08f;
+		Invoke("trailReset",0.01f);
+	}
+	
+	void enableShip()
+	{
+		transform.FindChild("laserSpawner").GetComponent<laserFire>().can_fire=true;
+		transform.position = spawn.position;
+		renderer.enabled=true;
+		rigidbody.drag=temp_drag;
+		rigidbody.angularDrag=temp_ang_drag;
+		transform.Find("Thruster").GetComponent<ParticleSystem>().renderer.enabled=true;
 	}
 
 	void trailReset(){
