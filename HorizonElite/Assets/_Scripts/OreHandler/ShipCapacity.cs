@@ -25,8 +25,6 @@ public class ShipCapacity : OreCapacity {
 			}
 		}
 	
-		if (percentFull () > 2)
-			Debug.Log("percent: " + percentFull().ToString());
 		if (percentFull() >= 99)
 			// We have a full payload
 			// Play the payload dropoff instructions audio clip if it has not been played before
