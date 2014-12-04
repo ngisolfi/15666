@@ -42,7 +42,6 @@ public class bShipController : MonoBehaviour {
 					rigidbody.AddForce (speed * transform.forward);//(transform.position - thrusterLocation).normalized);
 				}
 				if (Input.GetButton("Fire2") ){//&& Time.time > nextFire) {
-					Debug.Log ("firing deathray");
 					//nextFire = Time.time + fireRate;
 					//				laserSpawn.fireLaser (laserSight.target);
 					//transform.Find("battleshipPrefab").gameObject.GetComponent<ParticleSystem>().enableEmission=true;

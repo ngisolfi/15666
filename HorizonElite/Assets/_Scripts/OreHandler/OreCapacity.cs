@@ -61,6 +61,10 @@ public class OreCapacity : MonoBehaviour {
 
 	public void depositOre(string element, int amount){
 		levels[element] = amountAddable(element, amount);
+		
+		// Is this element at maximum? If so, inform the death ray
+		if (levels[element] == levelCap && gameObject.GetComponent<deathRay>() != null)
+			gameObject.GetComponent<deathRay>().completeElement(element);
 	}
 
 	public int checkLevel(string element){

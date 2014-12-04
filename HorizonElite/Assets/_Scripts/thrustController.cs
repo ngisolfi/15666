@@ -8,6 +8,8 @@ public class thrustController : MonoBehaviour {
 	public float rollSpeed;
 	public float fireRate = 0.5F;
 	private float nextFire = 0.0F;
+	private Vector3 gravity_force = Vector3.zero;
+	public float gravity_torque;
 
 	private Vector3 thrusterLocation;
 	private laserFire laserSpawn;
@@ -20,9 +22,27 @@ public class thrustController : MonoBehaviour {
 		laserSight = gameObject.GetComponent<AimLaser>();
 	}
 	
+	public void setGravityForce(Vector3 gf)
+	{
+		gravity_force = gf;
+	}
+	
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (networkView.isMine) {
+		
+			// Add the gravity force and rotation
+			rigidbody.AddForce(gravity_force);
+			
+			// Add a torque if gravity is strong
+			//Debug.Log ("gforce: " + gravity_force.magnitude.ToString());
+			if (gravity_force.magnitude > 250.0f)
+			{
+				float t = gravity_torque * Mathf.Sqrt(Mathf.Sqrt(gravity_force.magnitude));
+				Vector3 rotate_axis = Vector3.Cross (transform.forward, gravity_force.normalized);
+				rigidbody.AddTorque(rotate_axis * t);
+			}
+		
 			if (Input.GetButton("Fire1")) {
 				//Thrust On
 				rigidbody.AddForce (speed * transform.forward);//(transform.position - thrusterLocation).normalized);

@@ -12,7 +12,7 @@ public class laserFire : MonoBehaviour {
 		SU_LaserShot shot = laser.GetComponent<SU_LaserShot>();
 		if(shot){
 			shot.firedBy = transform.parent;
-			shot.velocity = laserSpeed + transform.parent.rigidbody.velocity.magnitude;
+			shot.velocity = laserSpeed + 2.0f * transform.parent.rigidbody.velocity.magnitude;
 		}
 	}
 }

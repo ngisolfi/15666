@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ShipCapacity : OreCapacity {
-	public int totalCap = 200;
+	public int totalCap = 256;
 	public GameObject homeShip;
 	public int drainSpeed;
 	public float shipProximityThreshold;

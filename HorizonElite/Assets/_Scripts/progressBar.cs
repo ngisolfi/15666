@@ -10,7 +10,6 @@ public class progressBar : MonoBehaviour {
 	public string element;
 	public GameObject container;
 
-
 	void Start(){
 		fullIcon.enabled = false;
 	}
@@ -22,15 +21,15 @@ public class progressBar : MonoBehaviour {
 			if(collector){
 				capacity_fraction = collector.elementFraction(element);
 			}
-
-
-
-			renderer.material.SetFloat ("_Cutoff", Mathf.Max((int)((capacity_fraction)*256f),1));
+					
+			renderer.material.SetFloat ("_Cutoff", 256f - capacity_fraction * 256f);
 	//		renderer.material.SetFloat ("_Cutoff",Mathf.InverseLerp(0, Screen.width, Input.mousePosition.x)); 
 			renderer.material.color = Color.Lerp (start, end, capacity_fraction);
 	//		renderer.material.color = Color.Lerp (start, end, Mathf.InverseLerp(Screen.width, 0,  Input.mousePosition.x));
+	
+			if (capacity_fraction >= 1.0f)
+				fullIcon.enabled = true;
 		}
-
 
 //		if(Mathf.InverseLerp(0, Screen.width, Input.mousePosition.x)>0){
 //			fullIcon.enabled = false;

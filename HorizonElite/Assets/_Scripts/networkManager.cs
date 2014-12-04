@@ -129,13 +129,15 @@ public class networkManager : MonoBehaviour {
 		// Determine a spawn location and instantiate a new ship of the player's type
 		Transform spawnPoint = homeOrbiter.transform.Find("mirror/spawn_point");
 		Vector3 spawn_location = spawnPoint.position;
-		Quaternion spawn_direction = spawnPoint.rotation;
+		//Quaternion spawn_direction = spawnPoint.rotation;
 
 		// player to be placed in the whorld
 		GameObject player = Network.Instantiate (ship, 
 		                                                     spawn_location, 
-		                                                     spawn_direction, 
+		                                                     Quaternion.identity, 
 		                                                      0) as GameObject;
+		// Look at the battleship orbiter to begin
+		player.transform.LookAt(homeOrbiter.transform.position);
 
 		if(Network.isServer)
 			player.name = "player1";
@@ -192,7 +194,7 @@ public class networkManager : MonoBehaviour {
 			GameObject.Find ("p2UI/element_payloadBar/component_background").GetComponent<UI_payload> ().playerShip = player;
 		// the camera which will follow the player
 //		GameObject player_camera = (GameObject)Network.Instantiate (cam, spawn_location,spawn_direction,0);
-		GameObject player_camera = Instantiate (cam, spawn_location,spawn_direction) as GameObject;
+		GameObject player_camera = Instantiate (cam, spawn_location,Quaternion.LookRotation(homeOrbiter.transform.position)) as GameObject;
 		if (Network.isServer)
 			player_camera.name = "camView_p1";
 		else

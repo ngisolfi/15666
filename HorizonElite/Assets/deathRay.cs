@@ -22,39 +22,38 @@ public class deathRay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(LIcomplete){
+		if(LIcomplete)//{
 			transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleRenderer>().enabled=true;
-			LIcomplete=false;
-		}
+			//LIcomplete=false;
+		//}
 
-		if(Dcomplete){
+		if(Dcomplete)//{
 			transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleRenderer>().enabled=true;
-			Dcomplete=false;
-		}
+		//	Dcomplete=false;
+		//}
 
-		if(Tcomplete){
+		if(Tcomplete)//{
 			transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleRenderer>().enabled=true;
-			Tcomplete=false;
-		}
+			//Tcomplete=false;
+		//}
 
-		if(HEcomplete){
+		if(HEcomplete)//{
 			transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleRenderer>().enabled=true;
-			HEcomplete=false;
-		}
+			//HEcomplete=false;
+		//}
 
-		if(Bcomplete){
+		if(Bcomplete)//{
 			transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleRenderer>().enabled=true;
-			Bcomplete=false;
-		}
+			//Bcomplete=false;
+		//}
 
-		if(BEcomplete){
+		if(BEcomplete)//{
 			transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleRenderer>().enabled=true;
-			BEcomplete=false;
-		}
+			//BEcomplete=false;
+		//}
 
 
 		if(DRcomplete && once){
-			Debug.Log ("hopefully only once");
 			//Don't do this twice
 			once=false;
 
@@ -78,6 +77,31 @@ public class deathRay : MonoBehaviour {
 			//Turn on thrust script for this ship
 			//this.GetComponent<thrustController>().enabled = true;
 
+		}
+	}
+	
+	// If one element is completely filled when it is dumped off, OreCapacity.cs 
+	// will call this function
+	public void completeElement(string element)
+	{
+		if (element.ToUpper().CompareTo("BERYLLIUM") == 0)
+			BEcomplete = true;	
+		if (element.ToUpper().CompareTo("BORON") == 0)
+			Bcomplete = true;	
+		if (element.ToUpper().CompareTo("DEUTERIUM") == 0)
+			Dcomplete = true;	
+		if (element.ToUpper().CompareTo("HELIUM") == 0)
+			HEcomplete = true;	
+		if (element.ToUpper().CompareTo("LITHIUM") == 0)
+			LIcomplete = true;	
+		if (element.ToUpper().CompareTo("TRITIUM") == 0)
+			Tcomplete = true;				
+			
+		// If all elements are complete, so is the death ray 
+		if (BEcomplete && Bcomplete && Dcomplete && HEcomplete && LIcomplete && Tcomplete)
+		{
+			DRcomplete = true;
+			gameObject.GetComponent<bShipController>().hasControl = true;
 		}
 	}
 }

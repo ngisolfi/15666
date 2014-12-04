@@ -35,6 +35,8 @@ public class AimLaser : MonoBehaviour {
 
 			}else{
 				return transform.position + transform.forward*staticLead;
+				//return transform.position + transform.rigidbody.velocity.normalized*staticLead;
+				
 			}
 		}
 	}
