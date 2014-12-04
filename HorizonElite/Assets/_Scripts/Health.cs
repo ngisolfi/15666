@@ -17,22 +17,24 @@ public class Health : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 	
-		if(healthLevel<=0){
-			Network.Instantiate (explosion,transform.position,Quaternion.identity,0);
-			if(spawn!=null){
-				
-				disableShip();
-				StartCoroutine("respawnTimer");
-				healthLevel = 100;
+		if (networkView.isMine)
+		{
+	
+			if(healthLevel<=0){
+				Network.Instantiate (explosion,transform.position,Quaternion.identity,0);
+				if(spawn!=null){
+					
+					disableShip();
+					StartCoroutine("respawnTimer");
+					healthLevel = 100;	
+		
+				}else
+					Network.Destroy (gameObject);
 
-			}else
-				Network.Destroy (gameObject);
-
-
+			}
 		}
-
 	}
 	
 	IEnumerator respawnTimer(){
@@ -57,8 +59,9 @@ public class Health : MonoBehaviour {
 	
 	void enableShip()
 	{
-		transform.FindChild("laserSpawner").GetComponent<laserFire>().can_fire=true;
-		transform.position = spawn.position;
+		transform.FindChild("laserSpawner").GetComponent<laserFire>().can_fire=true;		
+		transform.position = spawn.Find("mirror/spawn_point").position;
+		transform.LookAt(spawn.position);
 		renderer.enabled=true;
 		rigidbody.drag=temp_drag;
 		rigidbody.angularDrag=temp_ang_drag;

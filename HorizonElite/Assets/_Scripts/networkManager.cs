@@ -89,7 +89,7 @@ public class networkManager : MonoBehaviour {
 	private void StartServer(){
 		
 		Network.InitializeServer (4, 25000, !Network.HavePublicAddress ());
-		MasterServer.RegisterHost(typeName,gameName);
+		MasterServer.RegisterHost(typeName,Network.connectionTesterIP);
 
 		Spawn ();
 	}
@@ -157,7 +157,7 @@ public class networkManager : MonoBehaviour {
 		player.GetComponent<ShipCapacity>().homeShip = homeOrbiter;
 		
 		// designate respawn point
-		player.GetComponent<Health>().spawn = homeOrbiter.transform.Find("mirror/spawn_point");
+		player.GetComponent<Health>().spawn = homeOrbiter.transform;
 
 		if(Network.isServer){
 
