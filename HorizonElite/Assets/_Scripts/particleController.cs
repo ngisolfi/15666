@@ -23,11 +23,11 @@ public class particleController : MonoBehaviour {
 		if (!gameObject.GetComponent<StateHandler> ().playerControlled)
 		{
 			particles.SetActive(false);
+			gameObject.networkView.RPC("disableTrailRenderer", RPCMode.All);
 			return;
 		}
 		else
 		{
-			gameObject.GetComponentInChildren<TrailRenderer> ().enabled = true;
 			gameObject.GetComponentInChildren<TrailRenderer> ().endWidth = 2900.0f * vel / max_velocity + 100.0f;
 		}
 
@@ -62,5 +62,12 @@ public class particleController : MonoBehaviour {
 
 		particles.particleEmitter.localVelocity = new Vector3(0.0f, 0.0f, vel / 1.25f);
 		particles.particleEmitter.rndVelocity = new Vector3(vel / 3.0f, vel / 3.0f, 0.0f);
+	}
+
+	[RPC]
+	public void disableTrailRenderer()
+	{
+		if (!gameObject.GetComponent<StateHandler>().playerControlled)
+			gameObject.GetComponentInChildren<TrailRenderer> ().enabled = false;
 	}
 }

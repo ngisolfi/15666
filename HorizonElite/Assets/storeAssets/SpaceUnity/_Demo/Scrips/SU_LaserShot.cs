@@ -88,11 +88,11 @@ public class SU_LaserShot : MonoBehaviour {
 					Health health = _hit.transform.gameObject.GetComponent<Health>();
 					if(health){
 						if (health.healthLevel <= 0) {
-							// Instantiate the explosion effect at the point of impact
-							Network.Instantiate(explosionEffect, _hit.transform.position, _rotation,0);
-							// Destroy the game object that we just hit
-							if(networkView.isMine)
-							Network.Destroy(_hit.transform.gameObject);
+//							// Instantiate the explosion effect at the point of impact
+//							Network.Instantiate(explosionEffect, _hit.transform.position, _rotation,0);
+//							// Destroy the game object that we just hit
+//							if(networkView.isMine)
+//							Network.Destroy(_hit.transform.gameObject);
 						}else{
 							health.healthLevel -= strength;
 						}

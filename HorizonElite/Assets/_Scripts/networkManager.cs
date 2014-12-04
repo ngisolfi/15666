@@ -117,13 +117,10 @@ public class networkManager : MonoBehaviour {
 		if (Network.isServer) {
 
 			//Only the server should network instantiate the asteroid field
-			//Network.Instantiate (asField,Vector3.zero,Quaternion.identity,0);
+			Network.Instantiate (asField,Vector3.zero,Quaternion.identity,0);
 
 
 			//Win condition involves blowing up blue star
-			GameObject humansWin = Network.Instantiate (humanWin,new Vector3(0f,0f,-75000f),Quaternion.identity,0) as GameObject;
-			humansWin.GetComponent<winCondition>().enemySun = GameObject.Find ("Environment/BlueSolarSystem/blueSun");
-			humansWin.networkView.RPC ("rename", RPCMode.AllBuffered, "humanWinCondition");
 			ship = human_ship;
 			GameObject homePlanet = GameObject.Find("Environment/RedSolarSystem/redOrbitingPlanets/redO2/redP2");			
 			homeOrbiter = Network.Instantiate (orbiter, homePlanet.transform.position, Quaternion.identity, 0) as GameObject;
@@ -139,9 +136,6 @@ public class networkManager : MonoBehaviour {
 
 		} else {
 			//Win condition involves blowing up red star
-			GameObject aliensWin = Network.Instantiate (alienWin,new Vector3(0f,0f,75000f),Quaternion.identity,0) as GameObject;
-			aliensWin.GetComponent<winCondition>().enemySun = GameObject.Find ("Environment/RedSolarSystem/redSun");
-			aliensWin.networkView.RPC ("rename", RPCMode.AllBuffered, "alienWinCondition");
 			ship = alien_ship;
 			GameObject homePlanet = GameObject.Find("Environment/BlueSolarSystem/blueOrbitingPlanets/blueO2/blueP2");
 			homeOrbiter = Network.Instantiate (orbiter, homePlanet.transform.position, Quaternion.identity, 0) as GameObject;
@@ -189,6 +183,14 @@ public class networkManager : MonoBehaviour {
 			GameObject.Find ("p1UI/element_deathrayProgress/component_green/g_progress").GetComponent<progressBar>().container=homeOrbiter;
 			GameObject.Find ("p1UI/element_deathrayProgress/component_red/r_progress").GetComponent<enemyProgressBar>().enemyShipName="alienOrbiter";
 			UI_TrackTarget tracker = myUI.transform.Find("Crosshair").gameObject.GetComponent<UI_TrackTarget>();
+
+			GameObject humansWin = Network.Instantiate (humanWin,new Vector3(0f,0f,-75000f),Quaternion.identity,0) as GameObject;
+			humansWin.GetComponent<winCondition>().enemySun = GameObject.Find ("Environment/BlueSolarSystem/blueSun");
+			humansWin.networkView.RPC ("rename", RPCMode.AllBuffered, "humanWinCondition");
+			humansWin.GetComponent<winCondition>().winDecal=myUI.transform.Find("winDecal").gameObject;
+			humansWin.GetComponent<winCondition>().loseDecal=myUI.transform.Find("loseDecal").gameObject;
+
+			
 			if(tracker)
 				tracker.target = player.transform;
 			myUI.GetComponent<EnemyIndicators>().playerShip = player;
@@ -206,6 +208,14 @@ public class networkManager : MonoBehaviour {
 			GameObject.Find ("p2UI/element_deathrayProgress/component_green/g_progress").GetComponent<progressBar>().container=homeOrbiter;
 			GameObject.Find ("p2UI/element_deathrayProgress/component_red/r_progress").GetComponent<enemyProgressBar>().enemyShipName="humanOrbiter";
 			UI_TrackTarget tracker = myUI.transform.Find("Crosshair").gameObject.GetComponent<UI_TrackTarget>();
+
+			GameObject aliensWin = Network.Instantiate (alienWin,new Vector3(0f,0f,75000f),Quaternion.identity,0) as GameObject;
+			aliensWin.GetComponent<winCondition>().enemySun = GameObject.Find ("Environment/RedSolarSystem/redSun");
+			aliensWin.networkView.RPC ("rename", RPCMode.AllBuffered, "alienWinCondition");
+			aliensWin.GetComponent<winCondition>().winDecal=myUI.transform.Find("winDecal").gameObject;
+			aliensWin.GetComponent<winCondition>().loseDecal=myUI.transform.Find("loseDecal").gameObject;
+
+			
 			if(tracker)
 				tracker.target = player.transform;
 			myUI.GetComponent<EnemyIndicators>().playerShip = player;
@@ -248,6 +258,8 @@ public class networkManager : MonoBehaviour {
 	
 	public void toggleTitleMusic(bool on)
 	{
+		if(!networkView.isMine)
+			return;
 		if (on)
 			title_music.Play ();
 		else
@@ -256,6 +268,8 @@ public class networkManager : MonoBehaviour {
 	
 	public void toggleGameMusic(bool on)
 	{
+		if(!networkView.isMine)
+			return;
 		if (on)
 			game_music.Play ();
 		else
@@ -266,7 +280,9 @@ public class networkManager : MonoBehaviour {
 	{
 		if (played_prologue_audio)
 			return;
-			
+		if(!networkView.isMine)
+			return;
+
 		if (begin_mining.isPlaying)
 			begin_mining.Stop();
 		if (end_mining.isPlaying)
@@ -281,7 +297,8 @@ public class networkManager : MonoBehaviour {
 	{
 		if (played_begin_mining_audio)
 			return;
-			
+		if(!networkView.isMine)
+			return;
 		if (prologue.isPlaying)
 			prologue.Stop();
 		if (end_mining.isPlaying)
@@ -296,7 +313,8 @@ public class networkManager : MonoBehaviour {
 	{
 		if (played_end_mining_audio)
 			return;
-			
+		if(!networkView.isMine)
+			return;
 		if (begin_mining.isPlaying)
 			begin_mining.Stop();
 		if (prologue.isPlaying)
@@ -311,7 +329,8 @@ public class networkManager : MonoBehaviour {
 	{
 		if (played_death_ray_audio)
 			return;
-			
+		if(!networkView.isMine)
+			return;
 		if (begin_mining.isPlaying)
 			begin_mining.Stop();
 		if (end_mining.isPlaying)

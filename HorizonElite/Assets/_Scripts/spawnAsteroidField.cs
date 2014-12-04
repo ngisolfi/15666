@@ -21,7 +21,7 @@ public class spawnAsteroidField : MonoBehaviour {
 
 	// Spawn a full field
 	void Start () {
-
+		Random.seed = 1;
 		positions = new List<Transform>();
 		int bad_counter = 0;
 
@@ -32,10 +32,12 @@ public class spawnAsteroidField : MonoBehaviour {
 			if (bad_counter > number / 2)
 				break;
 
-			GameObject temp = Network.Instantiate(asteroids[(int)Random.Range(0,3)],
-			                   /*Random.insideUnitSphere*radius*/BoxMullerRand(center, spread),
-			                   Quaternion.LookRotation (Random.onUnitSphere), 0)  as GameObject;
-
+//			GameObject temp = Network.Instantiate(asteroids[(int)Random.Range(0,3)],
+//			                   /*Random.insideUnitSphere*radius*/BoxMullerRand(center, spread),
+//			                   Quaternion.LookRotation (Random.onUnitSphere), 0)  as GameObject;
+			GameObject temp = Instantiate(asteroids[(int)Random.Range(0,3)],
+			                              BoxMullerRand(center, spread),
+			                              Quaternion.LookRotation (Random.onUnitSphere))  as GameObject;
 			// Check for collisions with other asteroids
 			bool spawn = true;
 			Vector3 extents1 = temp.renderer.bounds.extents;

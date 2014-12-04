@@ -76,7 +76,7 @@ public class ShipCapacity : OreCapacity {
 	
 	public void destroyLoad()
 	{
-		int amountToDrain = drainSpeed;
+		int amountToDrain = 256;
 		int startAmount;
 		string element;
 		for(int i=fill_order.Count-1;i>=0;i--){

@@ -25,6 +25,9 @@ public class mineable : MonoBehaviour {
 		if (other.gameObject.tag.CompareTo ("Player") != 0)
 			return;
 			
+		if (!other.gameObject.networkView.isMine)
+			return;
+
 		// Play mining tutorial message if it is the player's first time mining
 		GameObject.Find("GameInstance").GetComponent<networkManager>().playMiningBeginAudio();
 
@@ -44,6 +47,9 @@ public class mineable : MonoBehaviour {
 
 		if (other.gameObject.tag.CompareTo ("Player") != 0)
 			return;
+
+		if (!other.gameObject.networkView.isMine)
+			return;
 		// Set the tractor beam off
 		other.transform.FindChild ("tractorBeam").gameObject.SetActive (false);
 	}
@@ -55,6 +61,9 @@ public class mineable : MonoBehaviour {
 			return;
 
 		if (other.gameObject.tag.CompareTo ("Player") != 0)
+			return;
+
+		if (!other.gameObject.networkView.isMine)
 			return;
 
 		ShipCapacity capacity = other.GetComponent<ShipCapacity> ();
