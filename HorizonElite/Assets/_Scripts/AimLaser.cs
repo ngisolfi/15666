@@ -15,10 +15,11 @@ public class AimLaser : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(_target){
-			if(Vector3.Angle(transform.forward,_target.position-transform.position) > targetAngle){
+			if(!GetComponent<Sensor>().enemies.Contains(_target) || Vector3.Angle(transform.forward,_target.position-transform.position) > targetAngle){
 				_target = null;
 			}
-		}else{
+		}
+		if(!_target){
 			lockonEnemy();
 		}
 	}

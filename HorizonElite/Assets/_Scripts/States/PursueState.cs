@@ -8,6 +8,8 @@ public class PursueState : PathFollowerState {
 	{
 		get
 		{
+			if(_enemy && !transform.parent.GetComponent<Sensor>().enemies.Contains(_enemy))
+				_enemy = null;
 			if(!_enemy)
 				chooseEnemy();
 			return _enemy;
