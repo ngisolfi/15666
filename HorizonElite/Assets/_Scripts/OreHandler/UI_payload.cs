@@ -87,7 +87,8 @@ public class UI_payload : MonoBehaviour {
 					quads[element].transform.localScale = quadScale;
 					xpos += quadScale.x;
 				}
-				payloadText.text = "("+capacity.percentFull().ToString()+"%)";
+				if (payloadText)
+					payloadText.text = "("+capacity.percentFull().ToString()+"%)";
 			}
 		}
 	}

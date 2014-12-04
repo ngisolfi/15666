@@ -15,8 +15,8 @@ public class planetOrbit : planetRotation {
 		
 		set{
 			_planet = value;
-			transform.position = value.position;
 			transform.rotation = value.rotation;
+			transform.position = transform.rotation*Vector3.right*_offset + value.position;
 		}
 	}
 

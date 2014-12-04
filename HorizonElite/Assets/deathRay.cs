@@ -22,36 +22,28 @@ public class deathRay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(LIcomplete)//{
+		if(LIcomplete)
 			transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleRenderer>().enabled=true;
-			//LIcomplete=false;
-		//}
 
-		if(Dcomplete)//{
+
+		if(Dcomplete)
 			transform.Find("mirror/Rotator/red").gameObject.GetComponent<ParticleRenderer>().enabled=true;
-		//	Dcomplete=false;
-		//}
 
-		if(Tcomplete)//{
+
+		if(Tcomplete)
 			transform.Find("mirror/Rotator/blue").gameObject.GetComponent<ParticleRenderer>().enabled=true;
-			//Tcomplete=false;
-		//}
 
-		if(HEcomplete)//{
+
+		if(HEcomplete)
 			transform.Find("mirror/Rotator/green").gameObject.GetComponent<ParticleRenderer>().enabled=true;
-			//HEcomplete=false;
-		//}
 
-		if(Bcomplete)//{
+
+		if(Bcomplete)
 			transform.Find("mirror/Rotator/purple").gameObject.GetComponent<ParticleRenderer>().enabled=true;
-			//Bcomplete=false;
-		//}
 
-		if(BEcomplete)//{
+
+		if(BEcomplete)
 			transform.Find("mirror/Rotator/cyan").gameObject.GetComponent<ParticleRenderer>().enabled=true;
-			//BEcomplete=false;
-		//}
-
 
 		if(DRcomplete && once){
 			//Don't do this twice
@@ -102,6 +94,10 @@ public class deathRay : MonoBehaviour {
 		{
 			DRcomplete = true;
 			gameObject.GetComponent<bShipController>().hasControl = true;
+			
+			// Play the audio clip for death ray instructions
+			GameObject.Find("GameInstance").GetComponent<networkManager>().playDeathRayInstructionsAudio();
+		
 		}
 	}
 }

@@ -8,7 +8,6 @@ public class winCondition : MonoBehaviour {
 	public GameObject winDecal;
 	public GameObject loseDecal;
 
-	private int sunDamage = 0;
 	private bool iWin = false;
 	public bool iLose = false;
 	private bool reported = false;
